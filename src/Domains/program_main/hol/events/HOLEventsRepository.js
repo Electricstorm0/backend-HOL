@@ -19,7 +19,7 @@ class HOLEventsRepository {
   async readById({ id }) {
     throw new Error('HOL_EVENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
-  async readEventsTypeByEventsId({ eventsHOLId }) {
+  async readEventsTypeAndPositionByEventsId({ eventsHOLId }) {
     throw new Error('HOL_EVENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
   async readCountByProgramType({ holEventsTypeId }) {

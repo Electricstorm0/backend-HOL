@@ -9,8 +9,8 @@ class HOLCreateUsersEventsUseCase {
     if (isRegistered) {
       throw new Error('user has registered');
     } else {
-      const eventsType = await this._HOLEventsRepository.readEventsTypeByEventsId({ eventsHOLId });
-      const status = eventsType.id_hol_events_type === 3 ? 0 : 1;
+      const events = await this._HOLEventsRepository.readEventsTypeAndPositionByEventsId({ eventsHOLId });
+      const status = events[0].id_hol_events_type === 3 && events[0].position === 'panitia' ? 0 : 1;
       const userseventId = await this._HOLUsersEventsRepository.create({
         usersHOLId,
         eventsHOLId,

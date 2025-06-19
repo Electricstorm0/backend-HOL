@@ -42,13 +42,12 @@ class HOLEventsRepositoryMySQL extends HOLEventsRepository {
     return result[0];
   }
 
-  async readEventsTypeByEventsId({ eventsHOLId }) {
+  async readEventsTypeAndPositionByEventsId({ eventsHOLId }) {
     const query = {
-      text: 'SELECT id_hol_events_type  FROM `tx_hol_events` WHERE id = ? ',
+      text: 'SELECT e.id_hol_events_type, COALESCE(eba.position_category,ei.position_category) as position FROM tx_hol_events as e LEFT JOIN tx_hol_events_ba as eba on eba.id_events_hol = e.id LEFT JOIN tx_hol_events_iysf as ei on ei.id_events_hol = e.id WHERE e.id = ? ',
       values: [eventsHOLId],
     };
     const [result] = await this._pool.query(query.text, query.values);
-    console.log(result);
 
     return result;
   }
