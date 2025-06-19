@@ -1,7 +1,7 @@
 const routes = (handler) => [
   {
     method: 'POST',
-    path: '/call_for_fellows',
+    path: '/call-for-fellows',
     handler: handler.postCFFHandler,
     options: {
       auth: false,
@@ -9,22 +9,22 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
-    path: '/call_for_fellows',
+    path: '/call-for-fellows',
     handler: handler.getCFFHandler,
   },
   {
     method: 'GET',
-    path: '/call_for_fellows/{id}',
+    path: '/call-for-fellows/{id}',
     handler: handler.getCFFByIdHandler,
   },
   {
     method: 'PUT',
-    path: '/call_for_fellows/{id}',
+    path: '/call-for-fellows/{id}',
     handler: handler.putCFFHandler,
   },
   {
     method: 'DELETE',
-    path: '/call_for_fellows/{id}',
+    path: '/call-for-fellows/{id}',
     handler: handler.deleteCFFHandler,
   },
 ];

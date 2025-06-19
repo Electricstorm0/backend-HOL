@@ -1,7 +1,7 @@
 const routes = (handler) => [
   {
     method: 'POST',
-    path: '/users/experience',
+    path: '/users/work-experience',
     handler: handler.postHolUsersWorkExpHandler,
     options: {
       auth: false,
@@ -9,22 +9,22 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
-    path: '/users/experience',
+    path: '/users/work-experience',
     handler: handler.getHolUsersWorkExpHandler,
   },
   {
     method: 'GET',
-    path: '/users/experience/{id}',
+    path: '/users/work-experience/{id}',
     handler: handler.getHolUsersWorkExpByIdHandler,
   },
   {
     method: 'PUT',
-    path: '/users/experience/{id}',
+    path: '/users/work-experience/{id}',
     handler: handler.putHolUsersWorkExpHandler,
   },
   {
     method: 'DELETE',
-    path: '/users/experience/{id}',
+    path: '/users/work-experience/{id}',
     handler: handler.deleteHolUsersWorkExpHandler,
   },
 ];
