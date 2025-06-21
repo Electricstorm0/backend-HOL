@@ -11,6 +11,11 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
+    path: '/article/users',
+    handler: handler.getAllUsersArticleHandler,
+  },
+  {
+    method: 'GET',
     path: '/article/me',
     handler: handler.getMyArticleHandler,
   },
@@ -22,7 +27,12 @@ const routes = (handler) => [
   {
     method: 'PUT',
     path: '/article/{id}',
-    handler: handler.updateArticleHandler,
+    handler: handler.putArticleHandler,
+  },
+  {
+    method: 'PUT',
+    path: '/article/users/{id}/status',
+    handler: handler.putStatusArticleHandler,
   },
   {
     method: 'DELETE',

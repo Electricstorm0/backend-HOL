@@ -2,8 +2,10 @@ const HOLCreateArticlesUseCase = require('../../../../../../Applications/use_cas
 const HOLDeleteArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLDeleteArticleUseCase');
 const HOLGetAllArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllArticleUseCase');
 const HOLGetAllMyArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllMyArticleUseCase');
+const HOLGetAllUsersArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllUsersArticleUseCase');
 const HOLGetDetailArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetDetailArticleUseCase');
 const HOLUpdateArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLUpdateArticleUseCase');
+const HOLUpdateStatusArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLUpdateStatusArticleUseCase');
 
 class HOLArticleHandler {
   constructor(container) {
@@ -12,7 +14,9 @@ class HOLArticleHandler {
     this.getMyArticleHandler = this.getMyArticleHandler.bind(this);
     this.getDetailArticleHandler = this.getDetailArticleHandler.bind(this);
     this.getAllArticleHandler = this.getAllArticleHandler.bind(this);
-    this.updateArticleHandler = this.updateArticleHandler.bind(this);
+    this.getAllUsersArticleHandler = this.getAllUsersArticleHandler.bind(this);
+    this.putArticleHandler = this.putArticleHandler.bind(this);
+    this.putStatusArticleHandler = this.putStatusArticleHandler.bind(this);
     this.deleteArticleHandler = this.deleteArticleHandler.bind(this);
   }
 
@@ -41,6 +45,20 @@ class HOLArticleHandler {
       return h.response({
         status: 'success',
         message: 'get articles successfully!',
+        data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async getAllUsersArticleHandler(request, h) {
+    try {
+      const useCase = this._container.getInstance(HOLGetAllUsersArticleUseCase.name);
+      const data = await useCase.execute(request.query);
+
+      return h.response({
+        status: 'success',
+        message: 'get users articles successfully!',
         data,
       });
     } catch (error) {
@@ -76,7 +94,7 @@ class HOLArticleHandler {
       console.log(error);
     }
   }
-  async updateArticleHandler(request, h) {
+  async putArticleHandler(request, h) {
     try {
       const useCase = this._container.getInstance(HOLUpdateArticleUseCase.name);
       await useCase.execute(request.params, request.payload);
@@ -84,6 +102,18 @@ class HOLArticleHandler {
       return h.response({
         status: 'success',
         message: 'article updated successfully!',
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async putStatusArticleHandler(request, h) {
+    try {
+      const useCase = this._container.getInstance(HOLUpdateStatusArticleUseCase.name);
+      const data = await useCase.execute(request.params, request.payload.status);
+      return h.response({
+        status: 'success',
+        message: 'Status updated successfully!',
       });
     } catch (error) {
       console.log(error);
