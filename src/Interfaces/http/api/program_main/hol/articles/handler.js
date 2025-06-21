@@ -1,5 +1,6 @@
 const HOLCreateArticlesUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLCreateArticlesUseCase');
 const HOLDeleteArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLDeleteArticleUseCase');
+const HOLGetAllArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllArticleUseCase');
 const HOLGetAllMyArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllMyArticleUseCase');
 const HOLGetDetailArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetDetailArticleUseCase');
 const HOLUpdateArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLUpdateArticleUseCase');
@@ -10,6 +11,7 @@ class HOLArticleHandler {
     this.postArticleHandler = this.postArticleHandler.bind(this);
     this.getMyArticleHandler = this.getMyArticleHandler.bind(this);
     this.getDetailArticleHandler = this.getDetailArticleHandler.bind(this);
+    this.getAllArticleHandler = this.getAllArticleHandler.bind(this);
     this.updateArticleHandler = this.updateArticleHandler.bind(this);
     this.deleteArticleHandler = this.deleteArticleHandler.bind(this);
   }
@@ -27,6 +29,20 @@ class HOLArticleHandler {
           data,
         })
         .code(201);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async getAllArticleHandler(request, h) {
+    try {
+      const useCase = this._container.getInstance(HOLGetAllArticleUseCase.name);
+      const data = await useCase.execute(request.query);
+
+      return h.response({
+        status: 'success',
+        message: 'get articles successfully!',
+        data,
+      });
     } catch (error) {
       console.log(error);
     }

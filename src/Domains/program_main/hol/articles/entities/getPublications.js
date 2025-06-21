@@ -1,10 +1,10 @@
-class HOLGetMyResearch {
+class HOLGetPublications {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { title, created_at, status } = payload;
+    const { penulis, title, created_at } = payload;
+    this.penulis = penulis;
     this.title = title;
     this.tanggal_publish = created_at;
-    this.status = status;
   }
   _verifyPayload({ title, created_at }) {
     if (!title || !created_at) {
@@ -16,4 +16,4 @@ class HOLGetMyResearch {
   }
 }
 
-module.exports = HOLGetMyResearch;
+module.exports = HOLGetPublications;

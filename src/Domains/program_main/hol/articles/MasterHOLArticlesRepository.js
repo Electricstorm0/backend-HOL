@@ -19,6 +19,9 @@ class MasterHOLArticlesRepository {
   async readById({ id }) {
     throw new Error('MASTER_HOL_ARTICLES_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
+  async readAllByStatus() {
+    throw new Error('MASTER_HOL_ARTICLES_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
 }
 
 module.exports = MasterHOLArticlesRepository;

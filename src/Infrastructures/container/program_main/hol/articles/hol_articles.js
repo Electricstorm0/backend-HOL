@@ -10,6 +10,7 @@ const HOLGetDetailArticleUseCase = require('../../../../../Applications/use_case
 const HOLUpdateArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLUpdateArticleUseCase');
 const HOLDeleteArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLDeleteArticleUseCase');
 const pool = require('../../../../database/mysql/pool');
+const HOLGetAllArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllArticleUseCase');
 const articles = [
   {
     key: MasterHOLArticlesRepository.name,
@@ -61,6 +62,19 @@ const articles = [
         {
           name: 'HOLUsersArticlesRepository',
           internal: HOLUsersArticlesRepository.name,
+        },
+      ],
+    },
+  },
+  {
+    key: HOLGetAllArticleUseCase.name,
+    Class: HOLGetAllArticleUseCase,
+    parameter: {
+      injectType: 'destructuring',
+      dependencies: [
+        {
+          name: 'MasterHOLArticlesRepository',
+          internal: MasterHOLArticlesRepository.name,
         },
       ],
     },

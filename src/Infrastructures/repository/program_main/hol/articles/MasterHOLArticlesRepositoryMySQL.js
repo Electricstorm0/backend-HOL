@@ -23,6 +23,15 @@ class MasterHOLArticlesRepositoryMySQL extends MasterHOLArticlesRepository {
     const [result] = await this._pool.query(query.text);
     return result;
   }
+
+  async readAllByStatus() {
+    const query = {
+      text: 'SELECT CONCAT(ud.first_name,"",ud.last_name) as penulis,stp.name as program, ma.* FROM master_articles as ma JOIN tx_hol_users_articles as hua ON hua.id_article = ma.id JOIN tx_users_detail as ud ON ud.id = hua.id_users_hol JOIN tx_offered_program as op on op.id_users = ud.id JOIN master_third_tier_program as mtp on mtp.id = op.id_third_tier_program JOIN master_second_tier_program as stp on stp.id = mtp.id_second_tier_program WHERE hua.status="Approved"',
+    };
+    const [result] = await this._pool.query(query.text, query.values);
+    return result;
+  }
+
   async readById({ id }) {
     const query = {
       text: 'SELECT CONCAT(ud.first_name,"",ud.last_name) as penulis,stp.name as program, ma.*, hua.status FROM master_articles as ma JOIN tx_hol_users_articles as hua ON hua.id_article = ma.id JOIN tx_users_detail as ud ON ud.id = hua.id_users_hol JOIN tx_offered_program as op on op.id_users = ud.id JOIN master_third_tier_program as mtp on mtp.id = op.id_third_tier_program JOIN master_second_tier_program as stp on stp.id = mtp.id_second_tier_program WHERE ma.id=?',
