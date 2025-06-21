@@ -29,6 +29,11 @@ DomainErrorTranslator._directories = {
   'GET_USERS_EVENTS.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat mengambil data users karena tipe data tidak sesuai'),
   'GET_USERS_EVENTS.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat mengambil data users karena data yang dibutuhkan tidak ada'),
   'VERIFY_DATA.NOT_CONTAIN_BATCH_DATA': new InvariantError('Data tidak ditemukan'),
+
+  'GET_DATA.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat mengambil data karena tipe data tidak sesuai'),
+  'GET_DATA.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat mengambil data karena data yang dibutuhkan tidak ada'),
+  'UPDATE_DATA.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat update data karena tipe data tidak sesuai'),
+  'UPDATE_DATA.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat update data karena data yang dibutuhkan tidak ada'),
 };
 
 module.exports = DomainErrorTranslator;

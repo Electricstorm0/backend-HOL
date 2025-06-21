@@ -25,6 +25,10 @@ const HolUsersInvolveHandler = require('./users/journey/involvements/handler');
 // recommendations
 const HOLRecommendationRoutes = require('./recommendations/routes');
 const HOLRecommendationsHandler = require('./recommendations/handler');
+// article
+const HOLArticleRoutes = require('./articles/routes');
+const HOLArticleHandler = require('./articles/handler');
+
 module.exports = {
   name: 'hol',
   register: async (server, { container }) => {
@@ -55,5 +59,8 @@ module.exports = {
     // Recommendations
     const recommendations = new HOLRecommendationsHandler(container);
     server.route(HOLRecommendationRoutes(recommendations));
+    // articlle
+    const article = new HOLArticleHandler(container);
+    server.route(HOLArticleRoutes(article));
   },
 };

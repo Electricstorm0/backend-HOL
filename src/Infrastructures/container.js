@@ -76,6 +76,7 @@ const HOLUsersAchieve = require('./container/program_main/hol/users/journey/achi
 const HOLUsersExp = require('./container/program_main/hol/users/journey/work_experience/userExp');
 const HOLUsersInvolve = require('./container/program_main/hol/users/journey/involvements/userInvolve');
 const HOLRecommendations = require('./container/program_main/hol/recommendations/holRecommendations');
+const HOLArticle = require('./container/program_main/hol/articles/hol_articles');
 
 // DOMAIN REPOSITORY CLP
 const CLPUsersRepository = require('../Domains/program_main/clp/users/CLPUsersRepository');
@@ -404,5 +405,6 @@ container.register(HOLUsersAchieve);
 container.register(HOLUsersExp);
 container.register(HOLUsersInvolve);
 container.register(HOLRecommendations);
+container.register(HOLArticle);
 
 module.exports = container;
