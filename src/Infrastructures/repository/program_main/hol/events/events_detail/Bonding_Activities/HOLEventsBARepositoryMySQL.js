@@ -17,11 +17,12 @@ class HOLEventsBARepositoryMySQL extends HOLEventsBARepository {
     return result.insertId;
   }
 
-  async read() {
+  async read({ skip, numPerPage, holEventsTypeId }) {
     const query = {
-      text: 'SELECT e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, eb.picture_url, eb.category FROM tx_hol_events AS e JOIN tx_hol_events_ba AS eb ON eb.id_events_hol = e.id',
+      text: 'SELECT e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, eb.picture_url, eb.category FROM tx_hol_events AS e JOIN tx_hol_events_ba AS eb ON eb.id_events_hol = e.id WHERE e.id_hol_events_type=? ORDER BY e.id ASC LIMIT ?,?',
+      values: [holEventsTypeId, skip, numPerPage],
     };
-    const [result] = await this._pool.query(query.text);
+    const [result] = await this._pool.query(query.text, query.values);
     return result;
   }
   async readById({ id }) {

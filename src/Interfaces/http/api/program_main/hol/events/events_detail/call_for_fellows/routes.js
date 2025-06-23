@@ -9,7 +9,7 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
-    path: '/call-for-fellows',
+    path: '/call-for-fellows', //http://localhost:3000/hol/call-for-fellows?holEventsTypeId=2&page=1&pageSize=5
     handler: handler.getCFFHandler,
   },
   {

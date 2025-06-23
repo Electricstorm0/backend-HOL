@@ -60,6 +60,10 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
+          name: 'HOLEventsRepository',
+          internal: HOLEventsRepository.name,
+        },
+        {
           name: 'HOLEventsCFFRepository',
           internal: HOLEventsCFFRepository.name,
         },

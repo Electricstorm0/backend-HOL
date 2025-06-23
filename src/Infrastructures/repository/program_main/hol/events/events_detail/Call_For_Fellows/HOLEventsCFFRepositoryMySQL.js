@@ -17,11 +17,12 @@ class HOLEventsCFFRepositoryMySQL extends HOLEventsCFFRepository {
     return result.insertId;
   }
 
-  async read() {
+  async read({ skip, numPerPage, holEventsTypeId }) {
     const query = {
-      text: 'SELECT e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, ec.logo_url, ec.position, ec.category, ec.register_url, ec.requirements, ec.placements FROM tx_hol_events AS e JOIN tx_hol_events_cff AS ec ON ec.id_events_hol = e.id',
+      text: 'SELECT e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, ec.logo_url, ec.position, ec.category, ec.register_url, ec.requirements, ec.placements FROM tx_hol_events AS e JOIN tx_hol_events_cff AS ec ON ec.id_events_hol = e.id WHERE e.id_hol_events_type=? ORDER BY e.id ASC LIMIT ?,?',
+      values: [holEventsTypeId, skip, numPerPage],
     };
-    const [result] = await this._pool.query(query.text);
+    const [result] = await this._pool.query(query.text, query.values);
     return result;
   }
   async readById({ id }) {

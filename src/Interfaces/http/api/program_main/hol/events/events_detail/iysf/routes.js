@@ -9,7 +9,7 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
-    path: '/iysf',
+    path: '/iysf', //http://localhost:3000/hol/iysf?holEventsTypeId=2&page=1&pageSize=5
     handler: handler.getIYSFHandler,
   },
   {

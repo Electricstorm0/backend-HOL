@@ -9,7 +9,7 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
-    path: '/activities',
+    path: '/activities', //http://localhost:3000/hol/activities?holEventsTypeId=2&page=1&pageSize=5---
     handler: handler.getBAHandler,
   },
   {

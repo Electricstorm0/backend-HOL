@@ -12,7 +12,7 @@ class HOLEventsIYSFRepository {
     throw new Error('HOL_EVENTS_IYSF_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
-  async read() {
+  async read({ skip, numPerPage, holEventsTypeId }) {
     throw new Error('HOL_EVENTS_IYSF_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 

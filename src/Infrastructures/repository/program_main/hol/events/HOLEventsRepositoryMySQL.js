@@ -12,7 +12,7 @@ class HOLEventsRepositoryMySQL extends HOLEventsRepository {
       values: [holEventsTypeId],
     };
     const [result] = await this._pool.query(query.text, query.values);
-    return result[0];
+    return result[0].numRows;
   }
 
   async create({ holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person }) {

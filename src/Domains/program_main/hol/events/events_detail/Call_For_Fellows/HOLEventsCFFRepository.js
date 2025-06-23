@@ -12,7 +12,7 @@ class HOLEventsCFFRepository {
     throw new Error('HOL_EVENTS_CALL_FOR_FELLOWS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
-  async read() {
+  async read({ skip, numPerPage, holEventsTypeId }) {
     throw new Error('HOL_EVENTS_CALL_FOR_FELLOWS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
