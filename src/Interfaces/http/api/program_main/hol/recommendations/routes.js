@@ -18,6 +18,13 @@ const routes = (handler) => [
     method: 'PUT',
     path: '/recommendation/{recommendationHolId}',
     handler: handler.putRecommendationStatusHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
 ];
 module.exports = routes;

@@ -13,6 +13,13 @@ const routes = (handler) => [
     method: 'GET',
     path: '/article/users',
     handler: handler.getAllUsersArticleHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
@@ -33,6 +40,13 @@ const routes = (handler) => [
     method: 'PUT',
     path: '/article/users/{id}/status',
     handler: handler.putStatusArticleHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'DELETE',

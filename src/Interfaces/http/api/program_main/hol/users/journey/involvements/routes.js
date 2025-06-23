@@ -4,7 +4,11 @@ const routes = (handler) => [
     path: '/users/involvements',
     handler: handler.postHolUsersInvolvementsHandler,
     options: {
-      auth: false,
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
     },
   },
   {
@@ -26,11 +30,25 @@ const routes = (handler) => [
     method: 'PUT',
     path: '/users/involvements/{id}',
     handler: handler.putHolUsersInvolvementsHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'DELETE',
     path: '/users/involvements/{id}',
     handler: handler.deleteHolUsersInvolvementsHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
 ];
 
