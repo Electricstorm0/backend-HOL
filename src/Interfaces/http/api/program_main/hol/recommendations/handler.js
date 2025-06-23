@@ -25,7 +25,12 @@ class HolRecommendationHandler {
         })
         .code(201);
     } catch (error) {
-      console.log(error);
+      return h
+        .response({
+          status: 'fail',
+          message: error.message,
+        })
+        .code(400);
     }
   }
 
