@@ -4,6 +4,7 @@ class HOLGetUsersMeDetail {
     const {
       id_users,
       id_batch,
+      photoProfile,
       id_card_number,
       nim,
       first_name,
@@ -42,6 +43,7 @@ class HOLGetUsersMeDetail {
     this.lastName = last_name;
     this.sex = sex;
     this.email = email;
+    this.photoProfile = photoProfile;
     this.numberPhone = phone_number;
     // MOVE TO UNIVERSITIES gradePointAverage
     this.gradePointAverage = grade_point_average;

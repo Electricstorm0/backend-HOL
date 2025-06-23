@@ -12,6 +12,7 @@ class HOLGetUsersMeDetailUseCase {
       const CLPUsersDetail = await this._CLPGetUsersMeDetailUseCase.execute({ id: usersId }, { batchId });
       console.log(CLPUsersDetail);
       const data = {
+        photoProfile: 'profileKu.JPG',
         ...HOLUsers,
         ...CLPUsersDetail,
       };

@@ -11,6 +11,7 @@ class HOLGetUsersUseCase {
       const result = await Promise.all(
         users.map(async (value) => ({
           ...new GetUsers({
+            photoProfile: 'profileKu.JPG',
             ...value,
           }),
         }))

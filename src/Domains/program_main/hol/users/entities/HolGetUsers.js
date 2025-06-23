@@ -4,6 +4,7 @@ class HolGetUsers {
     this._verifyPayload(payload);
     const {
       id_users,
+      photoProfile,
       musical_instrument,
       talent,
       talent_description_selected,
@@ -21,6 +22,7 @@ class HolGetUsers {
       joined_social_communities,
     } = payload;
     (this.usersId = id_users),
+      (this.photoProfile = photoProfile),
       (this.musicalInstrument = musical_instrument),
       (this.talent = talent),
       (this.taletDescriptionSelected = talent_description_selected),

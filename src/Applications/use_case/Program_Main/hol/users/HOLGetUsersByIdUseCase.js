@@ -11,7 +11,10 @@ class HOLGetUsersByIdUseCase {
     if (!users || users.length === 0) {
       throw new NotFoundError(`Data tidak ditemukan`);
     }
-    const result = new GetUsers({ ...users });
+    const result = new GetUsers({
+      photoProfile: 'profileKu.JPG',
+      ...users,
+    });
 
     return result;
   }
