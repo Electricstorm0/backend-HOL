@@ -1,5 +1,6 @@
 const HOLCreateRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLCreateRecommendationUseCase');
 const HOLGetAllRecommendationByStatusUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetAllRecommendationByStatusUseCase');
+const HOLGetAllUsersRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetAllUsersRecommendationUseCase');
 const HOLGetRecommendationByIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetRecommendationByIdUseCase');
 const HOLGetRecommendationByUserIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetRecommendationByUserIdUseCase');
 const HOLUpdateStatusRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLUpdateStatusRecommendationUseCase');
@@ -11,6 +12,7 @@ class HolRecommendationHandler {
     this.getRecommendationByIdHandler = this.getRecommendationByIdHandler.bind(this);
     this.getRecommendationByUserIdHandler = this.getRecommendationByUserIdHandler.bind(this);
     this.getAllUsersRecommendationHandler = this.getAllUsersRecommendationHandler.bind(this);
+    this.getAllUsersRecommendationByStatusHandler = this.getAllUsersRecommendationByStatusHandler.bind(this);
     this.putRecommendationStatusHandler = this.putRecommendationStatusHandler.bind(this);
   }
 
@@ -57,6 +59,16 @@ class HolRecommendationHandler {
   }
 
   async getAllUsersRecommendationHandler(request, h) {
+    const useCase = await this._container.getInstance(HOLGetAllUsersRecommendationUseCase.name);
+    const data = await useCase.execute(request.query);
+
+    return h.response({
+      status: 'success',
+      message: 'get all users recommendation successfully',
+      data,
+    });
+  }
+  async getAllUsersRecommendationByStatusHandler(request, h) {
     const useCase = await this._container.getInstance(HOLGetAllRecommendationByStatusUseCase.name);
     const data = await useCase.execute(request.query);
 

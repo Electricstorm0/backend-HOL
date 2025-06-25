@@ -6,6 +6,13 @@ class HOLRecommendationsStatusRepositoryMyQL extends HOLRecommendationsStatusRep
     this._pool = pool;
   }
 
+  async readCountRecommendation() {
+    const query = {
+      text: 'SELECT COUNT(*) From tx_hol_users_recommendations_status ',
+    };
+    const [result] = await this._pool.query(query.text);
+    return result[0].numRows;
+  }
   async readCountRecommendationByStatus({ recommendationStatusId }) {
     const query = {
       text: 'SELECT COUNT(*) From tx_hol_users_recommendations_status where id_recommendations_status = ? ',

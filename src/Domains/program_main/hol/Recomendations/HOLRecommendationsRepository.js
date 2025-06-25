@@ -12,7 +12,7 @@ class HOLRecommendationsRepository {
     throw new Error('HOL_RECOMMENDATION_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
-  async read() {
+  async readByStatusId() {
     throw new Error('HOL_RECOMMENDATION_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 

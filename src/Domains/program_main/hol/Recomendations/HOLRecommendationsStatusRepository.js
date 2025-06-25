@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 class HOLRecommendationsStatusRepository {
+  async readCountRecommendation() {
+    throw new Error('HOL_RECOMMENDATION_STATUS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
   async readCountRecommendationByStatus({ recommendationStatusId }) {
     throw new Error('HOL_RECOMMENDATION_STATUS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
