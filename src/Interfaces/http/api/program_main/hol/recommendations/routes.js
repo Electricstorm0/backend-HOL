@@ -6,6 +6,18 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
+    path: '/recommendation/users', // http://localhost:3000/hol/recommendation/users?recommendationStatusId=1&page=1&pageSize=5
+    handler: handler.getAllUsersRecommendationHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
+  },
+  {
+    method: 'GET',
     path: '/recommendation/{id}',
     handler: handler.getRecommendationByIdHandler,
   },

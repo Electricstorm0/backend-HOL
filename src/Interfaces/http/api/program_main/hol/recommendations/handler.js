@@ -1,4 +1,5 @@
 const HOLCreateRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLCreateRecommendationUseCase');
+const HOLGetAllRecommendationByStatusUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetAllRecommendationByStatusUseCase');
 const HOLGetRecommendationByIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetRecommendationByIdUseCase');
 const HOLGetRecommendationByUserIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetRecommendationByUserIdUseCase');
 const HOLUpdateStatusRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLUpdateStatusRecommendationUseCase');
@@ -9,6 +10,7 @@ class HolRecommendationHandler {
     this.postRecommendationHandler = this.postRecommendationHandler.bind(this);
     this.getRecommendationByIdHandler = this.getRecommendationByIdHandler.bind(this);
     this.getRecommendationByUserIdHandler = this.getRecommendationByUserIdHandler.bind(this);
+    this.getAllUsersRecommendationHandler = this.getAllUsersRecommendationHandler.bind(this);
     this.putRecommendationStatusHandler = this.putRecommendationStatusHandler.bind(this);
   }
 
@@ -53,6 +55,18 @@ class HolRecommendationHandler {
       data,
     });
   }
+
+  async getAllUsersRecommendationHandler(request, h) {
+    const useCase = await this._container.getInstance(HOLGetAllRecommendationByStatusUseCase.name);
+    const data = await useCase.execute(request.query);
+
+    return h.response({
+      status: 'success',
+      message: 'get all users recommendation successfully',
+      data,
+    });
+  }
+
   async putRecommendationStatusHandler(request, h) {
     try {
       const updateBy = request.auth.credentials.id;

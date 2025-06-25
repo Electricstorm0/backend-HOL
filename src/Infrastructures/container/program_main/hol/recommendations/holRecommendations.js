@@ -9,6 +9,7 @@ const HOLCreateRecommendationUseCase = require('../../../../../Applications/use_
 const HOLGetRecommendationByIdUseCase = require('../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetRecommendationByIdUseCase');
 const HOLGetRecommendationByUserIdUseCase = require('../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetRecommendationByUserIdUseCase');
 const HOLUpdateStatusRecommendationUseCase = require('../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLUpdateStatusRecommendationUseCase');
+const HOLGetAllRecommendationByStatusUseCase = require('../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetAllRecommendationByStatusUseCase');
 
 const recommendations = [
   // REPOSITORY
@@ -49,6 +50,23 @@ const recommendations = [
         {
           name: 'HOLRecommendationsStatusRepository',
           internal: HOLRecommendationsStatusRepository.name,
+        },
+      ],
+    },
+  },
+  {
+    key: HOLGetAllRecommendationByStatusUseCase.name,
+    Class: HOLGetAllRecommendationByStatusUseCase,
+    parameter: {
+      injectType: 'destructuring',
+      dependencies: [
+        {
+          name: 'HOLRecommendationsStatusRepository',
+          internal: HOLRecommendationsStatusRepository.name,
+        },
+        {
+          name: 'HOLRecommendationsRepository',
+          internal: HOLRecommendationsRepository.name,
         },
       ],
     },
