@@ -19,6 +19,9 @@ class HOLUsersInvolvementsRepository {
   async readById({ id }) {
     throw new Error('HOL_USERS_INVOLVEMENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
+  async readByUsersEventsId({ usersEventsHOLId }) {
+    throw new Error('HOL_USERS_INVOLVEMENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
 }
 
 module.exports = HOLUsersInvolvementsRepository;

@@ -31,6 +31,15 @@ class HOLUsersInvolvementsRepositoryMySQL extends HOLUsersInvolvementsRepository
     const [result] = await this._pool.query(query.text, query.values);
     return result[0];
   }
+  async readByUsersEventsId({ usersEventsHOLId }) {
+    const query = {
+      text: 'SELECT * FROM `tx_hol_involvements` WHERE id_users_events=?',
+      values: [usersEventsHOLId],
+    };
+    const [result] = await this._pool.query(query.text, query.values);
+    return result.length > 0;
+  }
+
   async update({ id, payload }) {
     const query = {
       text: 'UPDATE `tx_hol_involvements` SET ? WHERE id = ?',

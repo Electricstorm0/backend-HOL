@@ -16,15 +16,24 @@ class HolUsersInvolvementsHandler {
     this.deleteHolUsersInvolvementsHandler = this.deleteHolUsersInvolvementsHandler.bind(this);
   }
   async postHolUsersInvolvementsHandler(request, h) {
-    const createHolUsersInvolvementsUseCase = this._container.getInstance(HOLCreateUsersInvolvementsUseCase.name);
-    await createHolUsersInvolvementsUseCase.execute(request.payload);
+    try {
+      const createHolUsersInvolvementsUseCase = this._container.getInstance(HOLCreateUsersInvolvementsUseCase.name);
+      await createHolUsersInvolvementsUseCase.execute(request.payload);
 
-    const response = h.response({
-      status: 'success',
-      message: 'added Involvements successfully!',
-    });
-    response.code(201);
-    return response;
+      return h
+        .response({
+          status: 'success',
+          message: 'added Involvements successfully!',
+        })
+        .code(201);
+    } catch (error) {
+      return h
+        .response({
+          status: 'fail',
+          message: error.message,
+        })
+        .code(400);
+    }
   }
   async getHolUsersInvolvementsHandler(request, h) {
     const getAllUsersInvolvementsUseCase = this._container.getInstance(HOLGetUsersInvolvementsUseCase.name);
