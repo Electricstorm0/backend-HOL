@@ -5,9 +5,18 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
     super();
     this._pool = pool;
   }
+
+  async readCountUsersEventsByEventsId({ eventsHOLId }) {
+    const query = {
+      text: 'SELECT  COUNT(*) as total_pendaftar FROM tx_hol_users_events as ue JOIN tx_hol_events as e on e.id = ue.id_events_hol WHERE e.id = ?',
+      values: [eventsHOLId],
+    };
+    const [result] = await this._pool.query(query.text, query.values);
+    return result[0];
+  }
   async readCountUsersEventsByEventsTypeId({ holEventsTypeId }) {
     const query = {
-      text: 'SELECT  COUNT(*) as total_pendaftar FROM tx_hol_users_events as ue JOIN tx_hol_events as e on e.id = ue.id_events_hol WHERE e.id_hol_events_type = 2',
+      text: 'SELECT  COUNT(*) as total_pendaftar FROM tx_hol_users_events as ue JOIN tx_hol_events as e on e.id = ue.id_events_hol WHERE e.id_hol_events_type = ?',
       values: [holEventsTypeId],
     };
     const [result] = await this._pool.query(query.text, query.values);
@@ -59,13 +68,12 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
     return result[0];
   }
 
-  async readUsersEventsByEventsId({ eventsHOLId }) {
+  async readUsersEventsByEventsId({ skip, numPerPage, eventsHOLId }) {
     const query = {
-      text: 'SELECT ue.id, ud.first_name, ud.last_name, b.batch, p.name AS program, d.name as domisili, ue.status, ue.attendance FROM tx_hol_events as e JOIN tx_hol_users_events as ue on ue.id_events_hol = e.id JOIN tx_users_detail as ud ON ud.id = ue.id_users_hol JOIN tx_users AS u ON u.id = ud.id JOIN tx_offered_program AS op ON op.id_users = u.id JOIN master_batch AS b ON b.id = op.id_batch JOIN master_third_tier_program AS mtp ON mtp.id = op.id_third_tier_program JOIN master_second_tier_program AS p ON p.id = mtp.id_second_tier_program JOIN tx_users_domicile AS udm ON udm.id_users = u.id JOIN master_domicile_provincies AS d ON d.id = udm.id_provincies WHERE e.id = ? ',
-      values: [eventsHOLId],
+      text: 'SELECT ue.*, concat(ud.first_name," ", ud.last_name) as nama_alumni, p.name AS program,b.batch,YEAR(b.date_start) as Tahun,d.name as domisili, ue.status, ue.attendance FROM tx_hol_events as e JOIN tx_hol_users_events as ue on ue.id_events_hol = e.id JOIN tx_users_detail as ud ON ud.id = ue.id_users_hol JOIN tx_users AS u ON u.id = ud.id JOIN tx_offered_program AS op ON op.id_users = u.id JOIN master_batch AS b ON b.id = op.id_batch JOIN master_third_tier_program AS mtp ON mtp.id = op.id_third_tier_program JOIN master_second_tier_program AS p ON p.id = mtp.id_second_tier_program JOIN tx_users_domicile AS udm ON udm.id_users = u.id JOIN master_domicile_provincies AS d ON d.id = udm.id_provincies WHERE e.id = ? ',
+      values: [eventsHOLId, skip, numPerPage],
     };
     const [result] = await this._pool.query(query.text, query.values);
-    console.log(result);
 
     return result;
   }

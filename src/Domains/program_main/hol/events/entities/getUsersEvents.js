@@ -2,9 +2,14 @@
 class GetUsersEvents {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { id_users_hol, id_events_hol, attendance, status } = payload;
+    const { id_users_hol, id_events_hol, nama_alumni, program, batch, Tahun, domisili, attendance, status } = payload;
     this.usersHolId = id_users_hol;
     this.eventsHolId = id_events_hol;
+    this.alumniName = nama_alumni;
+    this.program = program;
+    this.batch = batch;
+    this.tahun = Tahun;
+    this.domisili = domisili;
     this.attendance = attendance;
     this.status = status;
   }

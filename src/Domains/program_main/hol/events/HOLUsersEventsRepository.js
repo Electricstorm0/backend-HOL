@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 class HOLUsersEventsRepository {
+  async readCountUsersEventsByEventsId({ eventsHOLId }) {
+    throw new Error('HOL_USERS_EVENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
   async readCountUsersEventsByEventsTypeId({ holEventsTypeId }) {
     throw new Error('HOL_USERS_EVENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }

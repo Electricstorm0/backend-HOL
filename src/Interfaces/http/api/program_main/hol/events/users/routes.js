@@ -49,7 +49,7 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
-    path: '/events/{eventsHOLId}/users/status',
+    path: '/events/{eventsHOLId}/users',
     handler: handler.getHolUsersEventsByEventsIdHandler,
     options: {
       auth: {

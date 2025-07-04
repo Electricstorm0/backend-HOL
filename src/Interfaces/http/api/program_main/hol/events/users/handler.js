@@ -76,8 +76,8 @@ class HolUsersEventsHandler {
   }
 
   async getHolUsersEventsByEventsIdHandler(request, h) {
-    const getAllUsersEventsStatusByEventsIdUseCase = this._container.getInstance(HOLGetUsersEventsByEventsIdUseCase.name);
-    const data = await getAllUsersEventsStatusByEventsIdUseCase.execute(request.params);
+    const getAllUsersEventsByEventsIdUseCase = this._container.getInstance(HOLGetUsersEventsByEventsIdUseCase.name);
+    const data = await getAllUsersEventsByEventsIdUseCase.execute(request.params);
     const response = h.response({
       status: 'success',
       data,
