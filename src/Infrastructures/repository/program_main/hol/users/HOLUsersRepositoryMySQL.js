@@ -76,11 +76,12 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
     return result;
   }
 
-  async read() {
+  async read({ skip, numPerPage }) {
     const query = {
       text: 'SELECT hu.id_users, concat(ud.first_name, " ",ud.last_name) as nama_alumni, stp.name as program, b.batch, mdp.name as domisili FROM tx_hol_users as hu JOIN tx_users_detail as ud on ud.id = hu.id_users JOIN tx_offered_program as op on op.id_users = hu.id_users JOIN master_third_tier_program as mtp on mtp.id = op.id_third_tier_program JOIN master_second_tier_program as stp on stp.id = mtp.id_second_tier_program JOIN master_batch as b on b.id = op.id_batch JOIN tx_users_domicile as udom on udom.id_users = hu.id_users JOIN master_domicile_provincies as mdp on mdp.id = udom.id_provincies',
+      values: [skip, numPerPage],
     };
-    const [result] = await this._pool.query(query.text);
+    const [result] = await this._pool.query(query.text, query.values);
     return result;
   }
   async readById({ id }) {

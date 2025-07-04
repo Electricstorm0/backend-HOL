@@ -5,9 +5,14 @@ class HOLGetUsersUseCase {
     this._HOLUsersRepository = HOLUsersRepository;
   }
 
-  async execute() {
+  async execute({ pageSize, page }) {
     try {
-      const [users, journeys] = await Promise.all([this._HOLUsersRepository.read(), this._HOLUsersRepository.readJourneyUsers()]);
+      const numPerPage = parseInt(pageSize, 10) || 1;
+      const offset = parseInt(page - 1, 10) || 0;
+      const skip = offset * numPerPage;
+      const numRows = await this._HOLUsersRepository.readCountUsers();
+      const numPages = Math.ceil(numRows / numPerPage);
+      const [users, journeys] = await Promise.all([this._HOLUsersRepository.read({ skip, numPerPage }), this._HOLUsersRepository.readJourneyUsers()]);
 
       const result = await Promise.all(
         users.map(async (value) => {
@@ -20,7 +25,13 @@ class HOLGetUsersUseCase {
           });
         })
       );
-      return result;
+      return {
+        result,
+        current: offset,
+        perPage: numPerPage,
+        previous: offset > 0 ? page - 1 : undefined,
+        next: offset < numPages - 1 ? offset + 1 : undefined,
+      };
     } catch (error) {
       console.log(error);
     }
