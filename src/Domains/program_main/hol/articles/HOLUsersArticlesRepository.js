@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 class HOLUsersArticlesRepository {
+  async readCountUsersArticle() {
+    throw new Error('HOL_USERS_ARTICLES_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
   async readCountArticlesByUsersId({ usersHOLId }) {
     throw new Error('HOL_USERS_ARTICLES_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }

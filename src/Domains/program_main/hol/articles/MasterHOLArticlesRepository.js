@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 class MasterHOLArticlesRepository {
+  async readCountArticle() {
+    throw new Error('MASTER_HOL_ARTICLES_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
   async create() {
     throw new Error('MASTER_HOL_ARTICLES_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
@@ -19,7 +22,7 @@ class MasterHOLArticlesRepository {
   async readById({ id }) {
     throw new Error('MASTER_HOL_ARTICLES_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
-  async readAllByStatus() {
+  async readAllByStatus({ skip, numPerPage }) {
     throw new Error('MASTER_HOL_ARTICLES_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 }
