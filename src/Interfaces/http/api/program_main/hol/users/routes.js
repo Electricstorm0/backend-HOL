@@ -11,6 +11,13 @@ const routes = (handler) => [
     method: 'GET',
     path: '/users',
     handler: handler.getHolUsersHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'GET',

@@ -1,10 +1,14 @@
 /* eslint-disable camelcase */
 class HolGetUsers {
   constructor(payload) {
-    this._verifyPayload(payload);
     const {
       id_users,
       photoProfile,
+      nama_alumni,
+      program,
+      batch,
+      domisili,
+      recent_journey,
       musical_instrument,
       talent,
       talent_description_selected,
@@ -23,6 +27,11 @@ class HolGetUsers {
     } = payload;
     (this.usersId = id_users),
       (this.photoProfile = photoProfile),
+      (this.alumniName = nama_alumni),
+      (this.program = program),
+      (this.batch = batch),
+      (this.domisili = domisili),
+      (this.recent_journey = recent_journey),
       (this.musicalInstrument = musical_instrument),
       (this.talent = talent),
       (this.taletDescriptionSelected = talent_description_selected),
@@ -39,64 +48,64 @@ class HolGetUsers {
       (this.haveABussiness = have_a_business),
       (this.joinedSocialCommunities = joined_social_communities);
   }
-  _verifyPayload({
-    id_users,
-    musical_instrument,
-    talent,
-    talent_description_selected,
-    bcf_activites,
-    other_activites,
-    five_year_award,
-    five_year_plan,
-    five_year_plan_description,
-    ability,
-    ability_description_selected,
-    ability_award_selected,
-    achievement_last_three_years,
-    activities_outside_college_and_internship,
-    have_a_business,
-    joined_social_communities,
-  }) {
-    if (
-      !id_users ||
-      !musical_instrument ||
-      !talent ||
-      !talent_description_selected ||
-      !bcf_activites ||
-      !other_activites ||
-      !five_year_award ||
-      !five_year_plan ||
-      !five_year_plan_description ||
-      !ability ||
-      !ability_description_selected ||
-      !ability_award_selected ||
-      !achievement_last_three_years ||
-      !activities_outside_college_and_internship ||
-      !have_a_business ||
-      !joined_social_communities
-    ) {
-      throw new Error('GET_USERS.NOT_CONTAIN_NEEDED_PROPERTY');
-    }
-    if (
-      typeof id_users !== 'number' ||
-      typeof musical_instrument !== 'string' ||
-      typeof talent !== 'string' ||
-      typeof talent_description_selected !== 'string' ||
-      typeof bcf_activites !== 'string' ||
-      typeof other_activites !== 'string' ||
-      typeof five_year_award !== 'string' ||
-      typeof five_year_plan !== 'string' ||
-      typeof five_year_plan_description !== 'string' ||
-      typeof ability !== 'string' ||
-      typeof ability_description_selected !== 'string' ||
-      typeof ability_award_selected !== 'string' ||
-      typeof achievement_last_three_years !== 'string' ||
-      typeof activities_outside_college_and_internship !== 'string' ||
-      typeof have_a_business !== 'number' ||
-      typeof joined_social_communities !== 'string'
-    ) {
-      throw new Error('GET_USERS.NOT_MEET_DATA_TYPE_SPECIFICATION');
-    }
-  }
+  // _verifyPayload({
+  //   id_users,
+  //   musical_instrument,
+  //   talent,
+  //   talent_description_selected,
+  //   bcf_activites,
+  //   other_activites,
+  //   five_year_award,
+  //   five_year_plan,
+  //   five_year_plan_description,
+  //   ability,
+  //   ability_description_selected,
+  //   ability_award_selected,
+  //   achievement_last_three_years,
+  //   activities_outside_college_and_internship,
+  //   have_a_business,
+  //   joined_social_communities,
+  // }) {
+  //   if (
+  //     !id_users ||
+  //     !musical_instrument ||
+  //     !talent ||
+  //     !talent_description_selected ||
+  //     !bcf_activites ||
+  //     !other_activites ||
+  //     !five_year_award ||
+  //     !five_year_plan ||
+  //     !five_year_plan_description ||
+  //     !ability ||
+  //     !ability_description_selected ||
+  //     !ability_award_selected ||
+  //     !achievement_last_three_years ||
+  //     !activities_outside_college_and_internship ||
+  //     !have_a_business ||
+  //     !joined_social_communities
+  //   ) {
+  //     throw new Error('GET_USERS.NOT_CONTAIN_NEEDED_PROPERTY');
+  //   }
+  //   if (
+  //     typeof id_users !== 'number' ||
+  //     typeof musical_instrument !== 'string' ||
+  //     typeof talent !== 'string' ||
+  //     typeof talent_description_selected !== 'string' ||
+  //     typeof bcf_activites !== 'string' ||
+  //     typeof other_activites !== 'string' ||
+  //     typeof five_year_award !== 'string' ||
+  //     typeof five_year_plan !== 'string' ||
+  //     typeof five_year_plan_description !== 'string' ||
+  //     typeof ability !== 'string' ||
+  //     typeof ability_description_selected !== 'string' ||
+  //     typeof ability_award_selected !== 'string' ||
+  //     typeof achievement_last_three_years !== 'string' ||
+  //     typeof activities_outside_college_and_internship !== 'string' ||
+  //     typeof have_a_business !== 'number' ||
+  //     typeof joined_social_communities !== 'string'
+  //   ) {
+  //     throw new Error('GET_USERS.NOT_MEET_DATA_TYPE_SPECIFICATION');
+  //   }
+  // }
 }
 module.exports = HolGetUsers;

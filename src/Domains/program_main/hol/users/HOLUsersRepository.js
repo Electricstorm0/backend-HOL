@@ -18,6 +18,9 @@ class HOLUsersRepository {
     throw new Error('HOL_USERS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
+  async readJourneyUsers() {
+    throw new Error('HOL_USERS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
   async read() {
     throw new Error('HOL_USERS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }

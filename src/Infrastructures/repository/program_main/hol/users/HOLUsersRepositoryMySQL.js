@@ -67,9 +67,18 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
 
     return result;
   }
+
+  async readJourneyUsers() {
+    const query = {
+      text: 'SELECT id_users_hol, created_at, "achievements" as recent_journey FROM tx_hol_achievements UNION ALL SELECT id_users_hol, created_at, "involvements" as recent_journey FROM tx_hol_involvements ORDER BY created_at DESC',
+    };
+    const [result] = await this._pool.query(query.text);
+    return result;
+  }
+
   async read() {
     const query = {
-      text: 'SELECT * FROM `tx_hol_users`',
+      text: 'SELECT hu.id_users, concat(ud.first_name, " ",ud.last_name) as nama_alumni, stp.name as program, b.batch, mdp.name as domisili FROM tx_hol_users as hu JOIN tx_users_detail as ud on ud.id = hu.id_users JOIN tx_offered_program as op on op.id_users = hu.id_users JOIN master_third_tier_program as mtp on mtp.id = op.id_third_tier_program JOIN master_second_tier_program as stp on stp.id = mtp.id_second_tier_program JOIN master_batch as b on b.id = op.id_batch JOIN tx_users_domicile as udom on udom.id_users = hu.id_users JOIN master_domicile_provincies as mdp on mdp.id = udom.id_provincies',
     };
     const [result] = await this._pool.query(query.text);
     return result;

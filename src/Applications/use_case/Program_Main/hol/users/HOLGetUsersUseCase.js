@@ -1,4 +1,4 @@
-const GetUsers = require('../../../../../Domains/program_main/hol/users/entities/HolGetUsers');
+const HolGetUsers = require('../../../../../Domains/program_main/hol/users/entities/HolGetUsers');
 
 class HOLGetUsersUseCase {
   constructor({ HOLUsersRepository }) {
@@ -7,14 +7,18 @@ class HOLGetUsersUseCase {
 
   async execute() {
     try {
-      const users = await this._HOLUsersRepository.read();
+      const [users, journeys] = await Promise.all([this._HOLUsersRepository.read(), this._HOLUsersRepository.readJourneyUsers()]);
+
       const result = await Promise.all(
-        users.map(async (value) => ({
-          ...new GetUsers({
-            photoProfile: 'profileKu.JPG',
+        users.map(async (value) => {
+          const recentJourney = journeys.find((j) => j.id_users_hol === value.id_users);
+
+          return new HolGetUsers({
             ...value,
-          }),
-        }))
+            photoProfile: 'profileKu.JPG',
+            recent_journey: recentJourney?.recent_journey || null,
+          });
+        })
       );
       return result;
     } catch (error) {
