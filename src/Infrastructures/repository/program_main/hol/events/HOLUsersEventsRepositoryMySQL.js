@@ -72,7 +72,7 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
 
   async readByUsersIdAndAttendance({ usersHOLId }) {
     const query = {
-      text: 'SELECT ue.id, e.name as Acara, ha.name AS Bidang , COALESCE(YEAR(ed.event_date),YEAR(edb.event_date)) AS Tahun,COALESCE( ed.position, edb.position) AS Keterlibatan FROM tx_hol_users_events AS ue LEFT JOIN tx_hol_events AS e ON e.id = ue.id_events_hol LEFT JOIN tx_hol_events_iysf AS ed ON e.id = ed.id_events_hol LEFT JOIN tx_hol_events_ba AS edb ON e.id = edb.id_events_hol LEFT JOIN master_hol_events_type AS et ON et.id = e.id_hol_events_type LEFT JOIN master_hol_area AS ha ON ha.id = et.id_hol_area WHERE ue.id_users_hol=1 AND ue.attendance = 1; ',
+      text: 'SELECT ue.id, e.name as Acara, ha.name AS Bidang , COALESCE(YEAR(ed.event_date),YEAR(edb.event_date)) AS Tahun,COALESCE( ed.position, edb.position_category) AS Keterlibatan FROM tx_hol_users_events AS ue LEFT JOIN tx_hol_events AS e ON e.id = ue.id_events_hol LEFT JOIN tx_hol_events_iysf AS ed ON e.id = ed.id_events_hol LEFT JOIN tx_hol_events_ba AS edb ON e.id = edb.id_events_hol LEFT JOIN master_hol_events_type AS et ON et.id = e.id_hol_events_type LEFT JOIN master_hol_area AS ha ON ha.id = et.id_hol_area WHERE ue.id_users_hol=1 AND ue.attendance = 1; ',
       values: [usersHOLId],
     };
     const [result] = await this._pool.query(query.text, query.values);
