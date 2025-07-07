@@ -18,7 +18,7 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
-    path: '/recommendation/users/status', // http://localhost:3000/hol/recommendation/users/status?recommendationStatusId=1&page=1&pageSize=5
+    path: '/recommendation/users/status', // http://localhost:3000/hol/recommendation/users?recommendationStatusId=1&page=1&pageSize=5
     handler: handler.getAllUsersRecommendationByStatusHandler,
     options: {
       auth: {
@@ -42,6 +42,30 @@ const routes = (handler) => [
     method: 'PUT',
     path: '/recommendation/{recommendationHolId}',
     handler: handler.putRecommendationStatusHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
+  },
+  {
+    method: 'GET',
+    path: '/recommendation/users/total',
+    handler: handler.getTotalUsersRecommendationHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
+  },
+  {
+    method: 'GET',
+    path: '/recommendation/users/total/status/{recommendationStatusId}',
+    handler: handler.getTotalUsersRecommendationByStatusHandler,
     options: {
       auth: {
         access: {

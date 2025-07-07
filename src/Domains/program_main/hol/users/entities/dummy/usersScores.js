@@ -1,7 +1,7 @@
 const usersScore = [
   {
     usersId: 1,
-    score: 75,
+    score: 90,
   },
   {
     usersId: 2,

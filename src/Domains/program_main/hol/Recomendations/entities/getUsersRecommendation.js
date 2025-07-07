@@ -1,8 +1,8 @@
 class getUsersRecommendation {
   constructor(payload) {
-    const { Nama_Alumni, program, batch, Tahun, deadline, status } = payload;
+    const { Nama_Alumni, Program, batch, Tahun, deadline, status } = payload;
     this.Nama_Alumni = Nama_Alumni;
-    this.Program = program;
+    this.Program = Program;
     this.Batch = batch;
     this.Tahun = Tahun;
     this.Deadline = deadline;

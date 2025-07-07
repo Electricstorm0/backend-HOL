@@ -3,12 +3,16 @@ const HOLGetAllRecommendationByStatusUseCase = require('../../../../../../Applic
 const HOLGetAllUsersRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetAllUsersRecommendationUseCase');
 const HOLGetRecommendationByIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetRecommendationByIdUseCase');
 const HOLGetRecommendationByUserIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetRecommendationByUserIdUseCase');
+const HOLGetTotalUsersRecomendationByStatusUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetTotalUsersRecomendationByStatusUseCase');
+const HOLGetTotalUsersRecomendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLGetTotalUsersRecomendationUseCase');
 const HOLUpdateStatusRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/recommendation/HOLUpdateStatusRecommendationUseCase');
 
 class HolRecommendationHandler {
   constructor(container) {
     this._container = container;
     this.postRecommendationHandler = this.postRecommendationHandler.bind(this);
+    this.getTotalUsersRecommendationHandler = this.getTotalUsersRecommendationHandler.bind(this);
+    this.getTotalUsersRecommendationByStatusHandler = this.getTotalUsersRecommendationByStatusHandler.bind(this);
     this.getRecommendationByIdHandler = this.getRecommendationByIdHandler.bind(this);
     this.getRecommendationByUserIdHandler = this.getRecommendationByUserIdHandler.bind(this);
     this.getAllUsersRecommendationHandler = this.getAllUsersRecommendationHandler.bind(this);
@@ -93,6 +97,28 @@ class HolRecommendationHandler {
     } catch (error) {
       console.log(error);
     }
+  }
+  async getTotalUsersRecommendationHandler(request, h) {
+    try {
+      const useCase = await this._container.getInstance(HOLGetTotalUsersRecomendationUseCase.name);
+      const data = await useCase.execute(request.query);
+
+      return h.response({
+        status: 'success',
+        data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async getTotalUsersRecommendationByStatusHandler(request, h) {
+    const useCase = await this._container.getInstance(HOLGetTotalUsersRecomendationByStatusUseCase.name);
+    const data = await useCase.execute(request.params);
+
+    return h.response({
+      status: 'success',
+      data,
+    });
   }
 }
 module.exports = HolRecommendationHandler;
