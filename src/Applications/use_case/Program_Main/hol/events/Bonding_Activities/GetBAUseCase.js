@@ -23,6 +23,7 @@ class GetBAUseCase {
         }))
       );
       return {
+        ...numRows,
         result,
         current: offset,
         perPage: numPerPage,

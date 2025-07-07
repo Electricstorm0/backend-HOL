@@ -23,6 +23,7 @@ class GetCFFUseCase {
         }))
       );
       return {
+        ...numRows,
         result,
         current: offset,
         perPage: numPerPage,

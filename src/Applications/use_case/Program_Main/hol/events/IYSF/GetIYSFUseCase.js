@@ -23,6 +23,7 @@ class GetIYSFUseCase {
         }))
       );
       return {
+        ...numRows,
         result,
         current: offset,
         perPage: numPerPage,
