@@ -15,7 +15,7 @@ class HOLGetAllMyArticleUseCase {
       }))
     );
     return {
-      count,
+      ...count,
       result,
     };
   }

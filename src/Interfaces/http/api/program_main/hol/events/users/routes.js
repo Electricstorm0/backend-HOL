@@ -3,7 +3,7 @@ const { options } = require('@hapi/hapi/lib/cors');
 const routes = (handler) => [
   {
     method: 'POST',
-    path: '/events/users/{eventsHOLId}',
+    path: '/events/{eventsHOLId}/users',
     handler: handler.postHolUsersEventsHandler,
   },
   // get total----------------------------------------
