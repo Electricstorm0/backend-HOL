@@ -3,7 +3,7 @@ const pool = require('../../../../../../database/mysql/pool');
 // REPOSITORY
 // const MasterHOLAreaRepository = require('../../../../../../');
 const HOLUsersWorkExpRepository = require('../../../../../../../Domains/program_main/hol/Users/Journey/WorkExperience/HOLUsersWorkExpRepository');
-const HOLUsersWorkExpRepositoryMySQL = require('../../../../../../repository/program_main/hol/Users/Journey/WorkExperience/HOLUsersWorkExpRepositoryMySQL');
+const HOLUsersWorkExpRepositoryMySQL = require('../../../../../../repository/program_main/hol/temp-Users/Journey/WorkExperience/HOLUsersWorkExpRepositoryMySQL');
 
 // USE CASE
 const HOLCreateUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLCreateUsersWorkExpUseCase');
