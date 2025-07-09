@@ -1,5 +1,5 @@
 const NotFoundError = require('../../../../../../../Commons/exceptions/NotFoundError');
-const GetExp = require('../../../../../../../Domains/program_main/hol/Users/Journey/WorkExperience/entities/GetWorkExperience');
+const GetExp = require('../../../../../../../Domains/program_main/hol/temp-Users/Journey/WorkExperience/entities/GetWorkExperience');
 
 class HOLGetUsersWorkExpByIdUseCase {
   constructor({ HOLUsersWorkExpRepository }) {

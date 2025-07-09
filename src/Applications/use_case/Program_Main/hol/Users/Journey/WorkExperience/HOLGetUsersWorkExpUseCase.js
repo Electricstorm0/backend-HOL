@@ -1,4 +1,4 @@
-const GetExp = require('../../../../../../../Domains/program_main/hol/Users/Journey/WorkExperience/entities/GetWorkExperience');
+const GetExp = require('../../../../../../../Domains/program_main/hol/temp-Users/Journey/WorkExperience/entities/GetWorkExperience');
 
 class HOLGetUsersWorkExpUseCase {
   constructor({ HOLUsersWorkExpRepository }) {
