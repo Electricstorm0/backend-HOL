@@ -1,8 +1,8 @@
-const HOLCreateUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/achievements/HOLCreateUsersAchievementsUseCase');
-const HOLDeleteUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/achievements/HOLDeleteUsersAchievementsUseCase');
-const HOLGetUsersAchievementsByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/achievements/HOLGetUsersAchievementsByIdUseCase');
-const HOLGetUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/achievements/HOLGetUsersAchievementsUseCase');
-const HOLUpdateUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/achievements/HOLUpdateUsersAchievementsUseCase');
+const HOLCreateUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLCreateUsersAchievementsUseCase');
+const HOLDeleteUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLDeleteUsersAchievementsUseCase');
+const HOLGetUsersAchievementsByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLGetUsersAchievementsByIdUseCase');
+const HOLGetUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLGetUsersAchievementsUseCase');
+const HOLUpdateUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLUpdateUsersAchievementsUseCase');
 
 class HolUsersAchievementsHandler {
   constructor(container) {

@@ -67,16 +67,16 @@ const CLPInstitutions = require('./container/program_main/clp/clp_institutions')
 const LEADUsers = require('./container/program_main/lead/lead_users');
 const LEADInstitutions = require('./container/program_main/lead/lead_institutions');
 // HOL
-const HOLCFF = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_events_cff');
-const HOLBA = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_events_ba');
-const HOLIYSF = require('./container/program_main/hol/events/events_detail/IYSF/hol_events_iysf');
-const HOLUsersEvents = require('./container/program_main/hol/events/users/hol_events_users');
-const HOLUsers = require('./container/program_main/hol/users/holUsers');
-const HOLUsersAchieve = require('./container/program_main/hol/users/journey/achievements/userAchieve');
-const HOLUsersExp = require('./container/program_main/hol/users/journey/work_experience/userExp');
-const HOLUsersInvolve = require('./container/program_main/hol/users/journey/involvements/userInvolve');
-const HOLRecommendations = require('./container/program_main/hol/recommendations/holRecommendations');
-const HOLArticle = require('./container/program_main/hol/articles/hol_articles');
+const HOLCFF = require('./container/program_main/hol/Events/EventsDetail/CallForFellows/hol_events_cff');
+const HOLBA = require('./container/program_main/hol/Events/EventsDetail/BondingActivities/hol_events_ba');
+const HOLIYSF = require('./container/program_main/hol/Events/EventsDetail/IYSF/hol_events_iysf');
+const HOLUsersEvents = require('./container/program_main/hol/Events/Users/hol_events_users');
+const HOLUsers = require('./container/program_main/hol/Users/holUsers');
+const HOLUsersAchieve = require('./container/program_main/hol/Users/Journey/Achievements/UserAchievements');
+const HOLUsersExp = require('./container/program_main/hol/Users/Journey/WorkExperience/UserExperience');
+const HOLUsersInvolve = require('./container/program_main/hol/Users/Journey/Involvements/UserInvolvements');
+const HOLRecommendations = require('./container/program_main/hol/Recommendations/holRecommendations');
+const HOLArticle = require('./container/program_main/hol/Articles/hol_articles');
 
 // DOMAIN REPOSITORY CLP
 const CLPUsersRepository = require('../Domains/program_main/clp/users/CLPUsersRepository');

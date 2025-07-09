@@ -1,4 +1,4 @@
-const HOLEventsRepository = require('../../../../../Domains/program_main/hol/events/HOLEventsRepository');
+const HOLEventsRepository = require('../../../../../Domains/program_main/hol/Events/HOLEventsRepository');
 
 class HOLEventsRepositoryMySQL extends HOLEventsRepository {
   constructor(pool) {

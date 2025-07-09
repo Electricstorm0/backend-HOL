@@ -1,4 +1,4 @@
-const HOLGetPublications = require('../../../../../Domains/program_main/hol/articles/entities/getPublications');
+const HOLGetPublications = require('../../../../../Domains/program_main/hol/Articles/entities/GetPublications');
 
 class HOLGetAllMyArticleUseCase {
   constructor({ HOLUsersArticlesRepository }) {

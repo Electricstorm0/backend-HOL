@@ -1,4 +1,4 @@
-const HolGetUsers = require('../../../../../Domains/program_main/hol/users/entities/HolGetUsers');
+const HolGetUsers = require('../../../../../Domains/program_main/hol/Users/entities/HolGetUsers');
 
 class HOLGetUsersUseCase {
   constructor({ HOLUsersRepository }) {

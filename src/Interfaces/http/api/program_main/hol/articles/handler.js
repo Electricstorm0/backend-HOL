@@ -1,11 +1,11 @@
-const HOLCreateArticlesUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLCreateArticlesUseCase');
-const HOLDeleteArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLDeleteArticleUseCase');
-const HOLGetAllArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllArticleUseCase');
-const HOLGetAllMyArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllMyArticleUseCase');
-const HOLGetAllUsersArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllUsersArticleUseCase');
-const HOLGetDetailArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetDetailArticleUseCase');
-const HOLUpdateArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLUpdateArticleUseCase');
-const HOLUpdateStatusArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/articles/HOLUpdateStatusArticleUseCase');
+const HOLCreateArticlesUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Articles/HOLCreateArticlesUseCase');
+const HOLDeleteArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Articles/HOLDeleteArticleUseCase');
+const HOLGetAllArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Articles/HOLGetAllArticleUseCase');
+const HOLGetAllMyArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Articles/HOLGetAllMyArticleUseCase');
+const HOLGetAllUsersArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Articles/HOLGetAllUsersArticleUseCase');
+const HOLGetDetailArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Articles/HOLGetDetailArticleUseCase');
+const HOLUpdateArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Articles/HOLUpdateArticleUseCase');
+const HOLUpdateStatusArticleUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Articles/HOLUpdateStatusArticleUseCase');
 
 class HOLArticleHandler {
   constructor(container) {

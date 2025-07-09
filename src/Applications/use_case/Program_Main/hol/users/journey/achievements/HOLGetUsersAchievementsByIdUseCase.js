@@ -1,5 +1,5 @@
 const NotFoundError = require('../../../../../../../Commons/exceptions/NotFoundError');
-const GetUsersAchieve = require('../../../../../../../Domains/program_main/hol/users/journey/achievements/entities/getAchieve');
+const GetUsersAchieve = require('../../../../../../../Domains/program_main/hol/Users/Journey/Achievements/entities/GetAchievements');
 
 class HOLGetUsersAchievementsByIdUseCase {
   constructor({ HOLUsersAchievementsRepository }) {

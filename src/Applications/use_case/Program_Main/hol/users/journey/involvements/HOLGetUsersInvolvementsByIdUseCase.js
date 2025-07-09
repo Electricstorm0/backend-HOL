@@ -1,5 +1,5 @@
 const NotFoundError = require('../../../../../../../Commons/exceptions/NotFoundError');
-const GetUsersInvolve = require('../../../../../../../Domains/program_main/hol/users/journey/involvements/entities/getInvolve');
+const GetUsersInvolve = require('../../../../../../../Domains/program_main/hol/Users/Journey/Involvements/entities/GetInvolvements');
 
 class HOLGetUsersInvolvementssByIdUseCase {
   constructor({ HOLUsersInvolvementsRepository }) {

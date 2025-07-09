@@ -1,4 +1,4 @@
-const HOLUpdateArticle = require('../../../../../Domains/program_main/hol/articles/entities/updateArticle');
+const HOLUpdateArticle = require('../../../../../Domains/program_main/hol/Articles/entities/UpdateArticle');
 
 class HOLUpdateArticleUseCase {
   constructor({ MasterHOLArticlesRepository }) {

@@ -1,8 +1,8 @@
 const pool = require('../../../../database/mysql/pool');
 
 // const MasterHOLAreaRepository = require('../../../../../../');
-const HOLUsersRepository = require('../../../../../Domains/program_main/hol/users/HOLUsersRepository');
-const HOLUsersRepositoryMySQL = require('../../../../../Infrastructures/repository/program_main/hol/users/HOLUsersRepositoryMySQL');
+const HOLUsersRepository = require('../../../../../Domains/program_main/hol/Users/HOLUsersRepository');
+const HOLUsersRepositoryMySQL = require('../../../../repository/program_main/hol/Users/HOLUsersRepositoryMySQL');
 const MasterBatchRepository = require('../../../../../Domains/batch/MasterBatchRepository');
 const MasterProgramRoleRepository = require('../../../../../Domains/program/MasterProgramRoleRepository');
 const OfferedProgramRepository = require('../../../../../Domains/program/OfferedProgramRepository');
@@ -21,15 +21,15 @@ const CLPGetUsersMeDetailUseCase = require('../../../../../Applications/use_case
 // const LEADGetInstitutionsByDivisionInstitutionsUseCase = require('../../../../../Applications/use_case/Program_Main/LEAD/Institutions/LEADGetInstitutionsByDivisionInstitutionsUseCase');
 // const GetUniversitiesUsersUseCase = require('../../../../../Applications/use_case/Universities/GetUniversitiesUsersUseCase');
 
-const HOLCreateUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/users/HOLCreateUsersUseCase');
-const HOLGetUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/users/HOLGetUsersUseCase');
-const HOLGetUsersByIdUseCase = require('../../../../../Applications/use_case/Program_Main/hol/users/HOLGetUsersByIdUseCase');
-const HOLGetUsersMeUseCase = require('../../../../../Applications/use_case/Program_Main/hol/users/HOLGetUsersMeUseCase');
-const HOLGetUsersMeDetailUseCase = require('../../../../../Applications/use_case/Program_Main/hol/users/HOLGetUsersMeDetailUseCase');
-const HOLUpdateUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/users/HOLUpdateUsersUseCase');
-const HOLDeleteUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/users/HOLDeleteUsersUseCase');
-const HOLGetTotalUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/users/HOLGetTotalUsersUseCase');
-const HOLGetTotalUsersByProgramUseCase = require('../../../../../Applications/use_case/Program_Main/hol/users/HOLGetTotalUsersByProgramUseCase');
+const HOLCreateUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Users/HOLCreateUsersUseCase');
+const HOLGetUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Users/HOLGetUsersUseCase');
+const HOLGetUsersByIdUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Users/HOLGetUsersByIdUseCase');
+const HOLGetUsersMeUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Users/HOLGetUsersMeUseCase');
+const HOLGetUsersMeDetailUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Users/HOLGetUsersMeDetailUseCase');
+const HOLUpdateUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Users/HOLUpdateUsersUseCase');
+const HOLDeleteUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Users/HOLDeleteUsersUseCase');
+const HOLGetTotalUsersUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Users/HOLGetTotalUsersUseCase');
+const HOLGetTotalUsersByProgramUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Users/HOLGetTotalUsersByProgramUseCase');
 const usersHol = [
   // REPOSITORY
   {

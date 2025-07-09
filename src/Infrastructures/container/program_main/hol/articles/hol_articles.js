@@ -1,18 +1,18 @@
 // REPOSITORY
-const HOLUsersArticlesRepository = require('../../../../../Domains/program_main/hol/articles/HOLUsersArticlesRepository');
-const MasterHOLArticlesRepository = require('../../../../../Domains/program_main/hol/articles/MasterHOLArticlesRepository');
-const HOLUsersArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/articles/HOLUsersArticlesRepositoryMySQL');
-const MasterHOLArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/articles/MasterHOLArticlesRepositoryMySQL');
+const HOLUsersArticlesRepository = require('../../../../../Domains/program_main/hol/Articles/HOLUsersArticlesRepository');
+const MasterHOLArticlesRepository = require('../../../../../Domains/program_main/hol/Articles/MasterHOLArticlesRepository');
+const HOLUsersArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/Articles/HOLUsersArticlesRepositoryMySQL');
+const MasterHOLArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/Articles/MasterHOLArticlesRepositoryMySQL');
 // USECASE
-const HOLCreateArticlesUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLCreateArticlesUseCase');
-const HOLGetAllMyArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllMyArticleUseCase');
-const HOLGetDetailArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetDetailArticleUseCase');
-const HOLUpdateArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLUpdateArticleUseCase');
-const HOLDeleteArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLDeleteArticleUseCase');
+const HOLCreateArticlesUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Articles/HOLCreateArticlesUseCase');
+const HOLGetAllMyArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Articles/HOLGetAllMyArticleUseCase');
+const HOLGetDetailArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Articles/HOLGetDetailArticleUseCase');
+const HOLUpdateArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Articles/HOLUpdateArticleUseCase');
+const HOLDeleteArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Articles/HOLDeleteArticleUseCase');
 const pool = require('../../../../database/mysql/pool');
-const HOLGetAllArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllArticleUseCase');
-const HOLUpdateStatusArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLUpdateStatusArticleUseCase');
-const HOLGetAllUsersArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/articles/HOLGetAllUsersArticleUseCase');
+const HOLGetAllArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Articles/HOLGetAllArticleUseCase');
+const HOLUpdateStatusArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Articles/HOLUpdateStatusArticleUseCase');
+const HOLGetAllUsersArticleUseCase = require('../../../../../Applications/use_case/Program_Main/hol/Articles/HOLGetAllUsersArticleUseCase');
 const articles = [
   {
     key: MasterHOLArticlesRepository.name,

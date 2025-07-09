@@ -1,9 +1,9 @@
-const HOLCreateUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/involvements/HOLCreateUsersInvolvementsUseCase');
-const HOLGetUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/involvements/HOLGetUsersInvolvementsUseCase');
-const HOLGetUsersInvolvementsByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/involvements/HOLGetUsersInvolvementsByIdUseCase');
-const HOLUpdateUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/involvements/HOLUpdateUsersInvolvementsUseCase');
-const HOLDeleteUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/involvements/HOLDeleteUsersInvolvementsUseCase');
-const HOLGetDetailInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/users/journey/involvements/HOLGetDetailInvolvementsUseCase');
+const HOLCreateUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Involvements/HOLCreateUsersInvolvementsUseCase');
+const HOLGetUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Involvements/HOLGetUsersInvolvementsUseCase');
+const HOLGetUsersInvolvementsByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Involvements/HOLGetUsersInvolvementsByIdUseCase');
+const HOLUpdateUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Involvements/HOLUpdateUsersInvolvementsUseCase');
+const HOLDeleteUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Involvements/HOLDeleteUsersInvolvementsUseCase');
+const HOLGetDetailInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Involvements/HOLGetDetailInvolvementsUseCase');
 
 class HolUsersInvolvementsHandler {
   constructor(container) {

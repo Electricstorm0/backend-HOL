@@ -1,4 +1,4 @@
-const GetUsersInvolve = require('../../../../../../../Domains/program_main/hol/users/journey/involvements/entities/getInvolve');
+const GetUsersInvolve = require('../../../../../../../Domains/program_main/hol/Users/Journey/Involvements/entities/GetInvolvements');
 
 class HOLGetUsersInvolvementsUseCase {
   constructor({ HOLUsersInvolvementsRepository }) {

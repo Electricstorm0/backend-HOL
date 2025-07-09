@@ -1,4 +1,4 @@
-const HOLUsersInvolvementsRepository = require('../../../../../../../Domains/program_main/hol/users/journey/involvements/HOLUsersInvolvementsRepository');
+const HOLUsersInvolvementsRepository = require('../../../../../../../Domains/program_main/hol/Users/Journey/Involvements/HOLUsersInvolvementsRepository');
 
 class HOLUsersInvolvementsRepositoryMySQL extends HOLUsersInvolvementsRepository {
   constructor(pool) {

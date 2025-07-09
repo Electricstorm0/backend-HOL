@@ -1,4 +1,4 @@
-const usersScore = require('../../../../../Domains/program_main/hol/users/entities/dummy/usersScores');
+const usersScore = require('../../../../../Domains/program_main/hol/Users/entities/dummy/UsersScores');
 
 class HOLCreateRecommendationUseCase {
   constructor({ HOLRecommendationsRepository, HOLRecommendationsStatusRepository }) {

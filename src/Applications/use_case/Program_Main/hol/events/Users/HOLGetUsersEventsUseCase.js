@@ -1,4 +1,4 @@
-const GetUsersEvents = require('../../../../../../Domains/program_main/hol/events/entities/getUsersEvents');
+const GetUsersEvents = require('../../../../../../Domains/program_main/hol/Events/entities/getUsersEvents');
 
 class HOLGetUsersEventsUseCase {
   constructor({ HOLUsersEventsRepository }) {
