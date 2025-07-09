@@ -1,4 +1,4 @@
-const HOLEventsCFFRepository = require('../../../../../../../Domains/program_main/hol/temp-Events/EventsDetail/CallForFellows/HOLEventsCFFRepository');
+const HOLEventsCFFRepository = require('../../../../../../../Domains/program_main/hol/Events/EventsDetail/CallForFellows/HOLEventsCFFRepository');
 
 class HOLEventsCFFRepositoryMySQL extends HOLEventsCFFRepository {
   constructor(pool) {

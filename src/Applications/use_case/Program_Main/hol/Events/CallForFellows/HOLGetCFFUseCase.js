@@ -1,4 +1,4 @@
-const GetCFF = require('../../../../../../Domains/program_main/hol/temp-Events/EventsDetail/CallForFellows/entities/GetCFF');
+const GetCFF = require('../../../../../../Domains/program_main/hol/Events/EventsDetail/CallForFellows/entities/GetCFF');
 
 class GetCFFUseCase {
   constructor({ HOLEventsRepository, HOLEventsCFFRepository }) {

@@ -1,5 +1,5 @@
-const updateEvents = require('../../../../../../Domains/program_main/hol/temp-Events/entities/UpdateEvents');
-const updateIYSF = require('../../../../../../Domains/program_main/hol/temp-Events/EventsDetail/IYSF/entities/UpdateIYSF');
+const updateEvents = require('../../../../../../Domains/program_main/hol/Events/entities/UpdateEvents');
+const updateIYSF = require('../../../../../../Domains/program_main/hol/Events/EventsDetail/IYSF/entities/UpdateIYSF');
 
 class UpdateIYSFUseCase {
   constructor({ HOLEventsRepository, HOLEventsIYSFRepository }) {
