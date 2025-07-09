@@ -11,17 +11,17 @@ const iysfHandler = require('./Events/EventsDetail/IYSF/handler');
 const HolUsersEventsHandler = require('./Events/Users/handler');
 const HolUsersEventsRoutes = require('./Events/Users/routes');
 // users hol
-const HolUsersHandler = require('./temp-Users/handler');
-const HolUsersRoutes = require('./temp-Users/routes');
+const HolUsersHandler = require('./Users/handler');
+const HolUsersRoutes = require('./Users/routes');
 // achievements
-const HolUsersAchieveRoutes = require('./temp-Users/Journey/Achievements/routes');
-const HolUsersAchieveHandler = require('./temp-Users/Journey/Achievements/handler');
+const HolUsersAchieveRoutes = require('./Users/Journey/Achievements/routes');
+const HolUsersAchieveHandler = require('./Users/Journey/Achievements/handler');
 // work experience
-const HolUsersExpRoutes = require('./temp-Users/Journey/WorkExperience/routes');
-const HolUsersExpHandler = require('./temp-Users/Journey/WorkExperience/handler');
+const HolUsersExpRoutes = require('./Users/Journey/WorkExperience/routes');
+const HolUsersExpHandler = require('./Users/Journey/WorkExperience/handler');
 // involvements
-const HolUsersInvolveRoutes = require('./temp-Users/Journey/Involvements/routes');
-const HolUsersInvolveHandler = require('./temp-Users/Journey/Involvements/handler');
+const HolUsersInvolveRoutes = require('./Users/Journey/Involvements/routes');
+const HolUsersInvolveHandler = require('./Users/Journey/Involvements/handler');
 // recommendations
 const HOLRecommendationRoutes = require('./Recommendations/routes');
 const HOLRecommendationsHandler = require('./Recommendations/handler');
