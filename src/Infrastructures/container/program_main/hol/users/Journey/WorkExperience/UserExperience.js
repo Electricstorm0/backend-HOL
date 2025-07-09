@@ -6,11 +6,11 @@ const HOLUsersWorkExpRepository = require('../../../../../../../Domains/program_
 const HOLUsersWorkExpRepositoryMySQL = require('../../../../../../repository/program_main/hol/Users/Journey/WorkExperience/HOLUsersWorkExpRepositoryMySQL');
 
 // USE CASE
-const HOLCreateUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/WorkExperience/HOLCreateUsersWorkExpUseCase');
-const HOLGetUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/WorkExperience/HOLGetUsersWorkExpUseCase');
-const HOLGetUsersWorkExpByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/WorkExperience/HOLGetUsersWorkExpByIdUseCase');
-const HOLUpdateUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/WorkExperience/HOLUpdateUsersWorkExpUseCase');
-const HOLDeleteUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/WorkExperience/HOLDeleteUsersWorkExpUseCase');
+const HOLCreateUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLCreateUsersWorkExpUseCase');
+const HOLGetUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLGetUsersWorkExpUseCase');
+const HOLGetUsersWorkExpByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLGetUsersWorkExpByIdUseCase');
+const HOLUpdateUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLUpdateUsersWorkExpUseCase');
+const HOLDeleteUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLDeleteUsersWorkExpUseCase');
 const experience = [
   // REPOSITORY
   {
