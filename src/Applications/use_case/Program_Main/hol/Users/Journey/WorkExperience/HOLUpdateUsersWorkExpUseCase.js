@@ -1,4 +1,4 @@
-const updateExp = require('../../../../../../../Domains/program_main/hol/temp-Users/Journey/WorkExperience/entities/UpdateWorkExperience');
+const updateExp = require('../../../../../../../Domains/program_main/hol/Users/Journey/WorkExperience/entities/UpdateWorkExperience');
 
 class HOLUpdateUsersWorkExpUseCase {
   constructor({ HOLUsersWorkExpRepository }) {
