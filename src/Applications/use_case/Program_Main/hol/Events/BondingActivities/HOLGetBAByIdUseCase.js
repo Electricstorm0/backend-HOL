@@ -1,5 +1,5 @@
 const NotFoundError = require('../../../../../../Commons/exceptions/NotFoundError');
-const GetBA = require('../../../../../../Domains/program_main/hol/Events/EventsDetail/BondingActivities/entities/GetBA');
+const GetBA = require('../../../../../../Domains/program_main/hol/temp-Events/EventsDetail/BondingActivities/entities/GetBA');
 
 class GetBAByIdUseCase {
   constructor({ HOLEventsBARepository }) {

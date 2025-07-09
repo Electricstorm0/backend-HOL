@@ -1,5 +1,5 @@
 const NotFoundError = require('../../../../../../Commons/exceptions/NotFoundError');
-const GetIYSF = require('../../../../../../Domains/program_main/hol/Events/EventsDetail/IYSF/entities/GetIYSF');
+const GetIYSF = require('../../../../../../Domains/program_main/hol/temp-Events/EventsDetail/IYSF/entities/GetIYSF');
 
 class GetIYSFByIdUseCase {
   constructor({ HOLEventsIYSFRepository }) {
