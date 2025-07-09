@@ -14,44 +14,38 @@ class IYSFHandler {
     this.deleteIYSFHandler = this.deleteIYSFHandler.bind(this);
   }
   async postIYSFHandler(request, h) {
-    const createIYSFUseCase = this._container.getInstance(CreateIYSFUseCase.name);
-    const addedIYSF = await createIYSFUseCase.execute(request.payload);
+    const useCase = this._container.getInstance(CreateIYSFUseCase.name);
+    const data = await useCase.execute(request.payload);
 
     const response = h.response({
       status: 'success',
       message: 'added events successfully!',
-      data: {
-        addedIYSF,
-      },
+      data,
     });
     response.code(201);
     return response;
   }
   async getIYSFHandler(request, h) {
-    const getAllIYSFUseCase = this._container.getInstance(GetIYSFUseCase.name);
-    const data = await getAllIYSFUseCase.execute(request.query);
+    const useCase = this._container.getInstance(GetIYSFUseCase.name);
+    const data = await useCase.execute(request.query);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      data,
     });
     return response;
   }
   async getIYSFByIdHandler(request, h) {
-    const getIYSFByIdUseCase = this._container.getInstance(GetIYSFByIdUseCase.name);
-    const data = await getIYSFByIdUseCase.execute(request.params);
+    const useCase = this._container.getInstance(GetIYSFByIdUseCase.name);
+    const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      data,
     });
     return response;
   }
   async putIYSFHandler(request, h) {
-    const updateIYSFUseCase = this._container.getInstance(UpdateIYSFUseCase.name);
-    await updateIYSFUseCase.execute(request.params, request.payload);
+    const useCase = this._container.getInstance(UpdateIYSFUseCase.name);
+    await useCase.execute(request.params, request.payload);
     const response = h.response({
       status: 'success',
       message: 'updated events successfully',
@@ -59,8 +53,8 @@ class IYSFHandler {
     return response;
   }
   async deleteIYSFHandler(request, h) {
-    const deleteIYSFUseCase = this._container.getInstance(DeleteIYSFUseCase.name);
-    await deleteIYSFUseCase.execute(request.params);
+    const useCase = this._container.getInstance(DeleteIYSFUseCase.name);
+    await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
       message: 'deleted events successfully',

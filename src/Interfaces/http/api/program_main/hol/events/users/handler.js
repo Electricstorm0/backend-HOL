@@ -33,51 +33,42 @@ class HolUsersEventsHandler {
       const eventsHOLId = request.params.eventsHOLId;
       const usersHOLId = request.auth.credentials.id;
 
-      const createHolUsersUseCase = this._container.getInstance(HOLCreateUsersEventsUseCase.name);
-      const addedUsers = await createHolUsersUseCase.execute({ usersHOLId, eventsHOLId });
+      const useCase = this._container.getInstance(HOLCreateUsersEventsUseCase.name);
+      const data = await useCase.execute({ usersHOLId, eventsHOLId });
 
-      return h
-        .response({
-          status: 'success',
-          message: 'Berhasil mendaftar kegiatan.',
-          addedUsers,
-        })
-        .code(201);
+      const response = h.response({
+        status: 'success',
+        message: 'Berhasil mendaftar kegiatan.',
+        data,
+      });
+      response.code(201);
+      return response;
     } catch (err) {
-      return h
-        .response({
-          status: 'fail',
-          message: err.message,
-        })
-        .code(400);
+      console.log(err);
     }
   }
   async getHolUsersEventsHandler(request, h) {
-    const getAllUsersEventsUseCase = this._container.getInstance(HOLGetUsersEventsUseCase.name);
-    const data = await getAllUsersEventsUseCase.execute(request.query);
+    const useCase = this._container.getInstance(HOLGetUsersEventsUseCase.name);
+    const data = await useCase.execute(request.query);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      data,
     });
     return response;
   }
   async getHolUsersEventsByIdHandler(request, h) {
-    const getUsersEventByIdsUseCase = this._container.getInstance(HOLGetUsersEventsByIdUseCase.name);
-    const data = await getUsersEventByIdsUseCase.execute(request.params);
+    const useCase = this._container.getInstance(HOLGetUsersEventsByIdUseCase.name);
+    const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      data,
     });
     return response;
   }
 
   async getHolUsersEventsByEventsIdHandler(request, h) {
-    const getAllUsersEventsByEventsIdUseCase = this._container.getInstance(HOLGetUsersEventsByEventsIdUseCase.name);
-    const data = await getAllUsersEventsByEventsIdUseCase.execute(request.params);
+    const useCase = this._container.getInstance(HOLGetUsersEventsByEventsIdUseCase.name);
+    const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
       data,
@@ -87,34 +78,37 @@ class HolUsersEventsHandler {
 
   async getTotalUsersEventsByEventsTypeHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetTotalUsersEventsByEventsTypeUseCase.name);
-    const total = await useCase.execute(request.params);
+    const data = await useCase.execute(request.params);
 
-    return h.response({
+    const response = h.response({
       status: 'success',
-      total,
+      data,
     });
+    return response;
   }
   async getTotalUsersEventsGroupByProgramHandler(request, h) {
     const { eventsHOLId } = request.params;
     const { status } = request.query;
     const useCase = this._container.getInstance(HOLGetTotalUsersEventsGroupByProgramUseCase.name);
-    const total = await useCase.execute({ eventsHOLId, status });
+    const data = await useCase.execute({ eventsHOLId, status });
 
-    return h.response({
+    const response = h.response({
       status: 'success',
-      total,
+      data,
     });
+    return response;
   }
   async getTotalUsersEventsByEventsIdAndStatusHandler(request, h) {
     const { eventsHOLId } = request.params;
     const { status } = request.query;
     const useCase = this._container.getInstance(HOLGetTotalUsersEventsByEventsIdAndStatusUseCase.name);
-    const total = await useCase.execute({ eventsHOLId, status });
+    const data = await useCase.execute({ eventsHOLId, status });
 
-    return h.response({
+    const response = h.response({
       status: 'success',
-      total,
+      data,
     });
+    return response;
   }
 
   async putHolAttendeUsersEventsHandler(request, h) {
@@ -124,10 +118,11 @@ class HolUsersEventsHandler {
     const useCase = this._container.getInstance(HOLUpdateAttendeUsersEventsUseCase.name);
     await useCase.execute({ usersHOLId, eventsHOLId });
 
-    return h.response({
+    const response = h.response({
       status: 'success',
       message: 'attendance successfully',
     });
+    return response;
   }
 
   async putHolStatusUsersEventsHandler(request, h) {
@@ -137,18 +132,19 @@ class HolUsersEventsHandler {
       const useCase = this._container.getInstance(HOLUpdateStatusUsersEventsUseCase.name);
       await useCase.execute(request.params);
 
-      return h.response({
+      const response = h.response({
         status: 'success',
         message: 'status updated  successfully',
       });
+      return response;
     } catch (error) {
       throw new Error(error);
     }
   }
 
   async deleteHolUsersEventsHandler(request, h) {
-    const deleteUsersEventsUseCase = this._container.getInstance(HOLDeleteUsersEventsUseCase.name);
-    await deleteUsersEventsUseCase.execute(request.params);
+    const useCase = this._container.getInstance(HOLDeleteUsersEventsUseCase.name);
+    await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
       message: 'deleted users successfully',

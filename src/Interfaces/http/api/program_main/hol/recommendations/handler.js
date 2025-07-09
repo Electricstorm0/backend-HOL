@@ -25,20 +25,15 @@ class HolRecommendationHandler {
       const HOLUsersRecommendationId = request.auth.credentials.id;
       const useCase = this._container.getInstance(HOLCreateRecommendationUseCase.name);
       const data = await useCase.execute({ HOLUsersRecommendationId }, request.payload);
-      return h
-        .response({
-          status: 'success',
-          message: 'recommendation letter added successfully',
-          data,
-        })
-        .code(201);
+      const response = h.response({
+        status: 'success',
+        message: 'recommendation letter added successfully',
+        data,
+      });
+      response.code(201);
+      return response;
     } catch (error) {
-      return h
-        .response({
-          status: 'fail',
-          message: error.message,
-        })
-        .code(400);
+      console.log(error);
     }
   }
 
@@ -46,54 +41,59 @@ class HolRecommendationHandler {
     const useCase = await this._container.getInstance(HOLGetRecommendationByIdUseCase.name);
     const data = await useCase.execute(request.params);
 
-    return h.response({
+    const response = h.response({
       status: 'success',
       data,
     });
+    return response;
   }
   async getRecommendationByUserIdHandler(request, h) {
     const HOLUsersRecommendationId = request.auth.credentials.id;
     const useCase = await this._container.getInstance(HOLGetRecommendationByUserIdUseCase.name);
     const data = await useCase.execute({ HOLUsersRecommendationId });
 
-    return h.response({
+    const response = h.response({
       status: 'success',
       data,
     });
+    return response;
   }
 
   async getAllUsersRecommendationHandler(request, h) {
     const useCase = await this._container.getInstance(HOLGetAllUsersRecommendationUseCase.name);
     const data = await useCase.execute(request.query);
 
-    return h.response({
+    const response = h.response({
       status: 'success',
       message: 'get all users recommendation successfully',
       data,
     });
+    return response;
   }
   async getAllUsersRecommendationByStatusHandler(request, h) {
     const useCase = await this._container.getInstance(HOLGetAllRecommendationByStatusUseCase.name);
     const data = await useCase.execute(request.query);
 
-    return h.response({
+    const response = h.response({
       status: 'success',
       message: 'get all users recommendation successfully',
       data,
     });
+    return response;
   }
 
   async putRecommendationStatusHandler(request, h) {
     try {
       const updateBy = request.auth.credentials.id;
       const recommendationHolId = request.params.recommendationHolId;
-      const updateData = await this._container.getInstance(HOLUpdateStatusRecommendationUseCase.name);
-      const data = await updateData.execute({ updateBy, recommendationHolId }, request.payload);
+      const useCase = await this._container.getInstance(HOLUpdateStatusRecommendationUseCase.name);
+      const data = await useCase.execute({ updateBy, recommendationHolId }, request.payload);
 
-      return h.response({
+      const response = h.response({
         status: 'success',
         message: 'status updated successfully',
       });
+      return response;
     } catch (error) {
       console.log(error);
     }
@@ -103,10 +103,11 @@ class HolRecommendationHandler {
       const useCase = await this._container.getInstance(HOLGetTotalUsersRecomendationUseCase.name);
       const data = await useCase.execute(request.query);
 
-      return h.response({
+      const response = h.response({
         status: 'success',
         data,
       });
+      return response;
     } catch (error) {
       console.log(error);
     }
@@ -115,10 +116,11 @@ class HolRecommendationHandler {
     const useCase = await this._container.getInstance(HOLGetTotalUsersRecomendationByStatusUseCase.name);
     const data = await useCase.execute(request.params);
 
-    return h.response({
+    const response = h.response({
       status: 'success',
       data,
     });
+    return response;
   }
 }
 module.exports = HolRecommendationHandler;

@@ -1,31 +1,49 @@
 const routes = (handler) => [
   {
     method: 'POST',
-    path: '/activities',
+    path: '/events/activities',
     handler: handler.postBAHandler,
     options: {
-      auth: false,
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
     },
   },
   {
     method: 'GET',
-    path: '/activities', //http://localhost:3000/hol/activities?holEventsTypeId=2&page=1&pageSize=5---
+    path: '/events/activities', //http://localhost:3000/hol/events/activities?holEventsTypeId=2&page=1&pageSize=5---
     handler: handler.getBAHandler,
   },
   {
     method: 'GET',
-    path: '/activities/{id}',
+    path: '/events/activities/{id}',
     handler: handler.getBAByIdHandler,
   },
   {
     method: 'PUT',
-    path: '/activities/{id}',
+    path: '/events/activities/{id}',
     handler: handler.putBAHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'DELETE',
-    path: '/activities/{id}',
+    path: '/events/activities/{id}',
     handler: handler.deleteBAHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
 ];
 

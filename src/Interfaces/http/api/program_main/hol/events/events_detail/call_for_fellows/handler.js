@@ -14,44 +14,38 @@ class CFFHandler {
     this.deleteCFFHandler = this.deleteCFFHandler.bind(this);
   }
   async postCFFHandler(request, h) {
-    const createCFFUseCase = this._container.getInstance(CreateCFFUseCase.name);
-    const addedCFF = await createCFFUseCase.execute(request.payload);
+    const useCase = this._container.getInstance(CreateCFFUseCase.name);
+    const data = await useCase.execute(request.payload);
 
     const response = h.response({
       status: 'success',
       message: 'added events successfully!',
-      data: {
-        addedCFF,
-      },
+      data,
     });
     response.code(201);
     return response;
   }
   async getCFFHandler(request, h) {
-    const getAllCFFUseCase = this._container.getInstance(GetCFFUseCase.name);
-    const cffData = await getAllCFFUseCase.execute(request.query);
+    const useCase = this._container.getInstance(GetCFFUseCase.name);
+    const data = await useCase.execute(request.query);
     const response = h.response({
       status: 'success',
-      data: {
-        cffData,
-      },
+      data,
     });
     return response;
   }
   async getCFFByIdHandler(request, h) {
-    const getCFFByIdUseCase = this._container.getInstance(GetCFFByIdUseCase.name);
-    const cffData = await getCFFByIdUseCase.execute(request.params);
+    const useCase = this._container.getInstance(GetCFFByIdUseCase.name);
+    const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
-      data: {
-        cffData,
-      },
+      data,
     });
     return response;
   }
   async putCFFHandler(request, h) {
-    const updateCFFUseCase = this._container.getInstance(UpdateCFFUseCase.name);
-    await updateCFFUseCase.execute(request.params, request.payload);
+    const useCase = this._container.getInstance(UpdateCFFUseCase.name);
+    await useCase.execute(request.params, request.payload);
     const response = h.response({
       status: 'success',
       message: 'updated events successfully',
@@ -59,8 +53,8 @@ class CFFHandler {
     return response;
   }
   async deleteCFFHandler(request, h) {
-    const deleteCFFUseCase = this._container.getInstance(DeleteCFFUseCase.name);
-    await deleteCFFUseCase.execute(request.params);
+    const useCase = this._container.getInstance(DeleteCFFUseCase.name);
+    await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
       message: 'deleted events successfully',

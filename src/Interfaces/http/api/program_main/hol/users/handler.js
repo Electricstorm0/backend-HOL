@@ -23,35 +23,32 @@ class HolUsersHandler {
     this.deleteHolUsersHandler = this.deleteHolUsersHandler.bind(this);
   }
   async postHolUsersHandler(request, h) {
-    const createHolUsersUseCase = this._container.getInstance(HOLCreateUsersUseCase.name);
-    await createHolUsersUseCase.execute(request.payload);
+    const useCase = this._container.getInstance(HOLCreateUsersUseCase.name);
+    const data = await useCase.execute(request.payload);
 
     const response = h.response({
       status: 'success',
       message: 'added users successfully!',
+      data,
     });
     response.code(201);
     return response;
   }
   async getHolUsersHandler(request, h) {
-    const getAllUsersUseCase = this._container.getInstance(HOLGetUsersUseCase.name);
-    const data = await getAllUsersUseCase.execute(request.query);
+    const useCase = this._container.getInstance(HOLGetUsersUseCase.name);
+    const data = await useCase.execute(request.query);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      data,
     });
     return response;
   }
   async getHolUsersByIdHandler(request, h) {
-    const getUsersByIdsUseCase = this._container.getInstance(HOLGetUsersByIdUseCase.name);
-    const data = await getUsersByIdsUseCase.execute(request.params);
+    const useCase = this._container.getInstance(HOLGetUsersByIdUseCase.name);
+    const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      data,
     });
     return response;
   }
@@ -59,49 +56,48 @@ class HolUsersHandler {
     const useCase = this._container.getInstance(HOLGetUsersMeUseCase.name);
     const data = await useCase.execute(request.auth.credentials);
 
-    return h.response({
+    const response = h.response({
       status: 'success',
       data,
     });
+    return response;
   }
 
   async getOwnUsersDetailHandler(request, h) {
-    try {
-      const { id: usersId, batchId } = request.auth.credentials;
-      const useCase = this._container.getInstance(HOLGetUsersMeDetailUseCase.name);
-      const data = await useCase.execute({ id: usersId }, { batchId });
-      console.log(data);
+    const { id: usersId, batchId } = request.auth.credentials;
+    const useCase = this._container.getInstance(HOLGetUsersMeDetailUseCase.name);
+    const data = await useCase.execute({ id: usersId }, { batchId });
 
-      return h.response({
-        status: 'success',
-        data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    const response = h.response({
+      status: 'success',
+      data,
+    });
+    return response;
   }
 
   async getTotalUsersHolHandler(request, h) {
-    const total = this._container.getInstance(HOLGetTotalUsersUseCase.name);
-    const data = await total.execute(request.query);
-    return h.response({
+    const useCase = this._container.getInstance(HOLGetTotalUsersUseCase.name);
+    const data = await useCase.execute(request.query);
+    const response = h.response({
       status: 'success',
       data,
     });
+    return response;
   }
 
   async getTotalUsersHolByProgramHandler(request, h) {
-    const total = this._container.getInstance(HOLGetTotalUsersByProgramUseCase.name);
-    const data = await total.execute(request.query);
-    return h.response({
+    const useCase = this._container.getInstance(HOLGetTotalUsersByProgramUseCase.name);
+    const data = await useCase.execute(request.query);
+    const response = h.response({
       status: 'success',
       data,
     });
+    return response;
   }
 
   async putHolUsersHandler(request, h) {
-    const updateUsersUseCase = this._container.getInstance(HOLUpdateUsersUseCase.name);
-    await updateUsersUseCase.execute(request.params, request.payload);
+    const useCase = this._container.getInstance(HOLUpdateUsersUseCase.name);
+    await useCase.execute(request.params, request.payload);
     const response = h.response({
       status: 'success',
       message: 'updated users successfully',
@@ -109,8 +105,8 @@ class HolUsersHandler {
     return response;
   }
   async deleteHolUsersHandler(request, h) {
-    const deleteUsersUseCase = this._container.getInstance(HOLDeleteUsersUseCase.name);
-    await deleteUsersUseCase.execute(request.params);
+    const useCase = this._container.getInstance(HOLDeleteUsersUseCase.name);
+    await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
       message: 'deleted users successfully',

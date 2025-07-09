@@ -14,41 +14,38 @@ class HolUsersWorkExpHandler {
     this.deleteHolUsersWorkExpHandler = this.deleteHolUsersWorkExpHandler.bind(this);
   }
   async postHolUsersWorkExpHandler(request, h) {
-    const createHolUsersWorkExpUseCase = this._container.getInstance(HOLCreateUsersWorkExpUseCase.name);
-    await createHolUsersWorkExpUseCase.execute(request.payload);
+    const useCase = this._container.getInstance(HOLCreateUsersWorkExpUseCase.name);
+    const data = await useCase.execute(request.payload);
 
     const response = h.response({
       status: 'success',
       message: 'added work experience successfully!',
+      data,
     });
     response.code(201);
     return response;
   }
   async getHolUsersWorkExpHandler(request, h) {
-    const getAllUsersWorkExpUseCase = this._container.getInstance(HOLGetUsersWorkExpUseCase.name);
-    const data = await getAllUsersWorkExpUseCase.execute(request.query);
+    const useCase = this._container.getInstance(HOLGetUsersWorkExpUseCase.name);
+    const data = await useCase.execute(request.query);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      data,
     });
     return response;
   }
   async getHolUsersWorkExpByIdHandler(request, h) {
-    const getUsersExpByIdsUseCase = this._container.getInstance(HOLGetUsersWorkExpByIdUseCase.name);
-    const data = await getUsersExpByIdsUseCase.execute(request.params);
+    const useCase = this._container.getInstance(HOLGetUsersWorkExpByIdUseCase.name);
+    const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      data,
     });
     return response;
   }
   async putHolUsersWorkExpHandler(request, h) {
-    const updateUsersWorkExpUseCase = this._container.getInstance(HOLUpdateUsersWorkExpUseCase.name);
-    await updateUsersWorkExpUseCase.execute(request.params, request.payload);
+    const useCase = this._container.getInstance(HOLUpdateUsersWorkExpUseCase.name);
+    await useCase.execute(request.params, request.payload);
     const response = h.response({
       status: 'success',
       message: 'updated work experience successfully',
@@ -56,8 +53,8 @@ class HolUsersWorkExpHandler {
     return response;
   }
   async deleteHolUsersWorkExpHandler(request, h) {
-    const deleteUsersWorkExpUseCase = this._container.getInstance(HOLDeleteUsersWorkExpUseCase.name);
-    await deleteUsersWorkExpUseCase.execute(request.params);
+    const useCase = this._container.getInstance(HOLDeleteUsersWorkExpUseCase.name);
+    await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
       message: 'deleted work experience successfully',

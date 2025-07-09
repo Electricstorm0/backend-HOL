@@ -16,78 +16,58 @@ class HolUsersInvolvementsHandler {
     this.deleteHolUsersInvolvementsHandler = this.deleteHolUsersInvolvementsHandler.bind(this);
   }
   async postHolUsersInvolvementsHandler(request, h) {
-    try {
-      const createHolUsersInvolvementsUseCase = this._container.getInstance(HOLCreateUsersInvolvementsUseCase.name);
-      await createHolUsersInvolvementsUseCase.execute(request.payload);
+    const useCase = this._container.getInstance(HOLCreateUsersInvolvementsUseCase.name);
+    const data = await useCase.execute(request.payload);
 
-      return h
-        .response({
-          status: 'success',
-          message: 'added Involvements successfully!',
-        })
-        .code(201);
-    } catch (error) {
-      return h
-        .response({
-          status: 'fail',
-          message: error.message,
-        })
-        .code(400);
-    }
-  }
-  async getHolUsersInvolvementsHandler(request, h) {
-    const getAllUsersInvolvementsUseCase = this._container.getInstance(HOLGetUsersInvolvementsUseCase.name);
-    const data = await getAllUsersInvolvementsUseCase.execute(request.query);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      message: 'added Involvements successfully!',
+      data,
+    });
+    response.code(201);
+    return response;
+  }
+  async getHolUsersInvolvementsHandler(request, h) {
+    const useCase = this._container.getInstance(HOLGetUsersInvolvementsUseCase.name);
+    const data = await useCase.execute(request.query);
+    const response = h.response({
+      status: 'success',
+      data,
     });
     return response;
   }
   async getHolUsersInvolvementsByIdHandler(request, h) {
-    const getUsersInvolveByIdsUseCase = this._container.getInstance(HOLGetUsersInvolvementsByIdUseCase.name);
-    const data = await getUsersInvolveByIdsUseCase.execute(request.params);
+    const useCase = this._container.getInstance(HOLGetUsersInvolvementsByIdUseCase.name);
+    const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
-      data: {
-        data,
-      },
+      data,
     });
     return response;
   }
 
   async getHolDetailInvolvementsHandler(request, h) {
-    try {
-      const getDetailInvolveUseCase = this._container.getInstance(HOLGetDetailInvolvementsUseCase.name);
-      const data = await getDetailInvolveUseCase.execute(request.params);
-      const response = h.response({
-        status: 'success',
-        data,
-      });
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
+    const useCase = this._container.getInstance(HOLGetDetailInvolvementsUseCase.name);
+    const data = await useCase.execute(request.params);
+    const response = h.response({
+      status: 'success',
+      data,
+    });
+    return response;
   }
 
   async putHolUsersInvolvementsHandler(request, h) {
-    try {
-      const updateUsersInvolvementsUseCase = this._container.getInstance(HOLUpdateUsersInvolvementsUseCase.name);
-      await updateUsersInvolvementsUseCase.execute(request.params, request.payload);
-      const response = h.response({
-        status: 'success',
-        message: 'updated Involvements successfully',
-      });
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
+    const useCase = this._container.getInstance(HOLUpdateUsersInvolvementsUseCase.name);
+    await useCase.execute(request.params, request.payload);
+    const response = h.response({
+      status: 'success',
+      message: 'updated Involvements successfully',
+    });
+    return response;
   }
   async deleteHolUsersInvolvementsHandler(request, h) {
-    const deleteUsersInvolvementsUseCase = this._container.getInstance(HOLDeleteUsersInvolvementsUseCase.name);
-    await deleteUsersInvolvementsUseCase.execute(request.params);
+    const useCase = this._container.getInstance(HOLDeleteUsersInvolvementsUseCase.name);
+    await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
       message: 'deleted Involvements successfully',

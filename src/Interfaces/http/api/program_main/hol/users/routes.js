@@ -53,6 +53,13 @@ const routes = (handler) => [
     method: 'DELETE',
     path: '/users/{id}',
     handler: handler.deleteHolUsersHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
 ];
 

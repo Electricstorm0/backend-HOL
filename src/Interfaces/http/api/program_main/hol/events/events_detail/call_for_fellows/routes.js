@@ -1,31 +1,49 @@
 const routes = (handler) => [
   {
     method: 'POST',
-    path: '/call-for-fellows',
+    path: '/events/call-for-fellows',
     handler: handler.postCFFHandler,
     options: {
-      auth: false,
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
     },
   },
   {
     method: 'GET',
-    path: '/call-for-fellows', //http://localhost:3000/hol/call-for-fellows?holEventsTypeId=2&page=1&pageSize=5
+    path: '/events/call-for-fellows', //http://localhost:3000/hol/events/call-for-fellows?holEventsTypeId=2&page=1&pageSize=5
     handler: handler.getCFFHandler,
   },
   {
     method: 'GET',
-    path: '/call-for-fellows/{id}',
+    path: '/events/call-for-fellows/{id}',
     handler: handler.getCFFByIdHandler,
   },
   {
     method: 'PUT',
-    path: '/call-for-fellows/{id}',
+    path: '/events/call-for-fellows/{id}',
     handler: handler.putCFFHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'DELETE',
-    path: '/call-for-fellows/{id}',
+    path: '/events/call-for-fellows/{id}',
     handler: handler.deleteCFFHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
 ];
 

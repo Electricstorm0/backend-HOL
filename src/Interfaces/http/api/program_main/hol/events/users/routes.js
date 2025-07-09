@@ -39,13 +39,6 @@ const routes = (handler) => [
     method: 'GET',
     path: '/events/users/{id}',
     handler: handler.getHolUsersEventsByIdHandler,
-    options: {
-      auth: {
-        access: {
-          scope: ['3'],
-        },
-      },
-    },
   },
   {
     method: 'GET',

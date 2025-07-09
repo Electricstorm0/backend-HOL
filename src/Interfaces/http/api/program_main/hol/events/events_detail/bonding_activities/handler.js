@@ -14,22 +14,20 @@ class BAHandler {
     this.deleteBAHandler = this.deleteBAHandler.bind(this);
   }
   async postBAHandler(request, h) {
-    const createBAUseCase = this._container.getInstance(CreateBAUseCase.name);
-    const addedActivities = await createBAUseCase.execute(request.payload);
+    const useCase = this._container.getInstance(CreateBAUseCase.name);
+    const data = await useCase.execute(request.payload);
 
     const response = h.response({
       status: 'success',
       message: 'added events successfully!',
-      data: {
-        addedActivities,
-      },
+      data,
     });
     response.code(201);
     return response;
   }
   async getBAHandler(request, h) {
-    const getAllBAUseCase = this._container.getInstance(GetBAUseCase.name);
-    const data = await getAllBAUseCase.execute(request.query);
+    const useCase = this._container.getInstance(GetBAUseCase.name);
+    const data = await useCase.execute(request.query);
     const response = h.response({
       status: 'success',
       data,
@@ -37,8 +35,8 @@ class BAHandler {
     return response;
   }
   async getBAByIdHandler(request, h) {
-    const getBAByIdUseCase = this._container.getInstance(GetBAByIdUseCase.name);
-    const data = await getBAByIdUseCase.execute(request.params);
+    const useCase = this._container.getInstance(GetBAByIdUseCase.name);
+    const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
       data,
@@ -46,8 +44,8 @@ class BAHandler {
     return response;
   }
   async putBAHandler(request, h) {
-    const updatedBAUseCase = this._container.getInstance(UpdateBAUseCase.name);
-    await updatedBAUseCase.execute(request.params, request.payload);
+    const useCase = this._container.getInstance(UpdateBAUseCase.name);
+    await useCase.execute(request.params, request.payload);
     const response = h.response({
       status: 'success',
       message: ' updated events successfully',
@@ -55,8 +53,8 @@ class BAHandler {
     return response;
   }
   async deleteBAHandler(request, h) {
-    const deleteBAUseCase = this._container.getInstance(DeleteBAUseCase.name);
-    await deleteBAUseCase.execute(request.params);
+    const useCase = this._container.getInstance(DeleteBAUseCase.name);
+    await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
       message: 'deleted events successfully',

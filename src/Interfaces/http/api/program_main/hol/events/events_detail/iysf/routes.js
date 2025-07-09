@@ -1,31 +1,49 @@
 const routes = (handler) => [
   {
     method: 'POST',
-    path: '/iysf',
+    path: '/events/iysf',
     handler: handler.postIYSFHandler,
     options: {
-      auth: false,
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
     },
   },
   {
     method: 'GET',
-    path: '/iysf', //http://localhost:3000/hol/iysf?holEventsTypeId=2&page=1&pageSize=5
+    path: '/events/iysf', //http://localhost:3000/hol/events/iysf?holEventsTypeId=2&page=1&pageSize=5
     handler: handler.getIYSFHandler,
   },
   {
     method: 'GET',
-    path: '/iysf/{id}',
+    path: '/events/iysf/{id}',
     handler: handler.getIYSFByIdHandler,
   },
   {
     method: 'PUT',
-    path: '/iysf/{id}',
+    path: '/events/iysf/{id}',
     handler: handler.putIYSFHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'DELETE',
-    path: '/iysf/{id}',
+    path: '/events/iysf/{id}',
     handler: handler.deleteIYSFHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
 ];
 
