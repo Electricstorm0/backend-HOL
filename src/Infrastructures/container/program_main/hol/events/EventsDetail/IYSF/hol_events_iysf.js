@@ -5,11 +5,11 @@ const HOLEventsRepository = require('../../../../../../../Domains/program_main/h
 const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/HOLEventsRepositoryMySQL');
 const HOLEventsIYSFRepository = require('../../../../../../../Domains/program_main/hol/Events/EventsDetail/IYSF/HOLEventsIYSFRepository');
 const HOLEventsIYSFRepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/EventsDetail/IYSF/HOLEventsIYSFRepositoryMySQL');
-const CreateIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLCreateIYSFUseCase');
-const GetIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLGetIYSFUseCase');
-const GetIYSFByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLGetIYSFByIdUseCase');
-const UpdateIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLUpdateIYSFUseCase');
-const DeleteIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLDeleteIYSFUseCase');
+const CreateIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLCreateIYSFUseCase');
+const GetIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLGetIYSFUseCase');
+const GetIYSFByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLGetIYSFByIdUseCase');
+const UpdateIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLUpdateIYSFUseCase');
+const DeleteIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLDeleteIYSFUseCase');
 const events = [
   // REPOSITORY
   {

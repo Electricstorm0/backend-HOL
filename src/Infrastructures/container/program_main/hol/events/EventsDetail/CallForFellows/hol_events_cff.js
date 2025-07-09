@@ -5,11 +5,11 @@ const HOLEventsRepository = require('../../../../../../../Domains/program_main/h
 const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/HOLEventsRepositoryMySQL');
 const HOLEventsCFFRepository = require('../../../../../../../Domains/program_main/hol/Events/EventsDetail/CallForFellows/HOLEventsCFFRepository');
 const HOLEventsCFFRepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/EventsDetail/CallForFellows/HOLEventsCFFRepositoryMySQL');
-const CreateCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/CallForFellows/HOLCreateCFFUseCase');
-const GetCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/CallForFellows/HOLGetCFFUseCase');
-const GetCFFByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/CallForFellows/HOLGetCFFByIdUseCase');
-const UpdateCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/CallForFellows/HOLUpdateCFFUseCase');
-const DeleteCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/CallForFellows/HOLDeleteCFFUseCase');
+const CreateCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLCreateCFFUseCase');
+const GetCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLGetCFFUseCase');
+const GetCFFByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLGetCFFByIdUseCase');
+const UpdateCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLUpdateCFFUseCase');
+const DeleteCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLDeleteCFFUseCase');
 const events = [
   // REPOSITORY
   {

@@ -1,8 +1,8 @@
-const CreateIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLCreateIYSFUseCase');
-const DeleteIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLDeleteIYSFUseCase');
-const GetIYSFByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLGetIYSFByIdUseCase');
-const GetIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLGetIYSFUseCase');
-const UpdateIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/IYSF/HOLUpdateIYSFUseCase');
+const CreateIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLCreateIYSFUseCase');
+const DeleteIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLDeleteIYSFUseCase');
+const GetIYSFByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLGetIYSFByIdUseCase');
+const GetIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLGetIYSFUseCase');
+const UpdateIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLUpdateIYSFUseCase');
 
 class IYSFHandler {
   constructor(container) {
