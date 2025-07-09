@@ -1,8 +1,8 @@
-const CreateBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLCreateBAUseCase');
-const DeleteBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLDeleteBAUseCase');
-const GetBAByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLGetBAByIdUseCase');
-const GetBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLGetBAUseCase');
-const UpdateBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLUpdateBAUseCase');
+const CreateBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLCreateBAUseCase');
+const DeleteBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLDeleteBAUseCase');
+const GetBAByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLGetBAByIdUseCase');
+const GetBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLGetBAUseCase');
+const UpdateBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLUpdateBAUseCase');
 
 class BAHandler {
   constructor(container) {

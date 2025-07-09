@@ -5,11 +5,11 @@ const HOLEventsRepository = require('../../../../../../../Domains/program_main/h
 const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/HOLEventsRepositoryMySQL');
 const HOLEventsBARepository = require('../../../../../../../Domains/program_main/hol/Events/EventsDetail/BondingActivities/HOLEventsBARepository');
 const HOLEventsBARepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/EventsDetail/BondingActivities/HOLEventsBARepositoryMySQL');
-const CreateBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLCreateBAUseCase');
-const GetBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLGetBAUseCase');
-const GetBAByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLGetBAByIdUseCase');
-const UpdateBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLUpdateBAUseCase');
-const DeleteBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLDeleteBAUseCase');
+const CreateBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLCreateBAUseCase');
+const GetBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLGetBAUseCase');
+const GetBAByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLGetBAByIdUseCase');
+const UpdateBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLUpdateBAUseCase');
+const DeleteBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Events/BondingActivities/HOLDeleteBAUseCase');
 const events = [
   // REPOSITORY
   {
