@@ -23,8 +23,8 @@ const HolUsersExpHandler = require('./Users/Journey/WorkExperience/handler');
 const HolUsersInvolveRoutes = require('./Users/Journey/Involvements/routes');
 const HolUsersInvolveHandler = require('./Users/Journey/Involvements/handler');
 // recommendations
-const HOLRecommendationRoutes = require('./temp-Recommendations/routes');
-const HOLRecommendationsHandler = require('./temp-Recommendations/handler');
+const HOLRecommendationRoutes = require('./Recommendations/routes');
+const HOLRecommendationsHandler = require('./Recommendations/handler');
 // article
 const HOLArticleRoutes = require('./Articles/routes');
 const HOLArticleHandler = require('./Articles/handler');
