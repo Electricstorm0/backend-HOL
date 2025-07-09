@@ -38,11 +38,25 @@ const routes = (handler) => [
     method: 'GET',
     path: '/users/total',
     handler: handler.getTotalUsersHolHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
     path: '/users/program/total',
     handler: handler.getTotalUsersHolByProgramHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'PUT',

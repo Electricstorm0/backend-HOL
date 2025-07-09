@@ -1,5 +1,3 @@
-const { options } = require('@hapi/hapi/lib/cors');
-
 const routes = (handler) => [
   {
     method: 'POST',
@@ -11,16 +9,37 @@ const routes = (handler) => [
     method: 'GET',
     path: '/events/type/{holEventsTypeId}/users/total',
     handler: handler.getTotalUsersEventsByEventsTypeHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
     path: '/events/{eventsHOLId}/users/total-by-program',
     handler: handler.getTotalUsersEventsGroupByProgramHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
     path: '/events/{eventsHOLId}/users/total',
     handler: handler.getTotalUsersEventsByEventsIdAndStatusHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   // ------------------------------------------------
   {
