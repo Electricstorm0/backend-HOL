@@ -6,11 +6,11 @@ const HOLUsersAchievementsRepository = require('../../../../../../../Domains/pro
 const HOLUsersAchievementsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Users/Journey/Achievements/HOLUsersAchievementsRepositoryMySQL');
 
 // USE CASE
-const HOLCreateUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLCreateUsersAchievementsUseCase');
-const HOLGetUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLGetUsersAchievementsUseCase');
-const HOLGetUsersAchievementsByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLGetUsersAchievementsByIdUseCase');
-const HOLUpdateUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLUpdateUsersAchievementsUseCase');
-const HOLDeleteUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLDeleteUsersAchievementsUseCase');
+const HOLCreateUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/Achievements/HOLCreateUsersAchievementsUseCase');
+const HOLGetUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/Achievements/HOLGetUsersAchievementsUseCase');
+const HOLGetUsersAchievementsByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/Achievements/HOLGetUsersAchievementsByIdUseCase');
+const HOLUpdateUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/Achievements/HOLUpdateUsersAchievementsUseCase');
+const HOLDeleteUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/temp-Users/Journey/Achievements/HOLDeleteUsersAchievementsUseCase');
 const achieve = [
   // REPOSITORY
   {
