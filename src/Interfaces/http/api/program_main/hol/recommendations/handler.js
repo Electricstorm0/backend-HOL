@@ -1,11 +1,11 @@
-const HOLCreateRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Recommendation/HOLCreateRecommendationUseCase');
-const HOLGetAllRecommendationByStatusUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Recommendation/HOLGetAllRecommendationByStatusUseCase');
-const HOLGetAllUsersRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Recommendation/HOLGetAllUsersRecommendationUseCase');
-const HOLGetRecommendationByIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Recommendation/HOLGetRecommendationByIdUseCase');
-const HOLGetRecommendationByUserIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Recommendation/HOLGetRecommendationByUserIdUseCase');
-const HOLGetTotalUsersRecomendationByStatusUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Recommendation/HOLGetTotalUsersRecomendationByStatusUseCase');
-const HOLGetTotalUsersRecomendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Recommendation/HOLGetTotalUsersRecomendationUseCase');
-const HOLUpdateStatusRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Recommendation/HOLUpdateStatusRecommendationUseCase');
+const HOLCreateRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/temp-Recommendations/HOLCreateRecommendationUseCase');
+const HOLGetAllRecommendationByStatusUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/temp-Recommendations/HOLGetAllRecommendationByStatusUseCase');
+const HOLGetAllUsersRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/temp-Recommendations/HOLGetAllUsersRecommendationUseCase');
+const HOLGetRecommendationByIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/temp-Recommendations/HOLGetRecommendationByIdUseCase');
+const HOLGetRecommendationByUserIdUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/temp-Recommendations/HOLGetRecommendationByUserIdUseCase');
+const HOLGetTotalUsersRecomendationByStatusUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/temp-Recommendations/HOLGetTotalUsersRecomendationByStatusUseCase');
+const HOLGetTotalUsersRecomendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/temp-Recommendations/HOLGetTotalUsersRecomendationUseCase');
+const HOLUpdateStatusRecommendationUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/temp-Recommendations/HOLUpdateStatusRecommendationUseCase');
 
 class HolRecommendationHandler {
   constructor(container) {
