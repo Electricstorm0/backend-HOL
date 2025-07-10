@@ -5,18 +5,18 @@ const HOLEventsRepository = require('../../../../../../Domains/program_main/hol/
 const HOLEventsRepositoryMySQL = require('../../../../../repository/program_main/hol/Events/HOLEventsRepositoryMySQL');
 const HOLUsersEventsRepository = require('../../../../../../Domains/program_main/hol/Events/HOLUsersEventsRepository');
 const HOLUsersEventsRepositoryMySQL = require('../../../../../repository/program_main/hol/Events/HOLUsersEventsRepositoryMySQL');
-const HOLCreateUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLCreateUsersEventsUseCase');
-const HOLGetUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLGetUsersEventsUseCase');
-const HOLGetUsersEventByIdsUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLGetUsersEventsByIdUseCase');
-const HOLGetUsersEventsByEventsIdUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLGetUsersEventsByEventsIdUseCase');
+const HOLCreateUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLCreateUsersEventsUseCase');
+const HOLGetUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsUseCase');
+const HOLGetUsersEventByIdsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByIdUseCase');
+const HOLGetUsersEventsByEventsIdUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByEventsIdUseCase');
 // get total users events
-const HOLGetTotalUsersEventsByEventsTypeUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLGetTotalUsersEventsByEventsTypeUseCase');
-const HOLGetTotalUsersEventsGroupByProgramUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLGetTotalUsersEventsGroupByProgramUseCase');
-const HOLGetTotalUsersEventsByEventsIdAndStatusUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLGetTotalUsersEventsByEventsIdAndStatusUseCase');
+const HOLGetTotalUsersEventsByEventsTypeUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetTotalUsersEventsByEventsTypeUseCase');
+const HOLGetTotalUsersEventsGroupByProgramUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetTotalUsersEventsGroupByProgramUseCase');
+const HOLGetTotalUsersEventsByEventsIdAndStatusUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetTotalUsersEventsByEventsIdAndStatusUseCase');
 // update dan delete
-const HOLUpdateAttendeUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLUpdateAttendeUsersEventsUseCase');
-const HOLUpdateStatusUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLUpdateStatusUsersEventsUseCase');
-const HOLDeleteUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/Users/HOLDeleteUsersEventsUseCase');
+const HOLUpdateAttendeUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLUpdateAttendeUsersEventsUseCase');
+const HOLUpdateStatusUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLUpdateStatusUsersEventsUseCase');
+const HOLDeleteUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLDeleteUsersEventsUseCase');
 const users_events = [
   // REPOSITORY
   {
