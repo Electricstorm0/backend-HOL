@@ -1,8 +1,8 @@
-const HOLCreateUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLCreateUsersWorkExpUseCase');
-const HOLGetUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLGetUsersWorkExpUseCase');
-const HOLGetUsersWorkExpByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLGetUsersWorkExpByIdUseCase');
-const HOLUpdateUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLUpdateUsersWorkExpUseCase');
-const HOLDeleteUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLDeleteUsersWorkExpUseCase');
+const HOLCreateUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Users/Journey/WorkExperience/HOLCreateUsersWorkExpUseCase');
+const HOLGetUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Users/Journey/WorkExperience/HOLGetUsersWorkExpUseCase');
+const HOLGetUsersWorkExpByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Users/Journey/WorkExperience/HOLGetUsersWorkExpByIdUseCase');
+const HOLUpdateUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Users/Journey/WorkExperience/HOLUpdateUsersWorkExpUseCase');
+const HOLDeleteUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Users/Journey/WorkExperience/HOLDeleteUsersWorkExpUseCase');
 const autoBind = require('auto-bind');
 
 class HolUsersWorkExpHandler {

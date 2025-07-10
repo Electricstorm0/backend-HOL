@@ -1,9 +1,9 @@
 const autoBind = require('auto-bind');
-const CreateCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLCreateCFFUseCase');
-const DeleteCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLDeleteCFFUseCase');
-const GetCFFByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLGetCFFByIdUseCase');
-const GetCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLGetCFFUseCase');
-const UpdateCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLUpdateCFFUseCase');
+const CreateCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/CallForFellows/HOLCreateCFFUseCase');
+const DeleteCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/CallForFellows/HOLDeleteCFFUseCase');
+const GetCFFByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/CallForFellows/HOLGetCFFByIdUseCase');
+const GetCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/CallForFellows/HOLGetCFFUseCase');
+const UpdateCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/temp-HOL/Events/CallForFellows/HOLUpdateCFFUseCase');
 
 class CFFHandler {
   constructor(container) {
