@@ -2,9 +2,9 @@ const pool = require('../../../../../database/mysql/pool');
 
 // const MasterHOLAreaRepository = require('../../../../../../');
 const HOLEventsRepository = require('../../../../../../Domains/program_main/hol/events/HOLEventsRepository');
-const HOLEventsRepositoryMySQL = require('../../../../../repository/program_main/hol/Events/HOLEventsRepositoryMySQL');
+const HOLEventsRepositoryMySQL = require('../../../../../repository/program_main/hol/temp-Events/HOLEventsRepositoryMySQL');
 const HOLUsersEventsRepository = require('../../../../../../Domains/program_main/hol/events/HOLUsersEventsRepository');
-const HOLUsersEventsRepositoryMySQL = require('../../../../../repository/program_main/hol/Events/HOLUsersEventsRepositoryMySQL');
+const HOLUsersEventsRepositoryMySQL = require('../../../../../repository/program_main/hol/temp-Events/HOLUsersEventsRepositoryMySQL');
 const HOLCreateUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLCreateUsersEventsUseCase');
 const HOLGetUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsUseCase');
 const HOLGetUsersEventByIdsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByIdUseCase');

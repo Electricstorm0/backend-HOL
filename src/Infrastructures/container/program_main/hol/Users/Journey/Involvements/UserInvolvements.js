@@ -4,7 +4,7 @@ const pool = require('../../../../../../database/mysql/pool');
 const HOLUsersInvolvementsRepository = require('../../../../../../../Domains/program_main/hol/Users/Journey/Involvements/HOLUsersInvolvementsRepository');
 const HOLUsersInvolvementsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Users/Journey/Involvements/HOLUsersInvolvementsRepositoryMySQL');
 const HOLUsersEventsRepository = require('../../../../../../../Domains/program_main/hol/events/HOLUsersEventsRepository');
-const HOLUsersEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/HOLUsersEventsRepositoryMySQL');
+const HOLUsersEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/temp-Events/HOLUsersEventsRepositoryMySQL');
 
 // USECASE
 const HOLCreateUsersInvolvementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLCreateUsersInvolvementsUseCase');
