@@ -1,3 +1,4 @@
+const autoBind = require('auto-bind');
 const CreateIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLCreateIYSFUseCase');
 const DeleteIYSFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLDeleteIYSFUseCase');
 const GetIYSFByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/IYSF/HOLGetIYSFByIdUseCase');
@@ -7,11 +8,7 @@ const UpdateIYSFUseCase = require('../../../../../../../../Applications/use_case
 class IYSFHandler {
   constructor(container) {
     this._container = container;
-    this.postIYSFHandler = this.postIYSFHandler.bind(this);
-    this.getIYSFHandler = this.getIYSFHandler.bind(this);
-    this.getIYSFByIdHandler = this.getIYSFByIdHandler.bind(this);
-    this.putIYSFHandler = this.putIYSFHandler.bind(this);
-    this.deleteIYSFHandler = this.deleteIYSFHandler.bind(this);
+    autoBind(this);
   }
   async postIYSFHandler(request, h) {
     const useCase = this._container.getInstance(CreateIYSFUseCase.name);

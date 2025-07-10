@@ -4,16 +4,12 @@ const HOLGetUsersInvolvementsByIdUseCase = require('../../../../../../../../Appl
 const HOLUpdateUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Involvements/HOLUpdateUsersInvolvementsUseCase');
 const HOLDeleteUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Involvements/HOLDeleteUsersInvolvementsUseCase');
 const HOLGetDetailInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Involvements/HOLGetDetailInvolvementsUseCase');
+const autoBind = require('auto-bind');
 
 class HolUsersInvolvementsHandler {
   constructor(container) {
     this._container = container;
-    this.postHolUsersInvolvementsHandler = this.postHolUsersInvolvementsHandler.bind(this);
-    this.getHolUsersInvolvementsHandler = this.getHolUsersInvolvementsHandler.bind(this);
-    this.getHolDetailInvolvementsHandler = this.getHolDetailInvolvementsHandler.bind(this);
-    this.getHolUsersInvolvementsByIdHandler = this.getHolUsersInvolvementsByIdHandler.bind(this);
-    this.putHolUsersInvolvementsHandler = this.putHolUsersInvolvementsHandler.bind(this);
-    this.deleteHolUsersInvolvementsHandler = this.deleteHolUsersInvolvementsHandler.bind(this);
+    autoBind(this);
   }
   async postHolUsersInvolvementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLCreateUsersInvolvementsUseCase.name);

@@ -7,20 +7,12 @@ const HOLUpdateUsersUseCase = require('../../../../../../Applications/use_case/P
 const HOLGetUsersMeDetailUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Users/HOLGetUsersMeDetailUseCase');
 const HOLGetTotalUsersUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Users/HOLGetTotalUsersUseCase');
 const HOLGetTotalUsersByProgramUseCase = require('../../../../../../Applications/use_case/Program_Main/hol/Users/HOLGetTotalUsersByProgramUseCase');
-// const HOLGetUsersMeDetail = require('../../../../../../Domains/program_main/hol/users/entities/HOLGetUsersMeDetail');
+const autoBind = require('auto-bind');
 
 class HolUsersHandler {
   constructor(container) {
     this._container = container;
-    this.postHolUsersHandler = this.postHolUsersHandler.bind(this);
-    this.getHolUsersHandler = this.getHolUsersHandler.bind(this);
-    this.getHolUsersByIdHandler = this.getHolUsersByIdHandler.bind(this);
-    this.getOwnUsersHandler = this.getOwnUsersHandler.bind(this);
-    this.getOwnUsersDetailHandler = this.getOwnUsersDetailHandler.bind(this);
-    this.getTotalUsersHolHandler = this.getTotalUsersHolHandler.bind(this);
-    this.getTotalUsersHolByProgramHandler = this.getTotalUsersHolByProgramHandler.bind(this);
-    this.putHolUsersHandler = this.putHolUsersHandler.bind(this);
-    this.deleteHolUsersHandler = this.deleteHolUsersHandler.bind(this);
+    autoBind(this);
   }
   async postHolUsersHandler(request, h) {
     const useCase = this._container.getInstance(HOLCreateUsersUseCase.name);

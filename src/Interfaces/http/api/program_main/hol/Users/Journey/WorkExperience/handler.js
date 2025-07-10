@@ -3,15 +3,12 @@ const HOLGetUsersWorkExpUseCase = require('../../../../../../../../Applications/
 const HOLGetUsersWorkExpByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLGetUsersWorkExpByIdUseCase');
 const HOLUpdateUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLUpdateUsersWorkExpUseCase');
 const HOLDeleteUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/WorkExperience/HOLDeleteUsersWorkExpUseCase');
+const autoBind = require('auto-bind');
 
 class HolUsersWorkExpHandler {
   constructor(container) {
     this._container = container;
-    this.postHolUsersWorkExpHandler = this.postHolUsersWorkExpHandler.bind(this);
-    this.getHolUsersWorkExpHandler = this.getHolUsersWorkExpHandler.bind(this);
-    this.getHolUsersWorkExpByIdHandler = this.getHolUsersWorkExpByIdHandler.bind(this);
-    this.putHolUsersWorkExpHandler = this.putHolUsersWorkExpHandler.bind(this);
-    this.deleteHolUsersWorkExpHandler = this.deleteHolUsersWorkExpHandler.bind(this);
+    autoBind(this);
   }
   async postHolUsersWorkExpHandler(request, h) {
     const useCase = this._container.getInstance(HOLCreateUsersWorkExpUseCase.name);

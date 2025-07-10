@@ -1,3 +1,4 @@
+const autoBind = require('auto-bind');
 const CreateBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLCreateBAUseCase');
 const DeleteBAUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLDeleteBAUseCase');
 const GetBAByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/BondingActivities/HOLGetBAByIdUseCase');
@@ -7,11 +8,7 @@ const UpdateBAUseCase = require('../../../../../../../../Applications/use_case/P
 class BAHandler {
   constructor(container) {
     this._container = container;
-    this.postBAHandler = this.postBAHandler.bind(this);
-    this.getBAHandler = this.getBAHandler.bind(this);
-    this.getBAByIdHandler = this.getBAByIdHandler.bind(this);
-    this.putBAHandler = this.putBAHandler.bind(this);
-    this.deleteBAHandler = this.deleteBAHandler.bind(this);
+    autoBind(this);
   }
   async postBAHandler(request, h) {
     const useCase = this._container.getInstance(CreateBAUseCase.name);

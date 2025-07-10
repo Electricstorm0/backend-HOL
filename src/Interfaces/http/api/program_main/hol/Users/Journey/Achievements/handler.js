@@ -1,3 +1,4 @@
+const autoBind = require('auto-bind');
 const HOLCreateUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLCreateUsersAchievementsUseCase');
 const HOLDeleteUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLDeleteUsersAchievementsUseCase');
 const HOLGetUsersAchievementsByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Users/Journey/Achievements/HOLGetUsersAchievementsByIdUseCase');
@@ -7,11 +8,7 @@ const HOLUpdateUsersAchievementsUseCase = require('../../../../../../../../Appli
 class HolUsersAchievementsHandler {
   constructor(container) {
     this._container = container;
-    this.postHolUsersAchievementsHandler = this.postHolUsersAchievementsHandler.bind(this);
-    this.getHolUsersAchievementsHandler = this.getHolUsersAchievementsHandler.bind(this);
-    this.getHolUsersAchievementsByIdHandler = this.getHolUsersAchievementsByIdHandler.bind(this);
-    this.putHolUsersAchievementsHandler = this.putHolUsersAchievementsHandler.bind(this);
-    this.deleteHolUsersAchievementsHandler = this.deleteHolUsersAchievementsHandler.bind(this);
+    autoBind(this);
   }
   async postHolUsersAchievementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLCreateUsersAchievementsUseCase.name);

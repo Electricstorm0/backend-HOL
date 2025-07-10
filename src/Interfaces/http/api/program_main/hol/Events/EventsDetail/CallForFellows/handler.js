@@ -1,3 +1,4 @@
+const autoBind = require('auto-bind');
 const CreateCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLCreateCFFUseCase');
 const DeleteCFFUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLDeleteCFFUseCase');
 const GetCFFByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/hol/Events/CallForFellows/HOLGetCFFByIdUseCase');
@@ -7,11 +8,7 @@ const UpdateCFFUseCase = require('../../../../../../../../Applications/use_case/
 class CFFHandler {
   constructor(container) {
     this._container = container;
-    this.postCFFHandler = this.postCFFHandler.bind(this);
-    this.getCFFHandler = this.getCFFHandler.bind(this);
-    this.getCFFByIdHandler = this.getCFFByIdHandler.bind(this);
-    this.putCFFHandler = this.putCFFHandler.bind(this);
-    this.deleteCFFHandler = this.deleteCFFHandler.bind(this);
+    autoBind(this);
   }
   async postCFFHandler(request, h) {
     const useCase = this._container.getInstance(CreateCFFUseCase.name);

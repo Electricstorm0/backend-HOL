@@ -8,25 +8,12 @@ const HOLUpdateStatusUsersEventsUseCase = require('../../../../../../../Applicat
 const HOLGetTotalUsersEventsByEventsTypeUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/Users/HOLGetTotalUsersEventsByEventsTypeUseCase');
 const HOLGetTotalUsersEventsGroupByProgramUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/Users/HOLGetTotalUsersEventsGroupByProgramUseCase');
 const HOLGetTotalUsersEventsByEventsIdAndStatusUseCase = require('../../../../../../../Applications/use_case/Program_Main/hol/Events/Users/HOLGetTotalUsersEventsByEventsIdAndStatusUseCase');
+const autoBind = require('auto-bind');
 
 class HolUsersEventsHandler {
   constructor(container) {
     this._container = container;
-    this.postHolUsersEventsHandler = this.postHolUsersEventsHandler.bind(this);
-    // get data users events
-    this.getHolUsersEventsHandler = this.getHolUsersEventsHandler.bind(this);
-    this.getHolUsersEventsByIdHandler = this.getHolUsersEventsByIdHandler.bind(this);
-    this.getHolUsersEventsByEventsIdHandler = this.getHolUsersEventsByEventsIdHandler.bind(this);
-    // get total users events
-    this.getTotalUsersEventsByEventsTypeHandler = this.getTotalUsersEventsByEventsTypeHandler.bind(this); //untuk itung total users berdasarkan tipe events
-    this.getTotalUsersEventsGroupByProgramHandler = this.getTotalUsersEventsGroupByProgramHandler.bind(this); // untuk itung total users yang dikelompokkan berdasarkan program
-    this.getTotalUsersEventsByEventsIdAndStatusHandler = this.getTotalUsersEventsByEventsIdAndStatusHandler.bind(this); // untuk itung total users events berdasarkan status dan events id nya
-
-    // update data users events
-    this.putHolAttendeUsersEventsHandler = this.putHolAttendeUsersEventsHandler.bind(this);
-    this.putHolStatusUsersEventsHandler = this.putHolStatusUsersEventsHandler.bind(this);
-    // delete users events
-    this.deleteHolUsersEventsHandler = this.deleteHolUsersEventsHandler.bind(this);
+    autoBind(this);
   }
   async postHolUsersEventsHandler(request, h) {
     try {
