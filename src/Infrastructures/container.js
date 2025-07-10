@@ -71,10 +71,10 @@ const HOLCFF = require('./container/program_main/hol/events/events_detail/call_f
 const HOLBA = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_events_ba');
 const HOLIYSF = require('./container/program_main/hol/events/events_detail/iysf/hol_events_iysf');
 const HOLUsersEvents = require('./container/program_main/hol/events/users/hol_events_users');
-const HOLUsers = require('./container/program_main/hol/Users/holUsers');
-const HOLUsersAchieve = require('./container/program_main/hol/Users/journey/achievements/UserAchievements');
-const HOLUsersExp = require('./container/program_main/hol/Users/journey/work_experience/UserExperience');
-const HOLUsersInvolve = require('./container/program_main/hol/Users/journey/involvements/UserInvolvements');
+const HOLUsers = require('./container/program_main/hol/temp-Users/holUsers');
+const HOLUsersAchieve = require('./container/program_main/hol/temp-Users/journey/achievements/UserAchievements');
+const HOLUsersExp = require('./container/program_main/hol/temp-Users/journey/work_experience/UserExperience');
+const HOLUsersInvolve = require('./container/program_main/hol/temp-Users/journey/involvements/UserInvolvements');
 const HOLRecommendations = require('./container/program_main/hol/recommendations/holRecommendations');
 const HOLArticle = require('./container/program_main/hol/articles/hol_articles');
 
