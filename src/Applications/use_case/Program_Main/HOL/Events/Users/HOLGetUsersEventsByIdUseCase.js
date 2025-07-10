@@ -1,5 +1,5 @@
 const NotFoundError = require('../../../../../../Commons/exceptions/NotFoundError');
-const GetUsersEvents = require('../../../../../../Domains/program_main/hol/temp-Events/entities/getUsersEvents');
+const GetUsersEvents = require('../../../../../../Domains/program_main/hol/events/entities/getUsersEvents');
 
 class HOLGetUsersEventsByIdUseCase {
   constructor({ HOLUsersEventsRepository }) {

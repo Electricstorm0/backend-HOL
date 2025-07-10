@@ -1,5 +1,5 @@
-const updateEvents = require('../../../../../../Domains/program_main/hol/temp-Events/entities/UpdateEvents');
-const updateBA = require('../../../../../../Domains/program_main/hol/temp-Events/events_detail/bonding_activities/entities/UpdateBA');
+const updateEvents = require('../../../../../../Domains/program_main/hol/events/entities/UpdateEvents');
+const updateBA = require('../../../../../../Domains/program_main/hol/events/events_detail/bonding_activities/entities/UpdateBA');
 
 class UpdateBAUseCase {
   constructor({ HOLEventsRepository, HOLEventsBARepository }) {

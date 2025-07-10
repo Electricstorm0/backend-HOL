@@ -1,9 +1,9 @@
 const pool = require('../../../../../../database/mysql/pool');
 
 const MasterHOLAreaRepository = require('../../../../../../../Domains/program_main/hol/MasterHOLAreaRepository');
-const HOLEventsRepository = require('../../../../../../../Domains/program_main/hol/temp-Events/HOLEventsRepository');
+const HOLEventsRepository = require('../../../../../../../Domains/program_main/hol/events/HOLEventsRepository');
 const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/HOLEventsRepositoryMySQL');
-const HOLEventsBARepository = require('../../../../../../../Domains/program_main/hol/temp-Events/events_detail/bonding_activities/HOLEventsBARepository');
+const HOLEventsBARepository = require('../../../../../../../Domains/program_main/hol/events/events_detail/bonding_activities/HOLEventsBARepository');
 const HOLEventsBARepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/events_detail/bonding_activities/HOLEventsBARepositoryMySQL');
 const CreateBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/BondingActivities/HOLCreateBAUseCase');
 const GetBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/BondingActivities/HOLGetBAUseCase');

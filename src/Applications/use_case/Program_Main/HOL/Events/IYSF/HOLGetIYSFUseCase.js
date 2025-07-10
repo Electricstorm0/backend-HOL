@@ -1,4 +1,4 @@
-const GetIYSF = require('../../../../../../Domains/program_main/hol/temp-Events/events_detail/iysf/entities/GetIYSF');
+const GetIYSF = require('../../../../../../Domains/program_main/hol/events/events_detail/iysf/entities/GetIYSF');
 
 class GetIYSFUseCase {
   constructor({ HOLEventsRepository, HOLEventsIYSFRepository }) {

@@ -1,9 +1,9 @@
 const pool = require('../../../../../../database/mysql/pool');
 
 // const MasterHOLAreaRepository = require('../../../../../../../Domains/program_main/hol/MasterHOLAreaRepository');
-const HOLEventsRepository = require('../../../../../../../Domains/program_main/hol/temp-Events/HOLEventsRepository');
+const HOLEventsRepository = require('../../../../../../../Domains/program_main/hol/events/HOLEventsRepository');
 const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/HOLEventsRepositoryMySQL');
-const HOLEventsIYSFRepository = require('../../../../../../../Domains/program_main/hol/temp-Events/events_detail/iysf/HOLEventsIYSFRepository');
+const HOLEventsIYSFRepository = require('../../../../../../../Domains/program_main/hol/events/events_detail/iysf/HOLEventsIYSFRepository');
 const HOLEventsIYSFRepositoryMySQL = require('../../../../../../repository/program_main/hol/Events/events_detail/iysf/HOLEventsIYSFRepositoryMySQL');
 const CreateIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/IYSF/HOLCreateIYSFUseCase');
 const GetIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/IYSF/HOLGetIYSFUseCase');

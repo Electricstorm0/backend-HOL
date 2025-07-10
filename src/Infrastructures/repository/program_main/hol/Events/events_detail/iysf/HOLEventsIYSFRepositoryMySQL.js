@@ -1,4 +1,4 @@
-const HOLEventsIYSFRepository = require('../../../../../../../Domains/program_main/hol/temp-Events/events_detail/iysf/HOLEventsIYSFRepository');
+const HOLEventsIYSFRepository = require('../../../../../../../Domains/program_main/hol/events/events_detail/iysf/HOLEventsIYSFRepository');
 
 class HOLEventsIYSFRepositoryMySQL extends HOLEventsIYSFRepository {
   constructor(pool) {
