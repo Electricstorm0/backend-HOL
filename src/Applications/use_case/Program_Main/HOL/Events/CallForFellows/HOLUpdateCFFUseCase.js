@@ -1,5 +1,5 @@
-const updateEvents = require('../../../../../../Domains/program_main/hol/Events/entities/UpdateEvents');
-const updateCFF = require('../../../../../../Domains/program_main/hol/Events/EventsDetail/CallForFellows/entities/UpdateCFF');
+const updateEvents = require('../../../../../../Domains/program_main/hol/temp-Events/entities/UpdateEvents');
+const updateCFF = require('../../../../../../Domains/program_main/hol/temp-Events/events_detail/call_for_fellows/entities/UpdateCFF');
 
 class UpdateCFFUseCase {
   constructor({ HOLEventsRepository, HOLEventsCFFRepository }) {
