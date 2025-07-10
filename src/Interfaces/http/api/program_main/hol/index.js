@@ -1,15 +1,15 @@
 // cff
-const cffRoutes = require('./Events/events_detail/call_for_fellows/routes');
-const cffHandler = require('./Events/events_detail/call_for_fellows/handler');
+const cffRoutes = require('./temp-Events/events_detail/call_for_fellows/routes');
+const cffHandler = require('./temp-Events/events_detail/call_for_fellows/handler');
 // ba
-const baRoutes = require('./Events/events_detail/bonding_activities/routes');
-const baHandler = require('./Events/events_detail/bonding_activities/handler');
+const baRoutes = require('./temp-Events/events_detail/bonding_activities/routes');
+const baHandler = require('./temp-Events/events_detail/bonding_activities/handler');
 // iysf
-const iysfRoutes = require('./Events/events_detail/iysf/routes');
-const iysfHandler = require('./Events/events_detail/iysf/handler');
+const iysfRoutes = require('./temp-Events/events_detail/iysf/routes');
+const iysfHandler = require('./temp-Events/events_detail/iysf/handler');
 // users events
-const HolUsersEventsHandler = require('./Events/Users/handler');
-const HolUsersEventsRoutes = require('./Events/Users/routes');
+const HolUsersEventsHandler = require('./temp-Events/Users/handler');
+const HolUsersEventsRoutes = require('./temp-Events/Users/routes');
 // users hol
 const HolUsersHandler = require('./Users/handler');
 const HolUsersRoutes = require('./Users/routes');
