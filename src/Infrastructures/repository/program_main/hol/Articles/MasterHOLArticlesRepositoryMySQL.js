@@ -1,4 +1,4 @@
-const MasterHOLArticlesRepository = require('../../../../../Domains/program_main/hol/temp-Articles/MasterHOLArticlesRepository');
+const MasterHOLArticlesRepository = require('../../../../../Domains/program_main/hol/articles/MasterHOLArticlesRepository');
 
 class MasterHOLArticlesRepositoryMySQL extends MasterHOLArticlesRepository {
   constructor(pool) {

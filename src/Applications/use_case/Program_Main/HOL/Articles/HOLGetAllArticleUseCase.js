@@ -1,4 +1,4 @@
-const HOLGetPublications = require('../../../../../Domains/program_main/hol/temp-Articles/entities/GetPublications');
+const HOLGetPublications = require('../../../../../Domains/program_main/hol/articles/entities/GetPublications');
 // use case untuk di fitur publikasi
 class HOLGetAllArticleUseCase {
   constructor({ MasterHOLArticlesRepository }) {

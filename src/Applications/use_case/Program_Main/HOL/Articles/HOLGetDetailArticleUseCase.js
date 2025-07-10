@@ -1,4 +1,4 @@
-const HOLGetDetailArticle = require('../../../../../Domains/program_main/hol/temp-Articles/entities/GetDetailArticle');
+const HOLGetDetailArticle = require('../../../../../Domains/program_main/hol/articles/entities/GetDetailArticle');
 
 class HOLGetDetailArticleUseCase {
   constructor({ MasterHOLArticlesRepository }) {
