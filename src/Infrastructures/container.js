@@ -67,10 +67,10 @@ const CLPInstitutions = require('./container/program_main/clp/clp_institutions')
 const LEADUsers = require('./container/program_main/lead/lead_users');
 const LEADInstitutions = require('./container/program_main/lead/lead_institutions');
 // HOL
-const HOLCFF = require('./container/program_main/hol/temp-Events/events_detail/call_for_fellows/hol_events_cff');
-const HOLBA = require('./container/program_main/hol/temp-Events/events_detail/bonding_activities/hol_events_ba');
-const HOLIYSF = require('./container/program_main/hol/temp-Events/events_detail/iysf/hol_events_iysf');
-const HOLUsersEvents = require('./container/program_main/hol/temp-Events/users/hol_events_users');
+const HOLCFF = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_events_cff');
+const HOLBA = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_events_ba');
+const HOLIYSF = require('./container/program_main/hol/events/events_detail/iysf/hol_events_iysf');
+const HOLUsersEvents = require('./container/program_main/hol/events/users/hol_events_users');
 const HOLUsers = require('./container/program_main/hol/Users/holUsers');
 const HOLUsersAchieve = require('./container/program_main/hol/Users/Journey/Achievements/UserAchievements');
 const HOLUsersExp = require('./container/program_main/hol/Users/Journey/WorkExperience/UserExperience');
