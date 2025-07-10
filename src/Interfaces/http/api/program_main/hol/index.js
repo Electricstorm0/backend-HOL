@@ -8,8 +8,8 @@ const baHandler = require('./events/events_detail/bonding_activities/handler');
 const iysfRoutes = require('./events/events_detail/iysf/routes');
 const iysfHandler = require('./events/events_detail/iysf/handler');
 // users events
-const HolUsersEventsHandler = require('./events/Users/handler');
-const HolUsersEventsRoutes = require('./events/Users/routes');
+const HolUsersEventsHandler = require('./events/temp-UsersEvents/handler');
+const HolUsersEventsRoutes = require('./events/temp-UsersEvents/routes');
 // users hol
 const HolUsersHandler = require('./users/handler');
 const HolUsersRoutes = require('./users/routes');
