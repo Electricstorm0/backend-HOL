@@ -1,8 +1,8 @@
 const pool = require('../../../../database/mysql/pool');
 const HOLRecommendationsRepository = require('../../../../../Domains/program_main/hol/recommendations/HOLRecommendationsRepository');
-const HOLRecommendationsRepositoryMySQL = require('../../../../repository/program_main/hol/temp-Recommendations/HOLRecommendationsRepositoryMySQL');
+const HOLRecommendationsRepositoryMySQL = require('../../../../repository/program_main/hol/recommendations/HOLRecommendationsRepositoryMySQL');
 const HOLRecommendationsStatusRepository = require('../../../../../Domains/program_main/hol/recommendations/HOLRecommendationsStatusRepository');
-const HOLRecommendationsStatusRepositoryMyQL = require('../../../../repository/program_main/hol/temp-Recommendations/HOLRecommendationsStatusRepositoryMySQL');
+const HOLRecommendationsStatusRepositoryMyQL = require('../../../../repository/program_main/hol/recommendations/HOLRecommendationsStatusRepositoryMySQL');
 
 // Usecase
 const HOLCreateRecommendationUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Recommendations/HOLCreateRecommendationUseCase');
