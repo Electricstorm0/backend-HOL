@@ -2,7 +2,7 @@ const pool = require('../../../../database/mysql/pool');
 
 // const MasterHOLAreaRepository = require('../../../../../../');
 const HOLUsersRepository = require('../../../../../Domains/program_main/hol/users/HOLUsersRepository');
-const HOLUsersRepositoryMySQL = require('../../../../repository/program_main/hol/temp-Users/HOLUsersRepositoryMySQL');
+const HOLUsersRepositoryMySQL = require('../../../../repository/program_main/hol/users/HOLUsersRepositoryMySQL');
 const MasterBatchRepository = require('../../../../../Domains/batch/MasterBatchRepository');
 const MasterProgramRoleRepository = require('../../../../../Domains/program/MasterProgramRoleRepository');
 const OfferedProgramRepository = require('../../../../../Domains/program/OfferedProgramRepository');
