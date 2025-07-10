@@ -1,4 +1,4 @@
-const HOLRecommendationsStatusRepository = require('../../../../../Domains/program_main/hol/temp-Recommendations/HOLRecommendationsStatusRepository');
+const HOLRecommendationsStatusRepository = require('../../../../../Domains/program_main/hol/recommendations/HOLRecommendationsStatusRepository');
 
 class HOLRecommendationsStatusRepositoryMyQL extends HOLRecommendationsStatusRepository {
   constructor(pool) {

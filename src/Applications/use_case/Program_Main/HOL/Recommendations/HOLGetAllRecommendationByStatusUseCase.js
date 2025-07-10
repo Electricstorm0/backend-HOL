@@ -1,4 +1,4 @@
-const getUsersRecommendation = require('../../../../../Domains/program_main/hol/temp-Recommendations/entities/GetUsersRecommendation');
+const getUsersRecommendation = require('../../../../../Domains/program_main/hol/recommendations/entities/GetUsersRecommendation');
 
 class HOLGetAllRecommendationByStatusUseCase {
   constructor({ HOLRecommendationsStatusRepository, HOLRecommendationsRepository }) {
