@@ -26,8 +26,8 @@ const HolUsersInvolveHandler = require('./Users/Journey/Involvements/handler');
 const HOLRecommendationRoutes = require('./Recommendations/routes');
 const HOLRecommendationsHandler = require('./Recommendations/handler');
 // article
-const HOLArticleRoutes = require('./Articles/routes');
-const HOLArticleHandler = require('./Articles/handler');
+const HOLArticleRoutes = require('./temp-Articles/routes');
+const HOLArticleHandler = require('./temp-Articles/handler');
 
 module.exports = {
   name: 'hol',
