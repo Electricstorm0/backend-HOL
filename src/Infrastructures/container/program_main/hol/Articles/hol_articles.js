@@ -1,8 +1,8 @@
 // REPOSITORY
 const HOLUsersArticlesRepository = require('../../../../../Domains/program_main/hol/articles/HOLUsersArticlesRepository');
 const MasterHOLArticlesRepository = require('../../../../../Domains/program_main/hol/articles/MasterHOLArticlesRepository');
-const HOLUsersArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/Articles/HOLUsersArticlesRepositoryMySQL');
-const MasterHOLArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/Articles/MasterHOLArticlesRepositoryMySQL');
+const HOLUsersArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/temp-Articles/HOLUsersArticlesRepositoryMySQL');
+const MasterHOLArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/temp-Articles/MasterHOLArticlesRepositoryMySQL');
 // USECASE
 const HOLCreateArticlesUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLCreateArticlesUseCase');
 const HOLGetAllMyArticleUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLGetAllMyArticleUseCase');
