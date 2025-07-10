@@ -75,7 +75,7 @@ const HOLUsers = require('./container/program_main/hol/Users/holUsers');
 const HOLUsersAchieve = require('./container/program_main/hol/Users/Journey/Achievements/UserAchievements');
 const HOLUsersExp = require('./container/program_main/hol/Users/Journey/WorkExperience/UserExperience');
 const HOLUsersInvolve = require('./container/program_main/hol/Users/Journey/Involvements/UserInvolvements');
-const HOLRecommendations = require('./container/program_main/hol/Recommendations/holRecommendations');
+const HOLRecommendations = require('./container/program_main/hol/recommendations/holRecommendations');
 const HOLArticle = require('./container/program_main/hol/articles/hol_articles');
 
 // DOMAIN REPOSITORY CLP
