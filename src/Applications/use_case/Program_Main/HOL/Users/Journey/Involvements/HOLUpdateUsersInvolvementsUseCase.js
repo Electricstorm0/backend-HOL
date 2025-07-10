@@ -1,4 +1,4 @@
-const updateInvlove = require('../../../../../../../Domains/program_main/hol/Users/Journey/Involvements/entities/UpdateInvolvements');
+const updateInvlove = require('../../../../../../../Domains/program_main/hol/temp-Users/journey/involvements/entities/UpdateInvolvements');
 
 class HOLUpdateUsersInvolvementsUseCase {
   constructor({ HOLUsersInvolvementsRepository }) {

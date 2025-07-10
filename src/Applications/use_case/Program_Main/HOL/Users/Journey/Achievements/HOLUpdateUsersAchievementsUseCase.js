@@ -1,4 +1,4 @@
-const updateAchieve = require('../../../../../../../Domains/program_main/hol/Users/Journey/Achievements/entities/UpdateAchievements');
+const updateAchieve = require('../../../../../../../Domains/program_main/hol/temp-Users/journey/achievements/entities/UpdateAchievements');
 
 class HOLUpdateAchievementsUsersUseCase {
   constructor({ HOLUsersAchievementsRepository }) {

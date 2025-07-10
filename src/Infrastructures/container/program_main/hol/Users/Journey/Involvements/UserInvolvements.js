@@ -1,8 +1,8 @@
 const pool = require('../../../../../../database/mysql/pool');
 
 // const MasterHOLAreaRepository = require('../../../../../../');
-const HOLUsersInvolvementsRepository = require('../../../../../../../Domains/program_main/hol/Users/Journey/Involvements/HOLUsersInvolvementsRepository');
-const HOLUsersInvolvementsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Users/Journey/Involvements/HOLUsersInvolvementsRepositoryMySQL');
+const HOLUsersInvolvementsRepository = require('../../../../../../../Domains/program_main/hol/temp-Users/journey/involvements/HOLUsersInvolvementsRepository');
+const HOLUsersInvolvementsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Users/journey/involvements/HOLUsersInvolvementsRepositoryMySQL');
 const HOLUsersEventsRepository = require('../../../../../../../Domains/program_main/hol/events/HOLUsersEventsRepository');
 const HOLUsersEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/events/HOLUsersEventsRepositoryMySQL');
 
