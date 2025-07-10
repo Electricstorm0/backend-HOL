@@ -1,4 +1,4 @@
-const updateRecommendations = require('../../../../../Domains/program_main/hol/Recommendations/entities/UpdateRecommendations');
+const updateRecommendations = require('../../../../../Domains/program_main/hol/temp-Recommendations/entities/UpdateRecommendations');
 
 class HOLUpdateStatusRecommendationUseCase {
   constructor({ HOLRecommendationsStatusRepository }) {

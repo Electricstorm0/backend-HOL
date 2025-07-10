@@ -1,7 +1,7 @@
 const pool = require('../../../../database/mysql/pool');
-const HOLRecommendationsRepository = require('../../../../../Domains/program_main/hol/Recommendations/HOLRecommendationsRepository');
+const HOLRecommendationsRepository = require('../../../../../Domains/program_main/hol/temp-Recommendations/HOLRecommendationsRepository');
 const HOLRecommendationsRepositoryMySQL = require('../../../../repository/program_main/hol/Recommendations/HOLRecommendationsRepositoryMySQL');
-const HOLRecommendationsStatusRepository = require('../../../../../Domains/program_main/hol/Recommendations/HOLRecommendationsStatusRepository');
+const HOLRecommendationsStatusRepository = require('../../../../../Domains/program_main/hol/temp-Recommendations/HOLRecommendationsStatusRepository');
 const HOLRecommendationsStatusRepositoryMyQL = require('../../../../repository/program_main/hol/Recommendations/HOLRecommendationsStatusRepositoryMySQL');
 
 // Usecase
