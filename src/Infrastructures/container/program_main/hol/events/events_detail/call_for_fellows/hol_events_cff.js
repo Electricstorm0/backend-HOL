@@ -2,9 +2,9 @@ const pool = require('../../../../../../database/mysql/pool');
 
 const MasterHOLAreaRepository = require('../../../../../../../Domains/program_main/hol/MasterHOLAreaRepository');
 const HOLEventsRepository = require('../../../../../../../Domains/program_main/hol/events/HOLEventsRepository');
-const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/temp-Events/HOLEventsRepositoryMySQL');
+const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/events/HOLEventsRepositoryMySQL');
 const HOLEventsCFFRepository = require('../../../../../../../Domains/program_main/hol/events/events_detail/call_for_fellows/HOLEventsCFFRepository');
-const HOLEventsCFFRepositoryMySQL = require('../../../../../../repository/program_main/hol/temp-Events/events_detail/call_for_fellows/HOLEventsCFFRepositoryMySQL');
+const HOLEventsCFFRepositoryMySQL = require('../../../../../../repository/program_main/hol/events/events_detail/call_for_fellows/HOLEventsCFFRepositoryMySQL');
 const CreateCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/CallForFellows/HOLCreateCFFUseCase');
 const GetCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/CallForFellows/HOLGetCFFUseCase');
 const GetCFFByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/CallForFellows/HOLGetCFFByIdUseCase');
