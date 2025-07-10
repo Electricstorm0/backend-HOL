@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 const GetMasterBatch = require('../../../../../Domains/batch/entities/GetMasterBatch');
 const GetMasterProgramRole = require('../../../../../Domains/program/entities/GetMasterProgramRole');
-const HOLGetUsersMe = require('../../../../../Domains/program_main/hol/temp-Users/entities/HOLGetUsersMe');
+const HOLGetUsersMe = require('../../../../../Domains/program_main/hol/users/entities/HOLGetUsersMe');
 
 class HOLGetUsersMeUseCase {
   constructor({ usersDetailRepository, masterProgramRoleRepository, offeredProgramRepository, masterBatchRepository }) {

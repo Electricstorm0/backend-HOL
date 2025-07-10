@@ -1,4 +1,4 @@
-const HOLUsersRepository = require('../../../../../Domains/program_main/hol/temp-Users/HOLUsersRepository');
+const HOLUsersRepository = require('../../../../../Domains/program_main/hol/users/HOLUsersRepository');
 const InvariantError = require('../../../../../Commons/exceptions/InvariantError');
 
 class HOLUsersRepositoryMySQL extends HOLUsersRepository {

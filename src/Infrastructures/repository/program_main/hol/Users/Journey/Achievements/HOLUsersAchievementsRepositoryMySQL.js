@@ -1,4 +1,4 @@
-const HOLUsersAchievementsRepository = require('../../../../../../../Domains/program_main/hol/temp-Users/journey/achievements/HOLUsersAchievementsRepository');
+const HOLUsersAchievementsRepository = require('../../../../../../../Domains/program_main/hol/users/journey/achievements/HOLUsersAchievementsRepository');
 
 class HOLUsersAchievementsRepositoryMySQL extends HOLUsersAchievementsRepository {
   constructor(pool) {

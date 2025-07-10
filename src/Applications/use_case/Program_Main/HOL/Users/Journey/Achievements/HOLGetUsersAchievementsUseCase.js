@@ -1,4 +1,4 @@
-const GetUsersAchieve = require('../../../../../../../Domains/program_main/hol/temp-Users/journey/achievements/entities/GetAchievements');
+const GetUsersAchieve = require('../../../../../../../Domains/program_main/hol/users/journey/achievements/entities/GetAchievements');
 
 class HOLGetUsersAchievementsUseCase {
   constructor({ HOLUsersAchievementsRepository }) {

@@ -1,4 +1,4 @@
-const updateUsers = require('../../../../../Domains/program_main/hol/temp-Users/entities/HOLUpdateUsers');
+const updateUsers = require('../../../../../Domains/program_main/hol/users/entities/HOLUpdateUsers');
 
 class UpdateUsersUseCase {
   constructor({ HOLUsersRepository }) {

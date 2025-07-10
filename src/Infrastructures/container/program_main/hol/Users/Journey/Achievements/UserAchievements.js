@@ -2,7 +2,7 @@ const pool = require('../../../../../../database/mysql/pool');
 
 // REPOSITORY
 // const MasterHOLAreaRepository = require('../../../../../../');
-const HOLUsersAchievementsRepository = require('../../../../../../../Domains/program_main/hol/temp-Users/journey/achievements/HOLUsersAchievementsRepository');
+const HOLUsersAchievementsRepository = require('../../../../../../../Domains/program_main/hol/users/journey/achievements/HOLUsersAchievementsRepository');
 const HOLUsersAchievementsRepositoryMySQL = require('../../../../../../repository/program_main/hol/Users/journey/achievements/HOLUsersAchievementsRepositoryMySQL');
 
 // USE CASE
