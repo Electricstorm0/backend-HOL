@@ -6,12 +6,8 @@ class HOLGetTotalUsersRecomendationUseCase {
   }
 
   async execute() {
-    try {
-      const result = await this._HOLRecommendationsStatusRepository.readCountRecommendation();
-      return result;
-    } catch (error) {
-      console.log(error);
-    }
+    const result = await this._HOLRecommendationsStatusRepository.readCountRecommendation();
+    return result;
   }
 }
 

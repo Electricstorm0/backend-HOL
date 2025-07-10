@@ -5,28 +5,24 @@ class CreateBAUseCase {
   }
 
   async execute(payload) {
-    try {
-      const { holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person, pictureUrl, category } = payload;
+    const { holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person, pictureUrl, category } = payload;
 
-      const eventId = await this._HOLEventsRepository.create({
-        holEventsTypeId,
-        name,
-        deadline,
-        duration,
-        regenciesId,
-        description,
-        benefit,
-        contact_person,
-      });
-      await this._HOLEventsBARepository.create({
-        holEventsId: eventId,
-        pictureUrl,
-        category,
-      });
-      return eventId;
-    } catch (error) {
-      console.log(error);
-    }
+    const eventId = await this._HOLEventsRepository.create({
+      holEventsTypeId,
+      name,
+      deadline,
+      duration,
+      regenciesId,
+      description,
+      benefit,
+      contact_person,
+    });
+    await this._HOLEventsBARepository.create({
+      holEventsId: eventId,
+      pictureUrl,
+      category,
+    });
+    return eventId;
   }
 }
 module.exports = CreateBAUseCase;

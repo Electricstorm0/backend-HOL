@@ -6,19 +6,15 @@ class HOLGetUsersInvolvementsUseCase {
   }
 
   async execute() {
-    try {
-      const invlove = await this._HOLUsersInvolvementsRepository.read(); // misal typeId: 1 untuk CFF
-      const result = await Promise.all(
-        invlove.map(async (value) => ({
-          ...new GetUsersInvolve({
-            ...value,
-          }),
-        }))
-      );
-      return result;
-    } catch (error) {
-      console.log(error);
-    }
+    const invlove = await this._HOLUsersInvolvementsRepository.read(); // misal typeId: 1 untuk CFF
+    const result = await Promise.all(
+      invlove.map(async (value) => ({
+        ...new GetUsersInvolve({
+          ...value,
+        }),
+      }))
+    );
+    return result;
   }
 }
 

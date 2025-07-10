@@ -4,13 +4,9 @@ class HOLGetTotalUsersByProgramUseCase {
   }
 
   async execute() {
-    try {
-      const totalUsers = await this._HOLUsersRepository.readCountUsersByProgram();
+    const totalUsers = await this._HOLUsersRepository.readCountUsersByProgram();
 
-      return totalUsers;
-    } catch (error) {
-      console.log(error);
-    }
+    return totalUsers;
   }
 }
 

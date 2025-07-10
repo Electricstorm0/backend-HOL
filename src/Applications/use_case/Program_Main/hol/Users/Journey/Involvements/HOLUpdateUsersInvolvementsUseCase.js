@@ -6,12 +6,8 @@ class HOLUpdateUsersInvolvementsUseCase {
   }
 
   async execute({ id }, payload) {
-    try {
-      const updatedInvolve = new updateInvlove(payload);
-      await this._HOLUsersInvolvementsRepository.update({ id, payload: updatedInvolve });
-    } catch (error) {
-      console.log(error);
-    }
+    const updatedInvolve = new updateInvlove(payload);
+    await this._HOLUsersInvolvementsRepository.update({ id, payload: updatedInvolve });
   }
 }
 module.exports = HOLUpdateUsersInvolvementsUseCase;

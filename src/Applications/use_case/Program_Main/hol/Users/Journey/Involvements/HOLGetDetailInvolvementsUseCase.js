@@ -4,12 +4,8 @@ class HOLGetDetailInvolvementsUseCase {
   }
 
   async execute({ usersHOLId }) {
-    try {
-      const useCase = await this._HOLUsersEventsRepository.readByUsersIdAndAttendance({ usersHOLId });
-      return useCase;
-    } catch (error) {
-      console.log(error);
-    }
+    const useCase = await this._HOLUsersEventsRepository.readByUsersIdAndAttendance({ usersHOLId });
+    return useCase;
   }
 }
 

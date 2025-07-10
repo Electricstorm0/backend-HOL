@@ -6,19 +6,15 @@ class HOLGetUsersEventsUseCase {
   }
 
   async execute() {
-    try {
-      const users = await this._HOLUsersEventsRepository.read();
-      const result = await Promise.all(
-        users.map(async (value) => ({
-          ...new GetUsersEvents({
-            ...value,
-          }),
-        }))
-      );
-      return result;
-    } catch (error) {
-      console.log(error);
-    }
+    const users = await this._HOLUsersEventsRepository.read();
+    const result = await Promise.all(
+      users.map(async (value) => ({
+        ...new GetUsersEvents({
+          ...value,
+        }),
+      }))
+    );
+    return result;
   }
 }
 

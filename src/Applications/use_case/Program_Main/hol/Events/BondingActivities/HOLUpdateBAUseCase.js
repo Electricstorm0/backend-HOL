@@ -8,14 +8,10 @@ class UpdateBAUseCase {
   }
 
   async execute({ id }, payload) {
-    try {
-      const updateEvent = new updateEvents(payload);
-      await this._HOLEventsRepository.update({ id, payload: updateEvent });
-      const updatedBA = new updateBA(payload);
-      await this._HOLEventsBARepository.update({ id, payload: updatedBA });
-    } catch (error) {
-      console.log(error);
-    }
+    const updateEvent = new updateEvents(payload);
+    await this._HOLEventsRepository.update({ id, payload: updateEvent });
+    const updatedBA = new updateBA(payload);
+    await this._HOLEventsBARepository.update({ id, payload: updatedBA });
   }
 }
 module.exports = UpdateBAUseCase;

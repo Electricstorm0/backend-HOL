@@ -7,19 +7,15 @@ class HOLGetUsersMeDetailUseCase {
   }
 
   async execute({ id: usersId }, { batchId }) {
-    try {
-      const HOLUsers = await this._HOLUsersRepository.readById({ id: usersId });
-      const CLPUsersDetail = await this._CLPGetUsersMeDetailUseCase.execute({ id: usersId }, { batchId });
-      console.log(CLPUsersDetail);
-      const data = {
-        photoProfile: 'profileKu.JPG',
-        ...HOLUsers,
-        ...CLPUsersDetail,
-      };
-      return new HOLGetUsersMeDetail(data);
-    } catch (error) {
-      console.log(error);
-    }
+    const HOLUsers = await this._HOLUsersRepository.readById({ id: usersId });
+    const CLPUsersDetail = await this._CLPGetUsersMeDetailUseCase.execute({ id: usersId }, { batchId });
+    console.log(CLPUsersDetail);
+    const data = {
+      photoProfile: 'profileKu.JPG',
+      ...HOLUsers,
+      ...CLPUsersDetail,
+    };
+    return new HOLGetUsersMeDetail(data);
   }
 }
 
