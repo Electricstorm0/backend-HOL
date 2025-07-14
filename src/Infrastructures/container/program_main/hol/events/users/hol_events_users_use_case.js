@@ -1,10 +1,6 @@
-const pool = require('../../../../../database/mysql/pool');
-
 // const MasterHOLAreaRepository = require('../../../../../../');
 const HOLEventsRepository = require('../../../../../../Domains/program_main/hol/events/HOLEventsRepository');
-const HOLEventsRepositoryMySQL = require('../../../../../repository/program_main/hol/events/HOLEventsRepositoryMySQL');
 const HOLUsersEventsRepository = require('../../../../../../Domains/program_main/hol/events/HOLUsersEventsRepository');
-const HOLUsersEventsRepositoryMySQL = require('../../../../../repository/program_main/hol/events/HOLUsersEventsRepositoryMySQL');
 const HOLCreateUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLCreateUsersEventsUseCase');
 const HOLGetUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsUseCase');
 const HOLGetUsersEventByIdsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByIdUseCase');
@@ -18,31 +14,6 @@ const HOLUpdateAttendeUsersEventsUseCase = require('../../../../../../Applicatio
 const HOLUpdateStatusUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLUpdateStatusUsersEventsUseCase');
 const HOLDeleteUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLDeleteUsersEventsUseCase');
 const users_events = [
-  // REPOSITORY
-  {
-    key: HOLEventsRepository.name,
-    Class: HOLEventsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLUsersEventsRepository.name,
-    Class: HOLUsersEventsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-
-  // USE CASE
   {
     key: HOLCreateUsersEventsUseCase.name,
     Class: HOLCreateUsersEventsUseCase,
@@ -50,11 +21,11 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -68,7 +39,7 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -81,7 +52,7 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -94,7 +65,7 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -108,7 +79,7 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -121,7 +92,7 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -134,7 +105,7 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -147,7 +118,7 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -160,7 +131,7 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -173,7 +144,7 @@ const users_events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],

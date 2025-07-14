@@ -1,19 +1,18 @@
 const GetBA = require('../../../../../../Domains/program_main/hol/events/events_detail/bonding_activities/entities/GetBA');
 
 class GetBAUseCase {
-  constructor({ HOLEventsRepository, HOLEventsBARepository }) {
-    this._HOLEventsRepository = HOLEventsRepository;
-    this._HOLEventsBARepository = HOLEventsBARepository;
+  constructor({ holEventsRepository, holEventsBARepository }) {
+    this._holEventsRepository = holEventsRepository;
+    this._holEventsBARepository = holEventsBARepository;
   }
 
   async execute({ pageSize, page, holEventsTypeId }) {
     const numPerPage = parseInt(pageSize, 10) || 1;
     const offset = parseInt(page - 1, 10) || 0;
-
     const skip = offset * numPerPage;
-    const numRows = await this._HOLEventsRepository.readCountByProgramType({ holEventsTypeId });
+    const numRows = await this._holEventsRepository.readCountByProgramType({ holEventsTypeId });
     const numPages = Math.ceil(numRows / numPerPage);
-    const events = await this._HOLEventsBARepository.read({ skip, numPerPage, holEventsTypeId }); // misal typeId: 1 untuk CFF
+    const events = (await this._holEventsBARepository.read({ skip, numPerPage, holEventsTypeId })) || [];
     const result = await Promise.all(
       events.map(async (value) => ({
         ...new GetBA({

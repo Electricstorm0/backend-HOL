@@ -1,10 +1,10 @@
 class HOLDeleteUsersWorkExpUseCase {
-  constructor({ HOLUsersWorkExpRepository }) {
-    this._HOLUsersWorkExpRepository = HOLUsersWorkExpRepository;
+  constructor({ holUsersWorkExpRepository }) {
+    this._holUsersWorkExpRepository = holUsersWorkExpRepository;
   }
 
   async execute({ id }) {
-    const exp = await this._HOLUsersWorkExpRepository.delete({ id });
+    const exp = await this._holUsersWorkExpRepository.delete({ id });
     return exp;
   }
 }

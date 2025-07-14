@@ -1,10 +1,10 @@
 class HOLDeleteUsersEventsUseCase {
-  constructor({ HOLUsersEventsRepository }) {
-    this._HOLUsersEventsRepository = HOLUsersEventsRepository;
+  constructor({ holUsersEventsRepository }) {
+    this._holUsersEventsRepository = holUsersEventsRepository;
   }
 
   async execute({ id }) {
-    const users = await this._HOLUsersEventsRepository.delete({ id });
+    const users = await this._holUsersEventsRepository.delete({ id });
 
     return users;
   }

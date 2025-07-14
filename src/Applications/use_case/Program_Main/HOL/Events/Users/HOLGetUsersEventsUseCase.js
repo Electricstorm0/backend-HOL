@@ -1,12 +1,12 @@
 const GetUsersEvents = require('../../../../../../Domains/program_main/hol/events/entities/getUsersEvents');
 
 class HOLGetUsersEventsUseCase {
-  constructor({ HOLUsersEventsRepository }) {
-    this._HOLUsersEventsRepository = HOLUsersEventsRepository;
+  constructor({ holUsersEventsRepository }) {
+    this._holUsersEventsRepository = holUsersEventsRepository;
   }
 
   async execute() {
-    const users = await this._HOLUsersEventsRepository.read();
+    const users = (await this._holUsersEventsRepository.read()) || [];
     const result = await Promise.all(
       users.map(async (value) => ({
         ...new GetUsersEvents({

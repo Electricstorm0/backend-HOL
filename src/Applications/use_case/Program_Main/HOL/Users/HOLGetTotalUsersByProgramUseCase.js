@@ -1,10 +1,10 @@
 class HOLGetTotalUsersByProgramUseCase {
-  constructor({ HOLUsersRepository }) {
-    this._HOLUsersRepository = HOLUsersRepository;
+  constructor({ holUsersRepository }) {
+    this._holUsersRepository = holUsersRepository;
   }
 
   async execute() {
-    const totalUsers = await this._HOLUsersRepository.readCountUsersByProgram();
+    const totalUsers = await this._holUsersRepository.readCountUsersByProgram();
 
     return totalUsers;
   }

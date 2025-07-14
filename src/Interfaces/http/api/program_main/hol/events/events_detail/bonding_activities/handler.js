@@ -22,6 +22,7 @@ class BAHandler {
     response.code(201);
     return response;
   }
+
   async getBAHandler(request, h) {
     const useCase = this._container.getInstance(GetBAUseCase.name);
     const data = await useCase.execute(request.query);
@@ -31,6 +32,7 @@ class BAHandler {
     });
     return response;
   }
+
   async getBAByIdHandler(request, h) {
     const useCase = this._container.getInstance(GetBAByIdUseCase.name);
     const data = await useCase.execute(request.params);
@@ -40,6 +42,7 @@ class BAHandler {
     });
     return response;
   }
+
   async putBAHandler(request, h) {
     const useCase = this._container.getInstance(UpdateBAUseCase.name);
     await useCase.execute(request.params, request.payload);
@@ -49,6 +52,7 @@ class BAHandler {
     });
     return response;
   }
+
   async deleteBAHandler(request, h) {
     const useCase = this._container.getInstance(DeleteBAUseCase.name);
     await useCase.execute(request.params);

@@ -26,6 +26,7 @@ class HolUsersHandler {
     response.code(201);
     return response;
   }
+
   async getHolUsersHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersUseCase.name);
     const data = await useCase.execute(request.query);
@@ -35,6 +36,7 @@ class HolUsersHandler {
     });
     return response;
   }
+
   async getHolUsersByIdHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersByIdUseCase.name);
     const data = await useCase.execute(request.params);
@@ -44,6 +46,7 @@ class HolUsersHandler {
     });
     return response;
   }
+
   async getOwnUsersHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersMeUseCase.name);
     const data = await useCase.execute(request.auth.credentials);
@@ -96,6 +99,7 @@ class HolUsersHandler {
     });
     return response;
   }
+
   async deleteHolUsersHandler(request, h) {
     const useCase = this._container.getInstance(HOLDeleteUsersUseCase.name);
     await useCase.execute(request.params);

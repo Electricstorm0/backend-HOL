@@ -1,13 +1,13 @@
 class CreateBAUseCase {
-  constructor({ HOLEventsRepository, HOLEventsBARepository }) {
-    this._HOLEventsRepository = HOLEventsRepository;
-    this._HOLEventsBARepository = HOLEventsBARepository;
+  constructor({ holEventsRepository, holEventsBARepository }) {
+    this._holEventsRepository = holEventsRepository;
+    this._holEventsBARepository = holEventsBARepository;
   }
 
   async execute(payload) {
     const { holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person, pictureUrl, category } = payload;
 
-    const eventId = await this._HOLEventsRepository.create({
+    const eventId = await this._holEventsRepository.create({
       holEventsTypeId,
       name,
       deadline,
@@ -17,7 +17,7 @@ class CreateBAUseCase {
       benefit,
       contact_person,
     });
-    await this._HOLEventsBARepository.create({
+    await this._holEventsBARepository.create({
       holEventsId: eventId,
       pictureUrl,
       category,

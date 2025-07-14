@@ -1,12 +1,12 @@
 // INI UNTUK HITUNG TOTAL USERS
 
 class HOLGetTotalUsersRecomendationUseCase {
-  constructor({ HOLRecommendationsStatusRepository }) {
-    this._HOLRecommendationsStatusRepository = HOLRecommendationsStatusRepository;
+  constructor({ holRecommendationsStatusRepository }) {
+    this._holRecommendationsStatusRepository = holRecommendationsStatusRepository;
   }
 
   async execute() {
-    const result = await this._HOLRecommendationsStatusRepository.readCountRecommendation();
+    const result = await this._holRecommendationsStatusRepository.readCountRecommendation();
     return result;
   }
 }

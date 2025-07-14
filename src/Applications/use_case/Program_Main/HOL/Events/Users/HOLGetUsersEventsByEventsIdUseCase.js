@@ -1,17 +1,17 @@
 const GetUsersEvents = require('../../../../../../Domains/program_main/hol/events/entities/getUsersEvents');
 
 class HOLGetUsersEventsByEventsIdUseCase {
-  constructor({ HOLUsersEventsRepository }) {
-    this._HOLUsersEventsRepository = HOLUsersEventsRepository;
+  constructor({ holUsersEventsRepository }) {
+    this._holUsersEventsRepository = holUsersEventsRepository;
   }
 
   async execute({ pageSize, page, eventsHOLId }) {
     const numPerPage = parseInt(pageSize, 10) || 1;
     const offset = parseInt(page - 1, 10) || 0;
     const skip = offset * numPerPage;
-    const numRows = await this._HOLUsersEventsRepository.readCountUsersEventsByEventsId({ eventsHOLId });
+    const numRows = await this._holUsersEventsRepository.readCountUsersEventsByEventsId({ eventsHOLId });
     const numPages = Math.ceil(numRows / numPerPage);
-    const users = await this._HOLUsersEventsRepository.readUsersEventsByEventsId({ skip, numPerPage, eventsHOLId });
+    const users = (await this._holUsersEventsRepository.readUsersEventsByEventsId({ skip, numPerPage, eventsHOLId })) || [];
     const result = await Promise.all(
       users.map(async (value) => ({
         ...new GetUsersEvents({

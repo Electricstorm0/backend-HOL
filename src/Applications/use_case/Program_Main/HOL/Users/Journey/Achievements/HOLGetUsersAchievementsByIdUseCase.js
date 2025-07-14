@@ -1,18 +1,13 @@
-const NotFoundError = require('../../../../../../../Commons/exceptions/NotFoundError');
 const GetUsersAchieve = require('../../../../../../../Domains/program_main/hol/users/journey/achievements/entities/GetAchievements');
 
 class HOLGetUsersAchievementsByIdUseCase {
-  constructor({ HOLUsersAchievementsRepository }) {
-    this._HOLUsersAchievementsRepository = HOLUsersAchievementsRepository;
+  constructor({ holUsersAchievementsRepository }) {
+    this._holUsersAchievementsRepository = holUsersAchievementsRepository;
   }
 
   async execute({ id }) {
-    const achieve = await this._HOLUsersAchievementsRepository.readById({ id }); // misal typeId: 1 untuk CFF
-    if (!achieve || achieve.length === 0) {
-      throw new NotFoundError(`Data tidak ditemukan`);
-    }
+    const achieve = (await this._holUsersAchievementsRepository.readById({ id })) || {};
     const result = new GetUsersAchieve({ ...achieve });
-
     return result;
   }
 }

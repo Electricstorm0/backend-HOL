@@ -1,41 +1,16 @@
-const pool = require('../../../../../../database/mysql/pool');
-
-const MasterHOLAreaRepository = require('../../../../../../../Domains/program_main/hol/MasterHOLAreaRepository');
 const HOLEventsRepository = require('../../../../../../../Domains/program_main/hol/events/HOLEventsRepository');
-const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/events/HOLEventsRepositoryMySQL');
+// Bonding Activities
 const HOLEventsBARepository = require('../../../../../../../Domains/program_main/hol/events/events_detail/bonding_activities/HOLEventsBARepository');
-const HOLEventsBARepositoryMySQL = require('../../../../../../repository/program_main/hol/events/events_detail/bonding_activities/HOLEventsBARepositoryMySQL');
+
+// Bonding Activities UseCase
 const CreateBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/BondingActivities/HOLCreateBAUseCase');
 const GetBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/BondingActivities/HOLGetBAUseCase');
 const GetBAByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/BondingActivities/HOLGetBAByIdUseCase');
 const UpdateBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/BondingActivities/HOLUpdateBAUseCase');
 const DeleteBAUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/BondingActivities/HOLDeleteBAUseCase');
-const events = [
-  // REPOSITORY
-  {
-    key: HOLEventsRepository.name,
-    Class: HOLEventsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLEventsBARepository.name,
-    Class: HOLEventsBARepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
 
-  // USE CASE
+const events = [
+  // Bonding Activities
   {
     key: CreateBAUseCase.name,
     Class: CreateBAUseCase,
@@ -43,11 +18,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLEventsBARepository',
+          name: 'holEventsBARepository',
           internal: HOLEventsBARepository.name,
         },
       ],
@@ -60,11 +35,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLEventsBARepository',
+          name: 'holEventsBARepository',
           internal: HOLEventsBARepository.name,
         },
       ],
@@ -77,7 +52,7 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsBARepository',
+          name: 'holEventsBARepository',
           internal: HOLEventsBARepository.name,
         },
       ],
@@ -90,11 +65,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLEventsBARepository',
+          name: 'holEventsBARepository',
           internal: HOLEventsBARepository.name,
         },
       ],
@@ -107,12 +82,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
       ],
     },
   },
 ];
-
 module.exports = events;

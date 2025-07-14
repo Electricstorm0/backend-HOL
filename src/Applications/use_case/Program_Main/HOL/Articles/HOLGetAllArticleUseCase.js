@@ -1,16 +1,16 @@
 const HOLGetPublications = require('../../../../../Domains/program_main/hol/articles/entities/GetPublications');
 // use case untuk di fitur publikasi
 class HOLGetAllArticleUseCase {
-  constructor({ MasterHOLArticlesRepository }) {
-    this._MasterHOLArticlesRepository = MasterHOLArticlesRepository;
+  constructor({ masterHOLArticlesRepository }) {
+    this._masterHOLArticlesRepository = masterHOLArticlesRepository;
   }
   async execute({ pageSize, page }) {
     const numPerPage = parseInt(pageSize, 10) || 1;
     const offset = parseInt(page - 1, 10) || 0;
     const skip = offset * numPerPage;
-    const numRows = await this._MasterHOLArticlesRepository.readCountArticle();
+    const numRows = await this._masterHOLArticlesRepository.readCountArticle();
     const numPages = Math.ceil(numRows / numPerPage);
-    const article = await this._MasterHOLArticlesRepository.readAllByStatus({ skip, numPerPage });
+    const article = (await this._masterHOLArticlesRepository.readAllByStatus({ skip, numPerPage })) || [];
     const result = await Promise.all(
       article.map(async (value) => ({
         ...new HOLGetPublications({

@@ -1,10 +1,10 @@
 class HOLGetTotalUsersEventsByEventsTypeUseCase {
-  constructor({ HOLUsersEventsRepository }) {
-    this._HOLUsersEventsRepository = HOLUsersEventsRepository;
+  constructor({ holUsersEventsRepository }) {
+    this._holUsersEventsRepository = holUsersEventsRepository;
   }
 
   async execute({ holEventsTypeId }) {
-    const result = await this._HOLUsersEventsRepository.readCountUsersEventsByEventsTypeId({ holEventsTypeId });
+    const result = await this._holUsersEventsRepository.readCountUsersEventsByEventsTypeId({ holEventsTypeId });
     return result;
   }
 }

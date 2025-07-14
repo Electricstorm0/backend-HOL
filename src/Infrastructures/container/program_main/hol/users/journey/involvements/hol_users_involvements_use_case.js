@@ -1,10 +1,5 @@
-const pool = require('../../../../../../database/mysql/pool');
-
-// const MasterHOLAreaRepository = require('../../../../../../');
 const HOLUsersInvolvementsRepository = require('../../../../../../../Domains/program_main/hol/users/journey/involvements/HOLUsersInvolvementsRepository');
-const HOLUsersInvolvementsRepositoryMySQL = require('../../../../../../repository/program_main/hol/users/journey/involvements/HOLUsersInvolvementsRepositoryMySQL');
 const HOLUsersEventsRepository = require('../../../../../../../Domains/program_main/hol/events/HOLUsersEventsRepository');
-const HOLUsersEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/events/HOLUsersEventsRepositoryMySQL');
 
 // USECASE
 const HOLCreateUsersInvolvementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLCreateUsersInvolvementsUseCase');
@@ -14,31 +9,7 @@ const HOLGetDetailInvolvementsUseCase = require('../../../../../../../Applicatio
 const HOLUpdateUsersInvolvementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLUpdateUsersInvolvementsUseCase');
 const HOLDeleteUsersInvolvementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLDeleteUsersInvolvementsUseCase');
 const involve = [
-  // REPOSITORY
-  {
-    key: HOLUsersInvolvementsRepository.name,
-    Class: HOLUsersInvolvementsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLUsersEventsRepository.name,
-    Class: HOLUsersEventsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-
-  // USE CASE
+  // USE CASE Involvements
   {
     key: HOLCreateUsersInvolvementsUseCase.name,
     Class: HOLCreateUsersInvolvementsUseCase,
@@ -46,7 +17,7 @@ const involve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersInvolvementsRepository',
+          name: 'holUsersInvolvementsRepository',
           internal: HOLUsersInvolvementsRepository.name,
         },
       ],
@@ -59,7 +30,7 @@ const involve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersInvolvementsRepository',
+          name: 'holUsersInvolvementsRepository',
           internal: HOLUsersInvolvementsRepository.name,
         },
       ],
@@ -72,7 +43,7 @@ const involve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersInvolvementsRepository',
+          name: 'holUsersInvolvementsRepository',
           internal: HOLUsersInvolvementsRepository.name,
         },
       ],
@@ -85,7 +56,7 @@ const involve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersEventsRepository',
+          name: 'holUsersEventsRepository',
           internal: HOLUsersEventsRepository.name,
         },
       ],
@@ -98,7 +69,7 @@ const involve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersInvolvementsRepository',
+          name: 'holUsersInvolvementsRepository',
           internal: HOLUsersInvolvementsRepository.name,
         },
       ],
@@ -111,7 +82,7 @@ const involve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersInvolvementsRepository',
+          name: 'holUsersInvolvementsRepository',
           internal: HOLUsersInvolvementsRepository.name,
         },
       ],

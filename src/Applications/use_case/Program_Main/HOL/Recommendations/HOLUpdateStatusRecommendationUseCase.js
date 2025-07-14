@@ -1,13 +1,15 @@
 const updateRecommendations = require('../../../../../Domains/program_main/hol/recommendations/entities/UpdateRecommendations');
 
 class HOLUpdateStatusRecommendationUseCase {
-  constructor({ HOLRecommendationsStatusRepository }) {
-    this._HOLRecommendationsStatusRepository = HOLRecommendationsStatusRepository;
+  constructor({ usersBCFRepository, holRecommendationsStatusRepository }) {
+    this._usersBCFRepository = usersBCFRepository;
+    this._holRecommendationsStatusRepository = holRecommendationsStatusRepository;
   }
 
-  async execute({ recommendationHolId, updateBy }, payload) {
+  async execute({ recommendationHolId }, { id: adminId }, payload) {
     const recommendation = new updateRecommendations(payload);
-    const useCase = await this._HOLRecommendationsStatusRepository.update({ recommendationHolId, updateBy, payload: recommendation });
+    await this._usersBCFRepository.readById({ id: adminId });
+    const useCase = await this._holRecommendationsStatusRepository.update({ recommendationHolId, adminId, isChecked: 1, payload: recommendation });
     return useCase;
   }
 }

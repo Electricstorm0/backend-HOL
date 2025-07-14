@@ -1,12 +1,12 @@
 const GetExp = require('../../../../../../../Domains/program_main/hol/users/journey/work_experience/entities/GetWorkExperience');
 
 class HOLGetUsersWorkExpUseCase {
-  constructor({ HOLUsersWorkExpRepository }) {
-    this._HOLUsersWorkExpRepository = HOLUsersWorkExpRepository;
+  constructor({ holUsersWorkExpRepository }) {
+    this._holUsersWorkExpRepository = holUsersWorkExpRepository;
   }
 
   async execute() {
-    const Exp = await this._HOLUsersWorkExpRepository.read(); // misal typeId: 1 untuk CFF
+    const Exp = (await this._holUsersWorkExpRepository.read()) || [];
     const result = await Promise.all(
       Exp.map(async (value) => ({
         ...new GetExp({

@@ -1,10 +1,10 @@
 class DeleteIYSFUseCase {
-  constructor({ HOLEventsRepository }) {
-    this._HOLEventsRepository = HOLEventsRepository;
+  constructor({ holEventsRepository }) {
+    this._holEventsRepository = holEventsRepository;
   }
 
   async execute({ id }) {
-    const events = await this._HOLEventsRepository.delete({ id });
+    const events = await this._holEventsRepository.delete({ id });
     return events;
   }
 }

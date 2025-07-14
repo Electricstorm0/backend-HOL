@@ -1,9 +1,5 @@
-const pool = require('../../../../../../database/mysql/pool');
-
 // REPOSITORY
-// const MasterHOLAreaRepository = require('../../../../../../');
 const HOLUsersAchievementsRepository = require('../../../../../../../Domains/program_main/hol/users/journey/achievements/HOLUsersAchievementsRepository');
-const HOLUsersAchievementsRepositoryMySQL = require('../../../../../../repository/program_main/hol/users/journey/achievements/HOLUsersAchievementsRepositoryMySQL');
 
 // USE CASE
 const HOLCreateUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLCreateUsersAchievementsUseCase');
@@ -12,31 +8,7 @@ const HOLGetUsersAchievementsByIdUseCase = require('../../../../../../../Applica
 const HOLUpdateUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLUpdateUsersAchievementsUseCase');
 const HOLDeleteUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLDeleteUsersAchievementsUseCase');
 const achieve = [
-  // REPOSITORY
-  {
-    key: HOLUsersAchievementsRepository.name,
-    Class: HOLUsersAchievementsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLUsersAchievementsRepository.name,
-    Class: HOLUsersAchievementsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-
-  // USE CASE
+  // USE CASE Achievements
   {
     key: HOLCreateUsersAchievementsUseCase.name,
     Class: HOLCreateUsersAchievementsUseCase,
@@ -44,7 +16,7 @@ const achieve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersAchievementsRepository',
+          name: 'holUsersAchievementsRepository',
           internal: HOLUsersAchievementsRepository.name,
         },
       ],
@@ -57,7 +29,7 @@ const achieve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersAchievementsRepository',
+          name: 'holUsersAchievementsRepository',
           internal: HOLUsersAchievementsRepository.name,
         },
       ],
@@ -70,7 +42,7 @@ const achieve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersAchievementsRepository',
+          name: 'holUsersAchievementsRepository',
           internal: HOLUsersAchievementsRepository.name,
         },
       ],
@@ -83,7 +55,7 @@ const achieve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersAchievementsRepository',
+          name: 'holUsersAchievementsRepository',
           internal: HOLUsersAchievementsRepository.name,
         },
       ],
@@ -96,7 +68,7 @@ const achieve = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersAchievementsRepository',
+          name: 'holUsersAchievementsRepository',
           internal: HOLUsersAchievementsRepository.name,
         },
       ],

@@ -8,7 +8,9 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
 
   async readCountUsersEventsByEventsId({ eventsHOLId }) {
     const query = {
-      text: 'SELECT  COUNT(*) as total_pendaftar FROM tx_hol_users_events as ue JOIN tx_hol_events as e on e.id = ue.id_events_hol WHERE e.id = ?',
+      text: `SELECT  COUNT(*) as total_users_registrations FROM tx_hol_users_events as ue 
+      JOIN tx_hol_events as e on e.id = ue.id_events_hol 
+      WHERE e.id = ?`,
       values: [eventsHOLId],
     };
     const [result] = await this._pool.query(query.text, query.values);
@@ -16,7 +18,9 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
   }
   async readCountUsersEventsByEventsTypeId({ holEventsTypeId }) {
     const query = {
-      text: 'SELECT  COUNT(*) as total_pendaftar FROM tx_hol_users_events as ue JOIN tx_hol_events as e on e.id = ue.id_events_hol WHERE e.id_hol_events_type = ?',
+      text: `SELECT  COUNT(*) as total_users_registrations FROM tx_hol_users_events as ue 
+      JOIN tx_hol_events as e on e.id = ue.id_events_hol 
+      WHERE e.id_hol_events_type = ?`,
       values: [holEventsTypeId],
     };
     const [result] = await this._pool.query(query.text, query.values);
@@ -25,7 +29,7 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
 
   async readCountUsersEventsByEventsIdAndStatus({ eventsHOLId, status }) {
     const query = {
-      text: '  SELECT  COUNT(*) as total_pendaftar FROM tx_hol_users_events WHERE id_events_hol = ? AND status=? ',
+      text: '  SELECT  COUNT(*) as total_users_registrations FROM tx_hol_users_events WHERE id_events_hol = ? AND status=? ',
       values: [eventsHOLId, status],
     };
     const [result] = await this._pool.query(query.text, query.values);
@@ -34,7 +38,12 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
 
   async readCountUsersEventsGroupByProgram({ eventsHOLId, status }) {
     const query = {
-      text: 'SELECT msp.name, COUNT(ue.id_users_hol) AS partisipan FROM master_second_tier_program AS msp LEFT JOIN master_third_tier_program AS mtp ON mtp.id_second_tier_program = msp.id LEFT JOIN tx_offered_program AS op ON op.id_third_tier_program = mtp.id LEFT JOIN tx_hol_users_events AS ue ON ue.id_users_hol = op.id_users AND ue.id_events_hol = ? AND ue.status = ? GROUP BY msp.name; ',
+      text: `SELECT msp.name, COUNT(ue.id_users_hol) AS participant 
+      FROM master_second_tier_program AS msp 
+      LEFT JOIN master_third_tier_program AS mtp ON mtp.id_second_tier_program = msp.id 
+      LEFT JOIN tx_offered_program AS op ON op.id_third_tier_program = mtp.id 
+      LEFT JOIN tx_hol_users_events AS ue ON ue.id_users_hol = op.id_users AND ue.id_events_hol = ? AND ue.status = ? 
+      GROUP BY msp.name `,
       values: [eventsHOLId, status],
     };
     const [result] = await this._pool.query(query.text, query.values);
@@ -70,7 +79,19 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
 
   async readUsersEventsByEventsId({ skip, numPerPage, eventsHOLId }) {
     const query = {
-      text: 'SELECT ue.*, concat(ud.first_name," ", ud.last_name) as nama_alumni, p.name AS program,b.batch,YEAR(b.date_start) as Tahun,d.name as domisili, ue.status, ue.attendance FROM tx_hol_events as e JOIN tx_hol_users_events as ue on ue.id_events_hol = e.id JOIN tx_users_detail as ud ON ud.id = ue.id_users_hol JOIN tx_users AS u ON u.id = ud.id JOIN tx_offered_program AS op ON op.id_users = u.id JOIN master_batch AS b ON b.id = op.id_batch JOIN master_third_tier_program AS mtp ON mtp.id = op.id_third_tier_program JOIN master_second_tier_program AS p ON p.id = mtp.id_second_tier_program JOIN tx_users_domicile AS udm ON udm.id_users = u.id JOIN master_domicile_provincies AS d ON d.id = udm.id_provincies WHERE e.id = ? ',
+      text: `SELECT ue.*, concat(ud.first_name," ", ud.last_name) as Alumni_Name, p.name AS Program,b.batch as Batch,
+      YEAR(b.date_start) as Year,d.name as Domicile, ue.status, ue.attendance 
+      FROM tx_hol_events as e 
+      JOIN tx_hol_users_events as ue on ue.id_events_hol = e.id 
+      JOIN tx_users_detail as ud ON ud.id = ue.id_users_hol 
+      JOIN tx_users AS u ON u.id = ud.id 
+      JOIN tx_offered_program AS op ON op.id_users = u.id 
+      JOIN master_batch AS b ON b.id = op.id_batch 
+      JOIN master_third_tier_program AS mtp ON mtp.id = op.id_third_tier_program 
+      JOIN master_second_tier_program AS p ON p.id = mtp.id_second_tier_program 
+      JOIN tx_users_domicile AS udm ON udm.id_users = u.id 
+      JOIN master_domicile_provincies AS d ON d.id = udm.id_provincies 
+      WHERE e.id = ? `,
       values: [eventsHOLId, skip, numPerPage],
     };
     const [result] = await this._pool.query(query.text, query.values);
@@ -80,7 +101,15 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
 
   async readByUsersIdAndAttendance({ usersHOLId }) {
     const query = {
-      text: 'SELECT ue.id, e.name as Acara, ha.name AS Bidang , COALESCE(YEAR(ed.event_date),YEAR(edb.event_date)) AS Tahun,COALESCE( ed.position, edb.position_category) AS Keterlibatan FROM tx_hol_users_events AS ue LEFT JOIN tx_hol_events AS e ON e.id = ue.id_events_hol LEFT JOIN tx_hol_events_iysf AS ed ON e.id = ed.id_events_hol LEFT JOIN tx_hol_events_ba AS edb ON e.id = edb.id_events_hol LEFT JOIN master_hol_events_type AS et ON et.id = e.id_hol_events_type LEFT JOIN master_hol_area AS ha ON ha.id = et.id_hol_area WHERE ue.id_users_hol=1 AND ue.attendance = 1; ',
+      text: `SELECT ue.id, e.name as Event, ha.name AS HOL_Area , COALESCE(YEAR(ed.event_date),YEAR(edb.event_date)) AS Year,
+      COALESCE( ed.position, edb.position_category) AS Involvements
+       FROM tx_hol_users_events AS ue 
+       LEFT JOIN tx_hol_events AS e ON e.id = ue.id_events_hol 
+       LEFT JOIN tx_hol_events_iysf AS ed ON e.id = ed.id_events_hol 
+       LEFT JOIN tx_hol_events_ba AS edb ON e.id = edb.id_events_hol 
+       LEFT JOIN master_hol_events_type AS et ON et.id = e.id_hol_events_type 
+       LEFT JOIN master_hol_area AS ha ON ha.id = et.id_hol_area 
+       WHERE ue.id_users_hol=? AND ue.attendance = 1; `,
       values: [usersHOLId],
     };
     const [result] = await this._pool.query(query.text, query.values);

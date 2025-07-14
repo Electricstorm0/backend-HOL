@@ -10,6 +10,7 @@ class IYSFHandler {
     this._container = container;
     autoBind(this);
   }
+
   async postIYSFHandler(request, h) {
     const useCase = this._container.getInstance(CreateIYSFUseCase.name);
     const data = await useCase.execute(request.payload);
@@ -22,6 +23,7 @@ class IYSFHandler {
     response.code(201);
     return response;
   }
+
   async getIYSFHandler(request, h) {
     const useCase = this._container.getInstance(GetIYSFUseCase.name);
     const data = await useCase.execute(request.query);
@@ -31,6 +33,7 @@ class IYSFHandler {
     });
     return response;
   }
+
   async getIYSFByIdHandler(request, h) {
     const useCase = this._container.getInstance(GetIYSFByIdUseCase.name);
     const data = await useCase.execute(request.params);
@@ -40,6 +43,7 @@ class IYSFHandler {
     });
     return response;
   }
+
   async putIYSFHandler(request, h) {
     const useCase = this._container.getInstance(UpdateIYSFUseCase.name);
     await useCase.execute(request.params, request.payload);
@@ -49,6 +53,7 @@ class IYSFHandler {
     });
     return response;
   }
+
   async deleteIYSFHandler(request, h) {
     const useCase = this._container.getInstance(DeleteIYSFUseCase.name);
     await useCase.execute(request.params);

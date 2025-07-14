@@ -1,8 +1,4 @@
-const pool = require('../../../../database/mysql/pool');
-
-// const MasterHOLAreaRepository = require('../../../../../../');
 const HOLUsersRepository = require('../../../../../Domains/program_main/hol/users/HOLUsersRepository');
-const HOLUsersRepositoryMySQL = require('../../../../repository/program_main/hol/users/HOLUsersRepositoryMySQL');
 const MasterBatchRepository = require('../../../../../Domains/batch/MasterBatchRepository');
 const MasterProgramRoleRepository = require('../../../../../Domains/program/MasterProgramRoleRepository');
 const OfferedProgramRepository = require('../../../../../Domains/program/OfferedProgramRepository');
@@ -31,31 +27,6 @@ const HOLDeleteUsersUseCase = require('../../../../../Applications/use_case/Prog
 const HOLGetTotalUsersUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Users/HOLGetTotalUsersUseCase');
 const HOLGetTotalUsersByProgramUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Users/HOLGetTotalUsersByProgramUseCase');
 const usersHol = [
-  // REPOSITORY
-  {
-    key: HOLUsersRepository.name,
-    Class: HOLUsersRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLUsersRepository.name,
-    Class: HOLUsersRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-
-  // USE CASE
   {
     key: HOLCreateUsersUseCase.name,
     Class: HOLCreateUsersUseCase,
@@ -63,7 +34,7 @@ const usersHol = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersRepository',
+          name: 'holUsersRepository',
           internal: HOLUsersRepository.name,
         },
       ],
@@ -76,7 +47,7 @@ const usersHol = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersRepository',
+          name: 'holUsersRepository',
           internal: HOLUsersRepository.name,
         },
       ],
@@ -89,7 +60,7 @@ const usersHol = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersRepository',
+          name: 'holUsersRepository',
           internal: HOLUsersRepository.name,
         },
       ],
@@ -102,7 +73,7 @@ const usersHol = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersRepository',
+          name: 'holUsersRepository',
           internal: HOLUsersRepository.name,
         },
       ],
@@ -115,7 +86,7 @@ const usersHol = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersRepository',
+          name: 'holUsersRepository',
           internal: HOLUsersRepository.name,
         },
       ],
@@ -153,11 +124,11 @@ const usersHol = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersRepository',
+          name: 'holUsersRepository',
           internal: HOLUsersRepository.name,
         },
         {
-          name: 'CLPGetUsersMeDetailUseCase',
+          name: 'clpGetUsersMeDetailUseCase',
           internal: CLPGetUsersMeDetailUseCase.name,
         },
       ],
@@ -170,7 +141,7 @@ const usersHol = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersRepository',
+          name: 'holUsersRepository',
           internal: HOLUsersRepository.name,
         },
       ],
@@ -183,7 +154,7 @@ const usersHol = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersRepository',
+          name: 'holUsersRepository',
           internal: HOLUsersRepository.name,
         },
       ],

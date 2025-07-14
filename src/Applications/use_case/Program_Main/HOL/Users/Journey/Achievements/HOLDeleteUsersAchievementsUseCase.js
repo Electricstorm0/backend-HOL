@@ -1,10 +1,10 @@
 class HOLDeleteUsersAchievementsUseCase {
-  constructor({ HOLUsersAchievementsRepository }) {
-    this._HOLUsersAchievementsRepository = HOLUsersAchievementsRepository;
+  constructor({ holUsersAchievementsRepository }) {
+    this._holUsersAchievementsRepository = holUsersAchievementsRepository;
   }
 
   async execute({ id }) {
-    const users = await this._HOLUsersAchievementsRepository.delete({ id });
+    const users = await this._holUsersAchievementsRepository.delete({ id });
     return users;
   }
 }

@@ -1,10 +1,10 @@
 class HOLDeleteUsersInvolvementsUseCase {
-  constructor({ HOLUsersInvolvementsRepository }) {
-    this._HOLUsersInvolvementsRepository = HOLUsersInvolvementsRepository;
+  constructor({ holUsersInvolvementsRepository }) {
+    this._holUsersInvolvementsRepository = holUsersInvolvementsRepository;
   }
 
   async execute({ id }) {
-    const Involve = await this._HOLUsersInvolvementsRepository.delete({ id });
+    const Involve = await this._holUsersInvolvementsRepository.delete({ id });
     return Involve;
   }
 }

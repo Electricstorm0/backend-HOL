@@ -1,41 +1,15 @@
-const pool = require('../../../../../../database/mysql/pool');
-
-const MasterHOLAreaRepository = require('../../../../../../../Domains/program_main/hol/MasterHOLAreaRepository');
 const HOLEventsRepository = require('../../../../../../../Domains/program_main/hol/events/HOLEventsRepository');
-const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/events/HOLEventsRepositoryMySQL');
+// Call For Fellows
 const HOLEventsCFFRepository = require('../../../../../../../Domains/program_main/hol/events/events_detail/call_for_fellows/HOLEventsCFFRepository');
-const HOLEventsCFFRepositoryMySQL = require('../../../../../../repository/program_main/hol/events/events_detail/call_for_fellows/HOLEventsCFFRepositoryMySQL');
+
+// Call For Fellows UseCase
 const CreateCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/CallForFellows/HOLCreateCFFUseCase');
 const GetCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/CallForFellows/HOLGetCFFUseCase');
 const GetCFFByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/CallForFellows/HOLGetCFFByIdUseCase');
 const UpdateCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/CallForFellows/HOLUpdateCFFUseCase');
 const DeleteCFFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/CallForFellows/HOLDeleteCFFUseCase');
 const events = [
-  // REPOSITORY
-  {
-    key: HOLEventsRepository.name,
-    Class: HOLEventsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLEventsCFFRepository.name,
-    Class: HOLEventsCFFRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-
-  // USE CASE
+  // CFF
   {
     key: CreateCFFUseCase.name,
     Class: CreateCFFUseCase,
@@ -43,11 +17,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLEventsCFFRepository',
+          name: 'holEventsCFFRepository',
           internal: HOLEventsCFFRepository.name,
         },
       ],
@@ -60,11 +34,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLEventsCFFRepository',
+          name: 'holEventsCFFRepository',
           internal: HOLEventsCFFRepository.name,
         },
       ],
@@ -77,7 +51,7 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsCFFRepository',
+          name: 'holEventsCFFRepository',
           internal: HOLEventsCFFRepository.name,
         },
       ],
@@ -90,11 +64,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLEventsCFFRepository',
+          name: 'holEventsCFFRepository',
           internal: HOLEventsCFFRepository.name,
         },
       ],
@@ -107,12 +81,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
       ],
     },
   },
 ];
-
 module.exports = events;

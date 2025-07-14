@@ -1,9 +1,10 @@
 class HOLUpdateStatusArticleUseCase {
-  constructor({ HOLUsersArticlesRepository }) {
-    this._HOLUsersArticlesRepository = HOLUsersArticlesRepository;
+  constructor({ holUsersArticlesRepository }) {
+    this._holUsersArticlesRepository = holUsersArticlesRepository;
   }
-  async execute({ id }, status) {
-    const result = await this._HOLUsersArticlesRepository.updateStatusArticle({ id, status });
+  async execute({ id }, payload) {
+    const { status } = payload;
+    const result = await this._holUsersArticlesRepository.updateStatusArticle({ id, status });
     return result;
   }
 }

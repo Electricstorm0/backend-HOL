@@ -10,6 +10,7 @@ class HolUsersAchievementsHandler {
     this._container = container;
     autoBind(this);
   }
+
   async postHolUsersAchievementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLCreateUsersAchievementsUseCase.name);
     const data = await useCase.execute(request.payload);
@@ -22,6 +23,7 @@ class HolUsersAchievementsHandler {
     response.code(201);
     return response;
   }
+
   async getHolUsersAchievementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersAchievementsUseCase.name);
     const data = await useCase.execute(request.query);
@@ -31,6 +33,7 @@ class HolUsersAchievementsHandler {
     });
     return response;
   }
+
   async getHolUsersAchievementsByIdHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersAchievementsByIdUseCase.name);
     const data = await useCase.execute(request.params);
@@ -40,6 +43,7 @@ class HolUsersAchievementsHandler {
     });
     return response;
   }
+
   async putHolUsersAchievementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLUpdateUsersAchievementsUseCase.name);
     await useCase.execute(request.params, request.payload);
@@ -49,6 +53,7 @@ class HolUsersAchievementsHandler {
     });
     return response;
   }
+
   async deleteHolUsersAchievementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLDeleteUsersAchievementsUseCase.name);
     await useCase.execute(request.params);

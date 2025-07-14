@@ -1,8 +1,6 @@
-const pool = require('../../../../database/mysql/pool');
 const HOLRecommendationsRepository = require('../../../../../Domains/program_main/hol/recommendations/HOLRecommendationsRepository');
-const HOLRecommendationsRepositoryMySQL = require('../../../../repository/program_main/hol/recommendations/HOLRecommendationsRepositoryMySQL');
 const HOLRecommendationsStatusRepository = require('../../../../../Domains/program_main/hol/recommendations/HOLRecommendationsStatusRepository');
-const HOLRecommendationsStatusRepositoryMyQL = require('../../../../repository/program_main/hol/recommendations/HOLRecommendationsStatusRepositoryMySQL');
+const UsersBCFRepository = require('../../../../../Domains/bcf/UsersBCFRepository');
 
 // Usecase
 const HOLCreateRecommendationUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Recommendations/HOLCreateRecommendationUseCase');
@@ -15,31 +13,6 @@ const HOLGetTotalUsersRecomendationUseCase = require('../../../../../Application
 const HOLGetTotalUsersRecomendationByStatusUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Recommendations/HOLGetTotalUsersRecomendationByStatusUseCase');
 
 const recommendations = [
-  // REPOSITORY
-  {
-    key: HOLRecommendationsRepository.name,
-    Class: HOLRecommendationsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLRecommendationsStatusRepository.name,
-    Class: HOLRecommendationsStatusRepositoryMyQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-
-  //   USECASE
   {
     key: HOLCreateRecommendationUseCase.name,
     Class: HOLCreateRecommendationUseCase,
@@ -47,11 +20,11 @@ const recommendations = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLRecommendationsRepository',
+          name: 'holRecommendationsRepository',
           internal: HOLRecommendationsRepository.name,
         },
         {
-          name: 'HOLRecommendationsStatusRepository',
+          name: 'holRecommendationsStatusRepository',
           internal: HOLRecommendationsStatusRepository.name,
         },
       ],
@@ -64,11 +37,11 @@ const recommendations = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLRecommendationsStatusRepository',
+          name: 'holRecommendationsStatusRepository',
           internal: HOLRecommendationsStatusRepository.name,
         },
         {
-          name: 'HOLRecommendationsRepository',
+          name: 'holRecommendationsRepository',
           internal: HOLRecommendationsRepository.name,
         },
       ],
@@ -81,11 +54,11 @@ const recommendations = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLRecommendationsStatusRepository',
+          name: 'holRecommendationsStatusRepository',
           internal: HOLRecommendationsStatusRepository.name,
         },
         {
-          name: 'HOLRecommendationsRepository',
+          name: 'holRecommendationsRepository',
           internal: HOLRecommendationsRepository.name,
         },
       ],
@@ -98,7 +71,7 @@ const recommendations = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLRecommendationsRepository',
+          name: 'holRecommendationsRepository',
           internal: HOLRecommendationsRepository.name,
         },
       ],
@@ -111,7 +84,7 @@ const recommendations = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLRecommendationsRepository',
+          name: 'holRecommendationsRepository',
           internal: HOLRecommendationsRepository.name,
         },
       ],
@@ -124,7 +97,11 @@ const recommendations = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLRecommendationsStatusRepository',
+          name: 'usersBCFRepository',
+          internal: UsersBCFRepository.name,
+        },
+        {
+          name: 'holRecommendationsStatusRepository',
           internal: HOLRecommendationsStatusRepository.name,
         },
       ],
@@ -138,7 +115,7 @@ const recommendations = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLRecommendationsStatusRepository',
+          name: 'holRecommendationsStatusRepository',
           internal: HOLRecommendationsStatusRepository.name,
         },
       ],
@@ -151,7 +128,7 @@ const recommendations = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLRecommendationsStatusRepository',
+          name: 'holRecommendationsStatusRepository',
           internal: HOLRecommendationsStatusRepository.name,
         },
       ],

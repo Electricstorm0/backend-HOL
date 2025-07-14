@@ -10,6 +10,7 @@ class HolUsersWorkExpHandler {
     this._container = container;
     autoBind(this);
   }
+
   async postHolUsersWorkExpHandler(request, h) {
     const useCase = this._container.getInstance(HOLCreateUsersWorkExpUseCase.name);
     const data = await useCase.execute(request.payload);
@@ -22,6 +23,7 @@ class HolUsersWorkExpHandler {
     response.code(201);
     return response;
   }
+
   async getHolUsersWorkExpHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersWorkExpUseCase.name);
     const data = await useCase.execute(request.query);
@@ -31,6 +33,7 @@ class HolUsersWorkExpHandler {
     });
     return response;
   }
+
   async getHolUsersWorkExpByIdHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersWorkExpByIdUseCase.name);
     const data = await useCase.execute(request.params);
@@ -40,6 +43,7 @@ class HolUsersWorkExpHandler {
     });
     return response;
   }
+
   async putHolUsersWorkExpHandler(request, h) {
     const useCase = this._container.getInstance(HOLUpdateUsersWorkExpUseCase.name);
     await useCase.execute(request.params, request.payload);
@@ -49,6 +53,7 @@ class HolUsersWorkExpHandler {
     });
     return response;
   }
+
   async deleteHolUsersWorkExpHandler(request, h) {
     const useCase = this._container.getInstance(HOLDeleteUsersWorkExpUseCase.name);
     await useCase.execute(request.params);

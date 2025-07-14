@@ -1,11 +1,11 @@
 const HOLGetDetailArticle = require('../../../../../Domains/program_main/hol/articles/entities/GetDetailArticle');
 
 class HOLGetDetailArticleUseCase {
-  constructor({ MasterHOLArticlesRepository }) {
-    this._MasterHOLArticlesRepository = MasterHOLArticlesRepository;
+  constructor({ masterHOLArticlesRepository }) {
+    this._masterHOLArticlesRepository = masterHOLArticlesRepository;
   }
   async execute({ id }) {
-    const article = await this._MasterHOLArticlesRepository.readById({ id });
+    const article = (await this._masterHOLArticlesRepository.readById({ id })) || {};
     const result = new HOLGetDetailArticle({ ...article });
     return result;
   }

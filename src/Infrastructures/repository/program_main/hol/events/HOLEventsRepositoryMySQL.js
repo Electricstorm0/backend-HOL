@@ -17,7 +17,8 @@ class HOLEventsRepositoryMySQL extends HOLEventsRepository {
 
   async create({ holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person }) {
     const query = {
-      text: 'INSERT INTO `tx_hol_events` (id_hol_events_type  ,name, deadline ,duration ,id_regencies ,description ,benefit ,contact_person) VALUES (?, ?, ?, ?, ?,?,?,?)',
+      text: `INSERT INTO tx_hol_events (id_hol_events_type  ,name, deadline ,duration ,id_regencies ,description ,benefit 
+      ,contact_person) VALUES (?, ?, ?, ?, ?,?,?,?)`,
       values: [holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person],
     };
 
@@ -44,7 +45,11 @@ class HOLEventsRepositoryMySQL extends HOLEventsRepository {
 
   async readEventsTypeAndPositionByEventsId({ eventsHOLId }) {
     const query = {
-      text: 'SELECT e.id_hol_events_type, COALESCE(eba.position_category,ei.position_category) as position FROM tx_hol_events as e LEFT JOIN tx_hol_events_ba as eba on eba.id_events_hol = e.id LEFT JOIN tx_hol_events_iysf as ei on ei.id_events_hol = e.id WHERE e.id = ? ',
+      text: `SELECT e.id_hol_events_type, COALESCE(eba.position_category,ei.position_category) as position 
+      FROM tx_hol_events as e 
+      LEFT JOIN tx_hol_events_ba as eba on eba.id_events_hol = e.id
+      LEFT JOIN tx_hol_events_iysf as ei on ei.id_events_hol = e.id 
+      WHERE e.id = ? `,
       values: [eventsHOLId],
     };
     const [result] = await this._pool.query(query.text, query.values);

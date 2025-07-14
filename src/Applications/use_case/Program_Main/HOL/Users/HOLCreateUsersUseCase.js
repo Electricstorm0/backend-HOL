@@ -1,6 +1,6 @@
 class HOLCreateUsersUseCase {
-  constructor({ HOLUsersRepository }) {
-    this._HOLUsersRepository = HOLUsersRepository;
+  constructor({ holUsersRepository }) {
+    this._holUsersRepository = holUsersRepository;
   }
 
   async execute(payload) {
@@ -23,7 +23,7 @@ class HOLCreateUsersUseCase {
       joinedSocialCommunities,
     } = payload;
 
-    const usersHolId = await this._HOLUsersRepository.create({
+    const usersHolId = await this._holUsersRepository.create({
       usersId,
       musicalInstrument,
       talent,

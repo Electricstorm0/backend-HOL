@@ -1,10 +1,10 @@
 class HOLUpdateAttendeUsersEventsUseCase {
-  constructor({ HOLUsersEventsRepository }) {
-    this._HOLUsersEventsRepository = HOLUsersEventsRepository;
+  constructor({ holUsersEventsRepository }) {
+    this._holUsersEventsRepository = holUsersEventsRepository;
   }
 
-  async execute({ usersHOLId, eventsHOLId }) {
-    await this._HOLUsersEventsRepository.updateAttendance({ usersHOLId, eventsHOLId });
+  async execute({ id: usersHOLId }, { eventsHOLId }) {
+    await this._holUsersEventsRepository.updateAttendance({ usersHOLId, eventsHOLId });
   }
 }
 module.exports = HOLUpdateAttendeUsersEventsUseCase;

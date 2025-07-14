@@ -1,17 +1,17 @@
 const HolGetUsers = require('../../../../../Domains/program_main/hol/users/entities/HolGetUsers');
 
 class HOLGetUsersUseCase {
-  constructor({ HOLUsersRepository }) {
-    this._HOLUsersRepository = HOLUsersRepository;
+  constructor({ holUsersRepository }) {
+    this._holUsersRepository = holUsersRepository;
   }
 
   async execute({ pageSize, page }) {
     const numPerPage = parseInt(pageSize, 10) || 1;
     const offset = parseInt(page - 1, 10) || 0;
     const skip = offset * numPerPage;
-    const numRows = await this._HOLUsersRepository.readCountUsers();
+    const numRows = await this._holUsersRepository.readCountUsers();
     const numPages = Math.ceil(numRows / numPerPage);
-    const [users, journeys] = await Promise.all([this._HOLUsersRepository.read({ skip, numPerPage }), this._HOLUsersRepository.readJourneyUsers()]);
+    const [users, journeys] = await Promise.all([this._holUsersRepository.read({ skip, numPerPage }), this._holUsersRepository.readJourneyUsers()]);
 
     const result = await Promise.all(
       users.map(async (value) => {

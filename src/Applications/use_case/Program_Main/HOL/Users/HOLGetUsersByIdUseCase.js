@@ -2,15 +2,12 @@ const NotFoundError = require('../../../../../Commons/exceptions/NotFoundError')
 const GetUsers = require('../../../../../Domains/program_main/hol/users/entities/HolGetUsers');
 
 class HOLGetUsersByIdUseCase {
-  constructor({ HOLUsersRepository }) {
-    this._HOLUsersRepository = HOLUsersRepository;
+  constructor({ holUsersRepository }) {
+    this._holUsersRepository = holUsersRepository;
   }
 
   async execute({ id }) {
-    const users = await this._HOLUsersRepository.readById({ id }); // misal typeId: 1 untuk CFF
-    if (!users || users.length === 0) {
-      throw new NotFoundError(`Data tidak ditemukan`);
-    }
+    const users = (await this._holUsersRepository.readById({ id })) || {};
     const result = new GetUsers({
       photoProfile: 'profileKu.JPG',
       ...users,

@@ -1,18 +1,18 @@
 class HOLCreateArticlesUseCase {
-  constructor({ MasterHOLArticlesRepository, HOLUsersArticlesRepository }) {
-    this._MasterHOLArticlesRepository = MasterHOLArticlesRepository;
-    this._HOLUsersArticlesRepository = HOLUsersArticlesRepository;
+  constructor({ masterHOLArticlesRepository, holUsersArticlesRepository }) {
+    this._masterHOLArticlesRepository = masterHOLArticlesRepository;
+    this._holUsersArticlesRepository = holUsersArticlesRepository;
   }
-  async execute({ usersHOLId }, payload) {
+  async execute({ id: usersHOLId }, payload) {
     const { title, abstract, fileUrl, citation, linkCitation } = payload;
-    const articlesId = await this._MasterHOLArticlesRepository.create({
+    const articlesId = await this._masterHOLArticlesRepository.create({
       title,
       abstract,
       fileUrl,
       citation,
       linkCitation,
     });
-    await this._HOLUsersArticlesRepository.create({
+    await this._holUsersArticlesRepository.create({
       articleId: articlesId,
       usersHOLId,
       status: 'Checking',

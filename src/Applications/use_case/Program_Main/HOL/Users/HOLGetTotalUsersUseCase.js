@@ -1,10 +1,10 @@
 class HOLGetTotalUsersUseCase {
-  constructor({ HOLUsersRepository }) {
-    this._HOLUsersRepository = HOLUsersRepository;
+  constructor({ holUsersRepository }) {
+    this._holUsersRepository = holUsersRepository;
   }
 
   async execute() {
-    const totalUsers = await this._HOLUsersRepository.readCountUsers();
+    const totalUsers = await this._holUsersRepository.readCountUsers();
 
     return totalUsers;
   }

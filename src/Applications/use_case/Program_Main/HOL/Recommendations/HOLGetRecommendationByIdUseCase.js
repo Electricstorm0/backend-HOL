@@ -1,21 +1,14 @@
 const getRecommendation = require('../../../../../Domains/program_main/hol/recommendations/entities/GetRecommendations');
 
 class HOLGetRecommendationByIdUseCase {
-  constructor({ HOLRecommendationsRepository }) {
-    this._HOLRecommendationsRepository = HOLRecommendationsRepository;
+  constructor({ holRecommendationsRepository }) {
+    this._holRecommendationsRepository = holRecommendationsRepository;
   }
 
   async execute({ id }) {
-    try {
-      const useCase = await this._HOLRecommendationsRepository.readById({ id });
-      if (!useCase) {
-        throw new Error('data tidak ditemukan');
-      }
-      const result = new getRecommendation({ ...useCase });
-      return result;
-    } catch (error) {
-      console.log(error);
-    }
+    const useCase = (await this._holRecommendationsRepository.readById({ id })) || {};
+    const result = new getRecommendation({ ...useCase });
+    return result;
   }
 }
 module.exports = HOLGetRecommendationByIdUseCase;

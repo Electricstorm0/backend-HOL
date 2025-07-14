@@ -1,10 +1,10 @@
 class HOLGetDetailInvolvementsUseCase {
-  constructor({ HOLUsersEventsRepository }) {
-    this._HOLUsersEventsRepository = HOLUsersEventsRepository;
+  constructor({ holUsersEventsRepository }) {
+    this._holUsersEventsRepository = holUsersEventsRepository;
   }
 
   async execute({ usersHOLId }) {
-    const useCase = await this._HOLUsersEventsRepository.readByUsersIdAndAttendance({ usersHOLId });
+    const useCase = (await this._holUsersEventsRepository.readByUsersIdAndAttendance({ usersHOLId })) || [];
     return useCase;
   }
 }

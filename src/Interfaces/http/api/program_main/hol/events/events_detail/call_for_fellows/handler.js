@@ -10,6 +10,7 @@ class CFFHandler {
     this._container = container;
     autoBind(this);
   }
+
   async postCFFHandler(request, h) {
     const useCase = this._container.getInstance(CreateCFFUseCase.name);
     const data = await useCase.execute(request.payload);
@@ -22,6 +23,7 @@ class CFFHandler {
     response.code(201);
     return response;
   }
+
   async getCFFHandler(request, h) {
     const useCase = this._container.getInstance(GetCFFUseCase.name);
     const data = await useCase.execute(request.query);
@@ -31,6 +33,7 @@ class CFFHandler {
     });
     return response;
   }
+
   async getCFFByIdHandler(request, h) {
     const useCase = this._container.getInstance(GetCFFByIdUseCase.name);
     const data = await useCase.execute(request.params);
@@ -40,6 +43,7 @@ class CFFHandler {
     });
     return response;
   }
+
   async putCFFHandler(request, h) {
     const useCase = this._container.getInstance(UpdateCFFUseCase.name);
     await useCase.execute(request.params, request.payload);
@@ -49,6 +53,7 @@ class CFFHandler {
     });
     return response;
   }
+
   async deleteCFFHandler(request, h) {
     const useCase = this._container.getInstance(DeleteCFFUseCase.name);
     await useCase.execute(request.params);

@@ -67,16 +67,31 @@ const CLPInstitutions = require('./container/program_main/clp/clp_institutions')
 const LEADUsers = require('./container/program_main/lead/lead_users');
 const LEADInstitutions = require('./container/program_main/lead/lead_institutions');
 // HOL
-const HOLCFF = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_events_cff');
-const HOLBA = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_events_ba');
-const HOLIYSF = require('./container/program_main/hol/events/events_detail/iysf/hol_events_iysf');
-const HOLUsersEvents = require('./container/program_main/hol/events/users/hol_events_users');
-const HOLUsers = require('./container/program_main/hol/users/holUsers');
-const HOLUsersAchieve = require('./container/program_main/hol/users/journey/achievements/UserAchievements');
-const HOLUsersExp = require('./container/program_main/hol/users/journey/work_experience/UserExperience');
-const HOLUsersInvolve = require('./container/program_main/hol/users/journey/involvements/UserInvolvements');
-const HOLRecommendations = require('./container/program_main/hol/recommendations/holRecommendations');
-const HOLArticle = require('./container/program_main/hol/articles/hol_articles');
+// events
+const HOLCFFRepository = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_call_for_fellows_repository')
+const HOLCFFUseCase = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_call_for_fellows_repository')
+const HOLBARepository = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_bonding_activities_repository')
+const HOLBAUseCase = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_bonding_activities_use_case')
+const HOLIYSFRepository = require('./container/program_main/hol/events/events_detail/iysf/hol_iysf_repository')
+const HOLIYSFUseCase = require('./container/program_main/hol/events/events_detail/iysf/hol_iysf_use_case')
+const HOLUsersEventsRepository = require('./container/program_main/hol/events/users/hol_events_users_repository');
+const HOLUsersEventsUseCase = require('./container/program_main/hol/events/users/hol_events_users_use_case');
+// users
+const HOLUsersRepository = require('./container/program_main/hol/users/hol_users_repository');
+const HOLUsersUseCase = require('./container/program_main/hol/users/hol_users_use_case');
+// users journey
+const HOLUsersAchieveRepository = require('./container/program_main/hol/users/journey/achievements/hol_users_achievements_repository');
+const HOLUsersAchieveUseCase = require('./container/program_main/hol/users/journey/achievements/hol_users_achievements_use_case');
+const HOLUsersExpRepository = require('./container/program_main/hol/users/journey/work_experience/hol_users_work_experience_repository');
+const HOLUsersExpUseCase = require('./container/program_main/hol/users/journey/work_experience/hol_users_work_experience_use_case');
+const HOLUsersInvolveRepository = require('./container/program_main/hol/users/journey/involvements/hol_users_involvements_repository');
+const HOLUsersInvolveUseCase = require('./container/program_main/hol/users/journey/involvements/hol_users_involvements_use_case');
+// Recommendations
+const HOLRecommendationsUseCase = require('./container/program_main/hol/recommendations/hol_recommendations_use_case');
+const HOLRecommendationsRepository = require('./container/program_main/hol/recommendations/hol_recommendations_repository');
+// Article
+const HOLArticleUseCase = require('./container/program_main/hol/articles/hol_articles_use_case');
+const HOLArticleRepository = require('./container/program_main/hol/articles/hol_articles_repository');
 
 // DOMAIN REPOSITORY CLP
 const CLPUsersRepository = require('../Domains/program_main/clp/users/CLPUsersRepository');
@@ -396,15 +411,30 @@ container.register(LEADUsers);
 container.register(LEADInstitutions);
 
 // HOL
-container.register(HOLCFF);
-container.register(HOLBA);
-container.register(HOLIYSF);
-container.register(HOLUsersEvents);
-container.register(HOLUsers);
-container.register(HOLUsersAchieve);
-container.register(HOLUsersExp);
-container.register(HOLUsersInvolve);
-container.register(HOLRecommendations);
-container.register(HOLArticle);
+// events
+container.register(HOLCFFRepository);
+container.register(HOLCFFUseCase);
+container.register(HOLBARepository);
+container.register(HOLBAUseCase);
+container.register(HOLIYSFRepository);
+container.register(HOLIYSFUseCase);
+container.register(HOLUsersEventsRepository);
+container.register(HOLUsersEventsUseCase);
+// users
+container.register(HOLUsersRepository);
+container.register(HOLUsersUseCase);
+// users journey
+container.register(HOLUsersAchieveRepository);
+container.register(HOLUsersAchieveUseCase);
+container.register(HOLUsersExpRepository);
+container.register(HOLUsersExpUseCase);
+container.register(HOLUsersInvolveRepository);
+container.register(HOLUsersInvolveUseCase);
+// Recommendations
+container.register(HOLRecommendationsUseCase);
+container.register(HOLRecommendationsRepository);
+// Article
+container.register(HOLArticleUseCase);
+container.register(HOLArticleRepository);
 
 module.exports = container;

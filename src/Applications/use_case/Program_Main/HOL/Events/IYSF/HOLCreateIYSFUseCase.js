@@ -1,13 +1,13 @@
 class CreateIYSFUseCase {
-  constructor({ HOLEventsRepository, HOLEventsIYSFRepository }) {
-    this._HOLEventsRepository = HOLEventsRepository;
-    this._HOLEventsIYSFRepository = HOLEventsIYSFRepository;
+  constructor({ holEventsRepository, holEventsIYSFRepository }) {
+    this._holEventsRepository = holEventsRepository;
+    this._holEventsIYSFRepository = holEventsIYSFRepository;
   }
 
   async execute(payload) {
     const { holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person, logoUrl, position, positionCategory, eventDate, requirements } = payload;
 
-    const eventId = await this._HOLEventsRepository.create({
+    const eventId = await this._holEventsRepository.create({
       holEventsTypeId,
       name,
       deadline,
@@ -17,7 +17,7 @@ class CreateIYSFUseCase {
       benefit,
       contact_person,
     });
-    await this._HOLEventsIYSFRepository.create({
+    await this._holEventsIYSFRepository.create({
       holEventsId: eventId,
       logoUrl,
       position,

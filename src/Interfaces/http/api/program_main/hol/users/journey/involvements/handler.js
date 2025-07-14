@@ -11,6 +11,7 @@ class HolUsersInvolvementsHandler {
     this._container = container;
     autoBind(this);
   }
+
   async postHolUsersInvolvementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLCreateUsersInvolvementsUseCase.name);
     const data = await useCase.execute(request.payload);
@@ -23,6 +24,7 @@ class HolUsersInvolvementsHandler {
     response.code(201);
     return response;
   }
+
   async getHolUsersInvolvementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersInvolvementsUseCase.name);
     const data = await useCase.execute(request.query);
@@ -32,6 +34,7 @@ class HolUsersInvolvementsHandler {
     });
     return response;
   }
+
   async getHolUsersInvolvementsByIdHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersInvolvementsByIdUseCase.name);
     const data = await useCase.execute(request.params);
@@ -61,6 +64,7 @@ class HolUsersInvolvementsHandler {
     });
     return response;
   }
+
   async deleteHolUsersInvolvementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLDeleteUsersInvolvementsUseCase.name);
     await useCase.execute(request.params);

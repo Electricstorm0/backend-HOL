@@ -1,43 +1,15 @@
-// REPOSITORY
 const HOLUsersArticlesRepository = require('../../../../../Domains/program_main/hol/articles/HOLUsersArticlesRepository');
 const MasterHOLArticlesRepository = require('../../../../../Domains/program_main/hol/articles/MasterHOLArticlesRepository');
-const HOLUsersArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/articles/HOLUsersArticlesRepositoryMySQL');
-const MasterHOLArticlesRepositoryMySQL = require('../../../../repository/program_main/hol/articles/MasterHOLArticlesRepositoryMySQL');
 // USECASE
 const HOLCreateArticlesUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLCreateArticlesUseCase');
 const HOLGetAllMyArticleUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLGetAllMyArticleUseCase');
 const HOLGetDetailArticleUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLGetDetailArticleUseCase');
 const HOLUpdateArticleUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLUpdateArticleUseCase');
 const HOLDeleteArticleUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLDeleteArticleUseCase');
-const pool = require('../../../../database/mysql/pool');
 const HOLGetAllArticleUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLGetAllArticleUseCase');
 const HOLUpdateStatusArticleUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLUpdateStatusArticleUseCase');
 const HOLGetAllUsersArticleUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Articles/HOLGetAllUsersArticleUseCase');
 const articles = [
-  {
-    key: MasterHOLArticlesRepository.name,
-    Class: MasterHOLArticlesRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLUsersArticlesRepository.name,
-    Class: HOLUsersArticlesRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-
-  //   USE CASE
   {
     key: HOLCreateArticlesUseCase.name,
     Class: HOLCreateArticlesUseCase,
@@ -45,11 +17,11 @@ const articles = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'MasterHOLArticlesRepository',
+          name: 'masterHOLArticlesRepository',
           internal: MasterHOLArticlesRepository.name,
         },
         {
-          name: 'HOLUsersArticlesRepository',
+          name: 'holUsersArticlesRepository',
           internal: HOLUsersArticlesRepository.name,
         },
       ],
@@ -62,7 +34,7 @@ const articles = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersArticlesRepository',
+          name: 'holUsersArticlesRepository',
           internal: HOLUsersArticlesRepository.name,
         },
       ],
@@ -75,7 +47,7 @@ const articles = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersArticlesRepository',
+          name: 'holUsersArticlesRepository',
           internal: HOLUsersArticlesRepository.name,
         },
       ],
@@ -88,7 +60,7 @@ const articles = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'MasterHOLArticlesRepository',
+          name: 'masterHOLArticlesRepository',
           internal: MasterHOLArticlesRepository.name,
         },
       ],
@@ -101,7 +73,7 @@ const articles = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'MasterHOLArticlesRepository',
+          name: 'masterHOLArticlesRepository',
           internal: MasterHOLArticlesRepository.name,
         },
       ],
@@ -114,7 +86,7 @@ const articles = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'MasterHOLArticlesRepository',
+          name: 'masterHOLArticlesRepository',
           internal: MasterHOLArticlesRepository.name,
         },
       ],
@@ -127,7 +99,7 @@ const articles = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLUsersArticlesRepository',
+          name: 'holUsersArticlesRepository',
           internal: HOLUsersArticlesRepository.name,
         },
       ],
@@ -140,7 +112,7 @@ const articles = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'MasterHOLArticlesRepository',
+          name: 'masterHOLArticlesRepository',
           internal: MasterHOLArticlesRepository.name,
         },
       ],

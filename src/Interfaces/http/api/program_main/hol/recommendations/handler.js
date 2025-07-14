@@ -15,9 +15,8 @@ class HolRecommendationHandler {
   }
 
   async postRecommendationHandler(request, h) {
-    const HOLUsersRecommendationId = request.auth.credentials.id;
     const useCase = this._container.getInstance(HOLCreateRecommendationUseCase.name);
-    const data = await useCase.execute({ HOLUsersRecommendationId }, request.payload);
+    const data = await useCase.execute(request.auth.credentials, request.payload);
     const response = h.response({
       status: 'success',
       message: 'recommendation letter added successfully',
@@ -37,10 +36,10 @@ class HolRecommendationHandler {
     });
     return response;
   }
+
   async getRecommendationByUserIdHandler(request, h) {
-    const HOLUsersRecommendationId = request.auth.credentials.id;
     const useCase = await this._container.getInstance(HOLGetRecommendationByUserIdUseCase.name);
-    const data = await useCase.execute({ HOLUsersRecommendationId });
+    const data = await useCase.execute(request.auth.credentials);
 
     const response = h.response({
       status: 'success',
@@ -55,35 +54,32 @@ class HolRecommendationHandler {
 
     const response = h.response({
       status: 'success',
-      message: 'get all users recommendation successfully',
       data,
     });
     return response;
   }
+
   async getAllUsersRecommendationByStatusHandler(request, h) {
     const useCase = await this._container.getInstance(HOLGetAllRecommendationByStatusUseCase.name);
     const data = await useCase.execute(request.query);
 
     const response = h.response({
       status: 'success',
-      message: 'get all users recommendation successfully',
       data,
     });
     return response;
   }
 
   async putRecommendationStatusHandler(request, h) {
-    const updateBy = request.auth.credentials.id;
-    const recommendationHolId = request.params.recommendationHolId;
     const useCase = await this._container.getInstance(HOLUpdateStatusRecommendationUseCase.name);
-    const data = await useCase.execute({ updateBy, recommendationHolId }, request.payload);
-
+    await useCase.execute(request.params, request.auth.credentials, request.payload);
     const response = h.response({
       status: 'success',
       message: 'status updated successfully',
     });
     return response;
   }
+
   async getTotalUsersRecommendationHandler(request, h) {
     const useCase = await this._container.getInstance(HOLGetTotalUsersRecomendationUseCase.name);
     const data = await useCase.execute(request.query);
@@ -94,6 +90,7 @@ class HolRecommendationHandler {
     });
     return response;
   }
+
   async getTotalUsersRecommendationByStatusHandler(request, h) {
     const useCase = await this._container.getInstance(HOLGetTotalUsersRecomendationByStatusUseCase.name);
     const data = await useCase.execute(request.params);

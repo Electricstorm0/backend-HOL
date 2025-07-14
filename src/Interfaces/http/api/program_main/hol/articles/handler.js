@@ -15,9 +15,8 @@ class HOLArticleHandler {
   }
 
   async postArticleHandler(request, h) {
-    const usersHOLId = request.auth.credentials.id;
     const useCase = this._container.getInstance(HOLCreateArticlesUseCase.name);
-    const data = await useCase.execute({ usersHOLId }, request.payload);
+    const data = await useCase.execute(request.auth.credentials, request.payload);
 
     const response = h.response({
       status: 'success',
@@ -27,51 +26,51 @@ class HOLArticleHandler {
     response.code(201);
     return response;
   }
+
   async getAllArticleHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetAllArticleUseCase.name);
     const data = await useCase.execute(request.query);
 
     const response = h.response({
       status: 'success',
-      message: 'get articles successfully!',
       data,
     });
     return response;
   }
+
   async getAllUsersArticleHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetAllUsersArticleUseCase.name);
     const data = await useCase.execute(request.query);
 
     const response = h.response({
       status: 'success',
-      message: 'get users articles successfully!',
       data,
     });
     return response;
   }
+
   async getMyArticleHandler(request, h) {
-    const usersHOLId = request.auth.credentials.id;
     const useCase = this._container.getInstance(HOLGetAllMyArticleUseCase.name);
-    const data = await useCase.execute({ usersHOLId });
+    const data = await useCase.execute(request.auth.credentials);
 
     const response = h.response({
       status: 'success',
-      message: 'get articles successfully!',
       data,
     });
     return response;
   }
+
   async getDetailArticleHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetDetailArticleUseCase.name);
     const data = await useCase.execute(request.params);
 
     const response = h.response({
       status: 'success',
-      message: 'get articles successfully!',
       data,
     });
     return response;
   }
+
   async putArticleHandler(request, h) {
     const useCase = this._container.getInstance(HOLUpdateArticleUseCase.name);
     await useCase.execute(request.params, request.payload);
@@ -82,15 +81,17 @@ class HOLArticleHandler {
     });
     return response;
   }
+
   async putStatusArticleHandler(request, h) {
     const useCase = this._container.getInstance(HOLUpdateStatusArticleUseCase.name);
-    const data = await useCase.execute(request.params, request.payload.status);
+    await useCase.execute(request.params, request.payload);
     const response = h.response({
       status: 'success',
       message: 'Status updated successfully!',
     });
     return response;
   }
+
   async deleteArticleHandler(request, h) {
     const useCase = this._container.getInstance(HOLDeleteArticleUseCase.name);
     await useCase.execute(request.params);

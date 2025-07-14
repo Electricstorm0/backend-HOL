@@ -8,7 +8,8 @@ class HOLUsersAchievementsRepositoryMySQL extends HOLUsersAchievementsRepository
 
   async create({ holUsersId, eventsName, eventsYear, bcfContribution, achievements }) {
     const query = {
-      text: 'INSERT INTO `tx_hol_achievements` (id_users_hol,events_name,events_year,bcf_contribution,achievements) VALUES (?,?,?,?,?)',
+      text: `INSERT INTO tx_hol_achievements (id_users_hol,events_name,events_year,bcf_contribution,achievements) 
+      VALUES (?,?,?,?,?)`,
       values: [holUsersId, eventsName, eventsYear, bcfContribution, achievements],
     };
 

@@ -1,41 +1,14 @@
-const pool = require('../../../../../../database/mysql/pool');
-
-// const MasterHOLAreaRepository = require('../../../../../../../Domains/program_main/hol/MasterHOLAreaRepository');
 const HOLEventsRepository = require('../../../../../../../Domains/program_main/hol/events/HOLEventsRepository');
-const HOLEventsRepositoryMySQL = require('../../../../../../repository/program_main/hol/events/HOLEventsRepositoryMySQL');
+// IYSF
 const HOLEventsIYSFRepository = require('../../../../../../../Domains/program_main/hol/events/events_detail/iysf/HOLEventsIYSFRepository');
-const HOLEventsIYSFRepositoryMySQL = require('../../../../../../repository/program_main/hol/events/events_detail/iysf/HOLEventsIYSFRepositoryMySQL');
+
+// IYSF UseCase
 const CreateIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/IYSF/HOLCreateIYSFUseCase');
 const GetIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/IYSF/HOLGetIYSFUseCase');
 const GetIYSFByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/IYSF/HOLGetIYSFByIdUseCase');
 const UpdateIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/IYSF/HOLUpdateIYSFUseCase');
 const DeleteIYSFUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/IYSF/HOLDeleteIYSFUseCase');
 const events = [
-  // REPOSITORY
-  {
-    key: HOLEventsRepository.name,
-    Class: HOLEventsRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLEventsIYSFRepository.name,
-    Class: HOLEventsIYSFRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-
-  // USE CASE
   {
     key: CreateIYSFUseCase.name,
     Class: CreateIYSFUseCase,
@@ -43,11 +16,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLEventsIYSFRepository',
+          name: 'holEventsIYSFRepository',
           internal: HOLEventsIYSFRepository.name,
         },
       ],
@@ -60,11 +33,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLEventsIYSFRepository',
+          name: 'holEventsIYSFRepository',
           internal: HOLEventsIYSFRepository.name,
         },
       ],
@@ -77,7 +50,7 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsIYSFRepository',
+          name: 'holEventsIYSFRepository',
           internal: HOLEventsIYSFRepository.name,
         },
       ],
@@ -90,11 +63,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
         {
-          name: 'HOLEventsIYSFRepository',
+          name: 'holEventsIYSFRepository',
           internal: HOLEventsIYSFRepository.name,
         },
       ],
@@ -107,12 +80,11 @@ const events = [
       injectType: 'destructuring',
       dependencies: [
         {
-          name: 'HOLEventsRepository',
+          name: 'holEventsRepository',
           internal: HOLEventsRepository.name,
         },
       ],
     },
   },
 ];
-
 module.exports = events;

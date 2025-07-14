@@ -1,12 +1,12 @@
 // INI UNTUK DI KLASIFIKASI PER PROGRAM
 
 class HOLGetTotalUsersEventsGroupByProgramUseCase {
-  constructor({ HOLUsersEventsRepository }) {
-    this._HOLUsersEventsRepository = HOLUsersEventsRepository;
+  constructor({ holUsersEventsRepository }) {
+    this._holUsersEventsRepository = holUsersEventsRepository;
   }
 
   async execute({ eventsHOLId, status }) {
-    const result = await this._HOLUsersEventsRepository.readCountUsersEventsGroupByProgram({ eventsHOLId, status });
+    const result = await this._holUsersEventsRepository.readCountUsersEventsGroupByProgram({ eventsHOLId, status });
     return result;
   }
 }

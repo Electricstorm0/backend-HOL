@@ -28,7 +28,7 @@ const routes = (handler) => [
   },
   {
     method: 'GET',
-    path: '/article/{id}/detail',
+    path: '/article/{id}',
     handler: handler.getDetailArticleHandler,
   },
   {

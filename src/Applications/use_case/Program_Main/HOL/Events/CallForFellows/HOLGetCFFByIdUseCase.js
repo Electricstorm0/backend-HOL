@@ -1,16 +1,12 @@
-const NotFoundError = require('../../../../../../Commons/exceptions/NotFoundError');
 const GetCFF = require('../../../../../../Domains/program_main/hol/events/events_detail/call_for_fellows/entities/GetCFF');
 
 class GetCFFByIdUseCase {
-  constructor({ HOLEventsCFFRepository }) {
-    this._HOLEventsCFFRepository = HOLEventsCFFRepository;
+  constructor({ holEventsCFFRepository }) {
+    this._holEventsCFFRepository = holEventsCFFRepository;
   }
 
   async execute({ id }) {
-    const events = await this._HOLEventsCFFRepository.readById({ id }); // misal typeId: 1 untuk CFF
-    if (!events || events.length === 0) {
-      throw new NotFoundError(`Data dengan id ${id} tidak ditemukan`);
-    }
+    const events = (await this._holEventsCFFRepository.readById({ id })) || {};
     const result = new GetCFF({ ...events });
 
     return result;

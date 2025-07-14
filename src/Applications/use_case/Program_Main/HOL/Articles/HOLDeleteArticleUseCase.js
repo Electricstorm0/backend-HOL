@@ -1,9 +1,9 @@
 class HOLDeleteArticleUseCase {
-  constructor({ MasterHOLArticlesRepository }) {
-    this._MasterHOLArticlesRepository = MasterHOLArticlesRepository;
+  constructor({ masterHOLArticlesRepository }) {
+    this._masterHOLArticlesRepository = masterHOLArticlesRepository;
   }
   async execute({ id }) {
-    const result = await this._MasterHOLArticlesRepository.delete({ id });
+    const result = await this._masterHOLArticlesRepository.delete({ id });
     return result;
   }
 }

@@ -1,10 +1,10 @@
 class HOLUpdateStatusUsersEventsUseCase {
-  constructor({ HOLUsersEventsRepository }) {
-    this._HOLUsersEventsRepository = HOLUsersEventsRepository;
+  constructor({ holUsersEventsRepository }) {
+    this._holUsersEventsRepository = holUsersEventsRepository;
   }
 
   async execute({ usersHOLId, eventsHOLId }) {
-    const useCase = await this._HOLUsersEventsRepository.updateStatusUsersEvents({ usersHOLId, eventsHOLId });
+    const useCase = await this._holUsersEventsRepository.updateStatusUsersEvents({ usersHOLId, eventsHOLId });
     return useCase;
   }
 }
