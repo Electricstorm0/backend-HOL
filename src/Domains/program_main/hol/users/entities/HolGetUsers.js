@@ -4,6 +4,7 @@ class HolGetUsers {
     const {
       id,
       id_users,
+      id_batch,
       photoProfile,
       Alumni_Name,
       program,
@@ -28,6 +29,7 @@ class HolGetUsers {
     } = payload;
     this.usersHOLId = id;
     this.usersId = id_users;
+    this.batchId = id_batch;
     this.photoProfile = photoProfile;
     this.alumniName = Alumni_Name;
     this.program = program;
