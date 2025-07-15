@@ -17,7 +17,6 @@ class HOLCreateArticlesUseCase {
       usersHOLId,
       status: 'Checking',
     });
-    return articlesId;
   }
 }
 

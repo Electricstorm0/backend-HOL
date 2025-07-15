@@ -15,11 +15,25 @@ const routes = (handler) => [
     method: 'GET',
     path: '/events/iysf', //http://localhost:3000/hol/events/iysf?holEventsTypeId=2&page=1&pageSize=5
     handler: handler.getIYSFHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
     path: '/events/iysf/{id}',
     handler: handler.getIYSFByIdHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'PUT',

@@ -26,7 +26,6 @@ class CreateCFFUseCase {
       registerUrl,
       requirements,
     });
-    return eventId;
   }
 }
 module.exports = CreateCFFUseCase;

@@ -2,7 +2,8 @@
 class GetIYSF {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { id_hol_events_type, name, deadline, duration, id_regencies, description, benefit, contact_person, logo_url, position, position_category, event_date, requirements } = payload;
+    const { id_events_hol, id_hol_events_type, name, deadline, duration, id_regencies, description, benefit, contact_person, logo_url, position, position_category, event_date, requirements } = payload;
+    this.iysfId = id_events_hol;
     this.HolEventTypeId = id_hol_events_type;
     this.logo_url = logo_url;
     this.name = name;

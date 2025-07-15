@@ -12,7 +12,7 @@ class GetCFFUseCase {
     const skip = offset * numPerPage;
     const numRows = await this._holEventsRepository.readCountByProgramType({ holEventsTypeId });
     const numPages = Math.ceil(numRows / numPerPage);
-    const events = (await this._holEventsCFFRepository.read({ skip, numPerPage, holEventsTypeId })) || [];
+    const events = await this._holEventsCFFRepository.read({ skip, numPerPage, holEventsTypeId }) || [];
     const result = await Promise.all(
       events.map(async (value) => ({
         ...new GetCFF({

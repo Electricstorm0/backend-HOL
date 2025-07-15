@@ -2,7 +2,8 @@
 class GetBA {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { id_hol_events_type, name, deadline, duration, id_regencies, description, benefit, contact_person, picture_url, category } = payload;
+    const { id_events_hol, id_hol_events_type, name, deadline, duration, id_regencies, description, benefit, contact_person, picture_url, category } = payload;
+    this.bondingActivitiesId = id_events_hol;
     this.holEventTypeId = id_hol_events_type;
     this.pictureUrl = picture_url;
     this.name = name;

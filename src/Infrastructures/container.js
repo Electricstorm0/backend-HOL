@@ -69,7 +69,7 @@ const LEADInstitutions = require('./container/program_main/lead/lead_institution
 // HOL
 // events
 const HOLCFFRepository = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_call_for_fellows_repository')
-const HOLCFFUseCase = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_call_for_fellows_repository')
+const HOLCFFUseCase = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_call_for_fellows_use_case.js')
 const HOLBARepository = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_bonding_activities_repository')
 const HOLBAUseCase = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_bonding_activities_use_case')
 const HOLIYSFRepository = require('./container/program_main/hol/events/events_detail/iysf/hol_iysf_repository')

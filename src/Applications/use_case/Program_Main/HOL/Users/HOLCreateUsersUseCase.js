@@ -1,3 +1,5 @@
+const InvariantError = require('../../../../../Commons/exceptions/InvariantError');
+
 class HOLCreateUsersUseCase {
   constructor({ holUsersRepository }) {
     this._holUsersRepository = holUsersRepository;
@@ -6,6 +8,7 @@ class HOLCreateUsersUseCase {
   async execute(payload) {
     const {
       usersId,
+      batchId,
       musicalInstrument,
       talent,
       taletDescriptionSelected,
@@ -23,25 +26,30 @@ class HOLCreateUsersUseCase {
       joinedSocialCommunities,
     } = payload;
 
-    const usersHolId = await this._holUsersRepository.create({
-      usersId,
-      musicalInstrument,
-      talent,
-      taletDescriptionSelected,
-      bcfActivities,
-      otherActivities,
-      fiveYearAward,
-      fiveYearPlan,
-      fiveYearPlanDescription,
-      ability,
-      abilityDescriptionSelected,
-      abilityAwardSelected,
-      achievementsLastThreeYears,
-      activitiesOutside,
-      haveABussiness,
-      joinedSocialCommunities,
-    });
-    return usersHolId;
+    const isRegistered = await this._holUsersRepository.checkRegisteredUsersHOL({ usersId, batchId });
+    if (isRegistered) {
+      throw new InvariantError('user has registered');
+    } else {
+      const usersHolId = await this._holUsersRepository.create({
+        usersId,
+        batchId,
+        musicalInstrument,
+        talent,
+        taletDescriptionSelected,
+        bcfActivities,
+        otherActivities,
+        fiveYearAward,
+        fiveYearPlan,
+        fiveYearPlanDescription,
+        ability,
+        abilityDescriptionSelected,
+        abilityAwardSelected,
+        achievementsLastThreeYears,
+        activitiesOutside,
+        haveABussiness,
+        joinedSocialCommunities,
+      });
+    }
   }
 }
 module.exports = HOLCreateUsersUseCase;

@@ -2,7 +2,9 @@ class HOLGetDetailArticle {
   constructor(payload) {
     this._verifyPayload(payload);
     const { penulis, program, title, abstract, url_file, citation, link_citation, created_at, status } = payload;
-    (this.penulis = penulis), (this.program = program), (this.title = title);
+    this.penulis = penulis;
+    this.program = program;
+    this.title = title;
     this.abstract = abstract;
     this.fileUrl = url_file;
     this.citation = citation;

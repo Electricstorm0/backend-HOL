@@ -45,13 +45,17 @@ class HolUsersAchievementsHandler {
   }
 
   async putHolUsersAchievementsHandler(request, h) {
-    const useCase = this._container.getInstance(HOLUpdateUsersAchievementsUseCase.name);
-    await useCase.execute(request.params, request.payload);
-    const response = h.response({
-      status: 'success',
-      message: 'updated achievements successfully',
-    });
-    return response;
+    try {
+      const useCase = this._container.getInstance(HOLUpdateUsersAchievementsUseCase.name);
+      await useCase.execute(request.params, request.payload);
+      const response = h.response({
+        status: 'success',
+        message: 'updated achievements successfully',
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async deleteHolUsersAchievementsHandler(request, h) {

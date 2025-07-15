@@ -14,7 +14,7 @@ class HOLUsersWorkExpRepositoryMySQL extends HOLUsersWorkExpRepository {
 
     const [result] = await this._pool.query(query.text, query.values);
 
-    return result.insertId;
+    return result;
   }
   async read() {
     const query = {

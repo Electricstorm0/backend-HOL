@@ -20,7 +20,7 @@ class HOLEventsCFFRepositoryMySQL extends HOLEventsCFFRepository {
 
   async read({ skip, numPerPage, holEventsTypeId }) {
     const query = {
-      text: `SELECT e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
+      text: `SELECT ec.id_events_hol,e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
       ec.logo_url, ec.position, ec.category, ec.register_url, ec.requirements, ec.placements 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_cff AS ec ON ec.id_events_hol = e.id 
@@ -33,7 +33,7 @@ class HOLEventsCFFRepositoryMySQL extends HOLEventsCFFRepository {
   }
   async readById({ id }) {
     const query = {
-      text: `SELECT e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
+      text: `SELECT ec.id_events_hol,e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
       ec.logo_url, ec.position, ec.category, ec.register_url, ec.requirements, ec.placements 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_cff AS ec ON ec.id_events_hol = e.id 

@@ -8,7 +8,7 @@ class HOLEventsRepositoryMySQL extends HOLEventsRepository {
 
   async readCountByProgramType({ holEventsTypeId }) {
     const query = {
-      text: 'SELECT COUNT(*) AS Total_Program FROM `tx_hol_events` where id_hol_events_type=? ',
+      text: 'SELECT COUNT(*) AS totalProgram FROM `tx_hol_events` where id_hol_events_type=? ',
       values: [holEventsTypeId],
     };
     const [result] = await this._pool.query(query.text, query.values);

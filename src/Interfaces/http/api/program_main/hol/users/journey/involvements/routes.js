@@ -15,16 +15,37 @@ const routes = (handler) => [
     method: 'GET',
     path: '/users/involvements',
     handler: handler.getHolUsersInvolvementsHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
     path: '/users/involvements/{id}',
     handler: handler.getHolUsersInvolvementsByIdHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
     path: '/users/{usersHOLId}/involvements/detail',
     handler: handler.getHolDetailInvolvementsHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'PUT',

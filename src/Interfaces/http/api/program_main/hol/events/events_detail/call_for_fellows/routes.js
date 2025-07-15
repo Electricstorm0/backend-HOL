@@ -15,11 +15,25 @@ const routes = (handler) => [
     method: 'GET',
     path: '/events/call-for-fellows', //http://localhost:3000/hol/events/call-for-fellows?holEventsTypeId=2&page=1&pageSize=5
     handler: handler.getCFFHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
     path: '/events/call-for-fellows/{id}',
     handler: handler.getCFFByIdHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'PUT',

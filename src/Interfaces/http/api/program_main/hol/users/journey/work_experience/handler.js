@@ -13,7 +13,7 @@ class HolUsersWorkExpHandler {
 
   async postHolUsersWorkExpHandler(request, h) {
     const useCase = this._container.getInstance(HOLCreateUsersWorkExpUseCase.name);
-    const data = await useCase.execute(request.payload);
+    const data = await useCase.execute(request.auth.credentials, request.payload);
 
     const response = h.response({
       status: 'success',

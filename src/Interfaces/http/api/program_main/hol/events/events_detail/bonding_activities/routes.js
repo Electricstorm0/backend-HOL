@@ -15,11 +15,25 @@ const routes = (handler) => [
     method: 'GET',
     path: '/events/activities', //http://localhost:3000/hol/events/activities?holEventsTypeId=2&page=1&pageSize=5---
     handler: handler.getBAHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
     path: '/events/activities/{id}',
     handler: handler.getBAByIdHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'PUT',

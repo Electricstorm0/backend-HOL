@@ -3,6 +3,13 @@ const routes = (handler) => [
     method: 'POST',
     path: '/recommendation',
     handler: handler.postRecommendationHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['4'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
@@ -32,11 +39,25 @@ const routes = (handler) => [
     method: 'GET',
     path: '/recommendation/{id}',
     handler: handler.getRecommendationByIdHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
     path: '/recommendation',
     handler: handler.getRecommendationByUserIdHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'PUT',

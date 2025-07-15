@@ -20,7 +20,7 @@ class HOLEventsIYSFRepositoryMySQL extends HOLEventsIYSFRepository {
 
   async read({ skip, numPerPage, holEventsTypeId }) {
     const query = {
-      text: `SELECT e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
+      text: `SELECT ei.id_events_hol,e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
       ei.logo_url, ei.position, ei.position_category, ei.event_date, ei.requirements 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_iysf AS ei ON ei.id_events_hol = e.id 
@@ -33,7 +33,7 @@ class HOLEventsIYSFRepositoryMySQL extends HOLEventsIYSFRepository {
   }
   async readById({ id }) {
     const query = {
-      text: `SELECT e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
+      text: `SELECT ei.id_events_hol, e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
       ei.logo_url, ei.position, ei.position_category, ei.event_date, ei.requirements 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_iysf AS ei ON ei.id_events_hol = e.id 

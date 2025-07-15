@@ -22,7 +22,6 @@ class CreateBAUseCase {
       pictureUrl,
       category,
     });
-    return eventId;
   }
 }
 module.exports = CreateBAUseCase;

@@ -28,13 +28,17 @@ class HolUsersHandler {
   }
 
   async getHolUsersHandler(request, h) {
-    const useCase = this._container.getInstance(HOLGetUsersUseCase.name);
-    const data = await useCase.execute(request.query);
-    const response = h.response({
-      status: 'success',
-      data,
-    });
-    return response;
+    try {
+      const useCase = this._container.getInstance(HOLGetUsersUseCase.name);
+      const data = await useCase.execute(request.query);
+      const response = h.response({
+        status: 'success',
+        data,
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async getHolUsersByIdHandler(request, h) {

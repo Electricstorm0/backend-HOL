@@ -3,17 +3,16 @@ class HOLCreateUsersWorkExpUseCase {
     this._holUsersWorkExpRepository = holUsersWorkExpRepository;
   }
 
-  async execute(payload) {
-    const { holUsersId, companyName, startDate, endDate, position } = payload;
+  async execute({ id: holUsersId }, payload) {
+    const { companyName, startDate, endDate, position } = payload;
 
-    const userExp = await this._holUsersWorkExpRepository.create({
+    await this._holUsersWorkExpRepository.create({
       holUsersId,
       companyName,
       startDate,
       endDate,
       position,
     });
-    return userExp;
   }
 }
 module.exports = HOLCreateUsersWorkExpUseCase;

@@ -50,14 +50,18 @@ class HOLArticleHandler {
   }
 
   async getMyArticleHandler(request, h) {
-    const useCase = this._container.getInstance(HOLGetAllMyArticleUseCase.name);
-    const data = await useCase.execute(request.auth.credentials);
+    try {
+      const useCase = this._container.getInstance(HOLGetAllMyArticleUseCase.name);
+      const data = await useCase.execute(request.auth.credentials);
 
-    const response = h.response({
-      status: 'success',
-      data,
-    });
-    return response;
+      const response = h.response({
+        status: 'success',
+        data,
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async getDetailArticleHandler(request, h) {

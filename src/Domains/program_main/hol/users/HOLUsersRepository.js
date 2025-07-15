@@ -24,6 +24,9 @@ class HOLUsersRepository {
   async read() {
     throw new Error('HOL_USERS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
+  async checkRegisteredUsersHOL({ usersId, batchId }) {
+    throw new Error('HOL_USERS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
 
   async readById({ id }) {
     throw new Error('HOL_USERS_REPOSITORY.METHOD_NOT_IMPLEMENTED');

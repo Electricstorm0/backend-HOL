@@ -25,7 +25,6 @@ class HOLCreateRecommendationUseCase {
         HOLRecommendationId: recommendationId,
         isChecked: 0,
       });
-      return recommendationId;
     }
   }
 }

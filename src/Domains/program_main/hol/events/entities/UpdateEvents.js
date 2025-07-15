@@ -2,8 +2,7 @@
 class updateEvents {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { HolEventTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person } = payload;
-    this.id_hol_events_type = HolEventTypeId;
+    const { name, deadline, duration, regenciesId, description, benefit, contact_person } = payload;
     this.name = name;
     this.id_regencies = regenciesId;
     this.deadline = deadline;

@@ -2,9 +2,10 @@
 class HolGetUsers {
   constructor(payload) {
     const {
+      id,
       id_users,
       photoProfile,
-      nama_alumni,
+      Alumni_Name,
       program,
       batch,
       domisili,
@@ -25,28 +26,29 @@ class HolGetUsers {
       have_a_business,
       joined_social_communities,
     } = payload;
-    (this.usersId = id_users),
-      (this.photoProfile = photoProfile),
-      (this.alumniName = nama_alumni),
-      (this.program = program),
-      (this.batch = batch),
-      (this.domisili = domisili),
-      (this.recent_journey = recent_journey),
-      (this.musicalInstrument = musical_instrument),
-      (this.talent = talent),
-      (this.taletDescriptionSelected = talent_description_selected),
-      (this.bcfActivities = bcf_activites),
-      (this.otherActivities = other_activites),
-      (this.fiveYearAward = five_year_award),
-      (this.fiveYearPlan = five_year_plan),
-      (this.fiveYearPlanDescription = five_year_plan_description),
-      (this.ability = ability),
-      (this.abilityDescriptionSelected = ability_description_selected),
-      (this.abilityAwardSelected = ability_award_selected),
-      (this.achievementsLastThreeYears = achievement_last_three_years),
-      (this.activitiesOutside = activities_outside_college_and_internship),
-      (this.haveABussiness = have_a_business),
-      (this.joinedSocialCommunities = joined_social_communities);
+    this.usersHOLId = id;
+    this.usersId = id_users;
+    this.photoProfile = photoProfile;
+    this.alumniName = Alumni_Name;
+    this.program = program;
+    this.batch = batch;
+    this.domicile = domisili;
+    this.recent_journey = recent_journey;
+    this.musicalInstrument = musical_instrument;
+    this.talent = talent;
+    this.taletDescriptionSelected = talent_description_selected;
+    this.bcfActivities = bcf_activites;
+    this.otherActivities = other_activites;
+    this.fiveYearAward = five_year_award;
+    this.fiveYearPlan = five_year_plan;
+    this.fiveYearPlanDescription = five_year_plan_description;
+    this.ability = ability;
+    this.abilityDescriptionSelected = ability_description_selected;
+    this.abilityAwardSelected = ability_award_selected;
+    this.achievementsLastThreeYears = achievement_last_three_years;
+    this.activitiesOutside = activities_outside_college_and_internship;
+    this.haveABussiness = have_a_business;
+    this.joinedSocialCommunities = joined_social_communities;
   }
   // _verifyPayload({
   //   id_users,

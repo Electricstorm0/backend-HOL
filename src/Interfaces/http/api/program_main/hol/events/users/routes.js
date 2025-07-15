@@ -3,6 +3,13 @@ const routes = (handler) => [
     method: 'POST',
     path: '/events/{eventsHOLId}/users',
     handler: handler.postHolUsersEventsHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   // get total----------------------------------------
   {
@@ -58,6 +65,13 @@ const routes = (handler) => [
     method: 'GET',
     path: '/events/users/{id}',
     handler: handler.getHolUsersEventsByIdHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3', '4'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
@@ -75,6 +89,13 @@ const routes = (handler) => [
     method: 'PUT',
     path: '/events/{eventsHOLId}/users/attende',
     handler: handler.putHolAttendeUsersEventsHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['4'],
+        },
+      },
+    },
   },
   {
     method: 'PUT',

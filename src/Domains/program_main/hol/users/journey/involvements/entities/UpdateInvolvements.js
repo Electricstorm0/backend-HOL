@@ -2,12 +2,12 @@
 class UpdateInvolve {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { holUsersEventsId, holUsersId } = payload;
-    this.id_users_hol = holUsersId;
+    const { holUsersId, holUsersEventsId } = payload;
     this.id_users_events = holUsersEventsId;
+    this.id_users_hol = holUsersId;
   }
-  _verifyPayload({ holUsersId, holUsersEventsId }) {
-    if (!holUsersId || !holUsersEventsId) {
+  _verifyPayload({ holUsersEventsId }) {
+    if (!holUsersEventsId) {
       throw new Error('UPDATE_DATA.NOT_CONTAIN_NEEDED_PROPERTY');
     }
   }

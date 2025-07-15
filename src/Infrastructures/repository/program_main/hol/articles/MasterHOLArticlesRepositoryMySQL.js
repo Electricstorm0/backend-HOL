@@ -8,7 +8,7 @@ class MasterHOLArticlesRepositoryMySQL extends MasterHOLArticlesRepository {
 
   async readCountArticle() {
     const query = {
-      text: 'SELECT COUNT(*) as count FROM `master_articles`',
+      text: 'SELECT COUNT(*) as total FROM `master_articles`',
     };
     const [result] = await this._pool.query(query.text);
     return result;

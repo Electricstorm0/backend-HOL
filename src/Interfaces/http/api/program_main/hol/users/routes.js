@@ -4,7 +4,11 @@ const routes = (handler) => [
     path: '/users',
     handler: handler.postHolUsersHandler,
     options: {
-      auth: false,
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
     },
   },
   {

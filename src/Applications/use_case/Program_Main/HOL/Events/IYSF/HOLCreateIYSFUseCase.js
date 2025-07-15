@@ -25,7 +25,6 @@ class CreateIYSFUseCase {
       eventDate,
       requirements,
     });
-    return eventId;
   }
 }
 module.exports = CreateIYSFUseCase;

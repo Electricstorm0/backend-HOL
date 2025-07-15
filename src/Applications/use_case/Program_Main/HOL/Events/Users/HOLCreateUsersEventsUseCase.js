@@ -1,3 +1,4 @@
+const InvariantError = require('../../../../../../Commons/exceptions/InvariantError');
 class HOLCreateUsersEventsUseCase {
   constructor({ holUsersEventsRepository, holEventsRepository }) {
     this._holUsersEventsRepository = holUsersEventsRepository;
@@ -7,7 +8,7 @@ class HOLCreateUsersEventsUseCase {
   async execute({ id: usersHOLId }, { eventsHOLId }) {
     const isRegistered = await this._holUsersEventsRepository.checkRegisteredUsersEvents({ usersHOLId, eventsHOLId });
     if (isRegistered) {
-      throw new Error('user has registered');
+      throw new InvariantError('user has registered');
     } else {
       const events = await this._holEventsRepository.readEventsTypeAndPositionByEventsId({ eventsHOLId });
       const status = events[0].id_hol_events_type === 3 && events[0].position === 'panitia' ? 0 : 1;

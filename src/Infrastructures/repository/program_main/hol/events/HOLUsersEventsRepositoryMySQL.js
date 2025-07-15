@@ -79,8 +79,8 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
 
   async readUsersEventsByEventsId({ skip, numPerPage, eventsHOLId }) {
     const query = {
-      text: `SELECT ue.*, concat(ud.first_name," ", ud.last_name) as Alumni_Name, p.name AS Program,b.batch as Batch,
-      YEAR(b.date_start) as Year,d.name as Domicile, ue.status, ue.attendance 
+      text: `SELECT ue.*, concat(ud.first_name," ", ud.last_name) as Alumni_Name, p.name AS Program,b.batch ,
+      YEAR(b.date_start) as Year,d.name as domicile, ue.status, ue.attendance 
       FROM tx_hol_events as e 
       JOIN tx_hol_users_events as ue on ue.id_events_hol = e.id 
       JOIN tx_users_detail as ud ON ud.id = ue.id_users_hol 

@@ -3,7 +3,6 @@ class HolUpdateUsers {
   constructor(payload) {
     this._verifyPayload(payload);
     const {
-      usersId,
       musicalInstrument,
       talent,
       taletDescriptionSelected,
@@ -20,7 +19,6 @@ class HolUpdateUsers {
       haveABussiness,
       joinedSocialCommunities,
     } = payload;
-    this.id_users = usersId;
     this.musical_instrument = musicalInstrument;
     this.talent = talent;
     this.talent_description_selected = taletDescriptionSelected;
@@ -38,7 +36,6 @@ class HolUpdateUsers {
     this.joined_social_communities = joinedSocialCommunities;
   }
   _verifyPayload({
-    usersId,
     musicalInstrument,
     talent,
     taletDescriptionSelected,
@@ -56,7 +53,6 @@ class HolUpdateUsers {
     joinedSocialCommunities,
   }) {
     if (
-      !usersId ||
       !musicalInstrument ||
       !talent ||
       !taletDescriptionSelected ||

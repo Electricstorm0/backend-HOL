@@ -25,13 +25,17 @@ class CFFHandler {
   }
 
   async getCFFHandler(request, h) {
-    const useCase = this._container.getInstance(GetCFFUseCase.name);
-    const data = await useCase.execute(request.query);
-    const response = h.response({
-      status: 'success',
-      data,
-    });
-    return response;
+    try {
+      const useCase = this._container.getInstance(GetCFFUseCase.name);
+      const data = await useCase.execute(request.query);
+      const response = h.response({
+        status: 'success',
+        data,
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async getCFFByIdHandler(request, h) {

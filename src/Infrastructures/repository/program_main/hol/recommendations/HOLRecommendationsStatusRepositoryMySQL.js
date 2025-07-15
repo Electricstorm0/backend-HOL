@@ -8,14 +8,14 @@ class HOLRecommendationsStatusRepositoryMyQL extends HOLRecommendationsStatusRep
 
   async readCountRecommendation() {
     const query = {
-      text: 'SELECT COUNT(*) as total_alumni From tx_hol_users_recommendations_status ',
+      text: 'SELECT COUNT(*) as totalAlumni From tx_hol_users_recommendations_status ',
     };
     const [result] = await this._pool.query(query.text);
     return result[0];
   }
   async readCountRecommendationByStatus({ recommendationStatusId }) {
     const query = {
-      text: 'SELECT COUNT(*) as total_alumni From tx_hol_users_recommendations_status where id_recommendations_status = ? ',
+      text: 'SELECT COUNT(*) as totalAlumni From tx_hol_users_recommendations_status where id_recommendations_status = ? ',
       values: [recommendationStatusId],
     };
     const [result] = await this._pool.query(query.text, query.values);

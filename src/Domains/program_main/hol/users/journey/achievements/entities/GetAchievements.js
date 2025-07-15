@@ -2,8 +2,13 @@
 class GetAchieve {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { id_users_hol, events_name, events_year, bcf_contribution, achievements } = payload;
-    (this.holUsersId = id_users_hol), (this.eventsName = events_name), (this.eventsYear = events_year), (this.bcfContribution = bcf_contribution), (this.achievements = achievements);
+    const { id, id_users_hol, events_name, events_year, bcf_contribution, achievements } = payload;
+    this.achievementId = id;
+    this.holUsersId = id_users_hol;
+    this.eventsName = events_name;
+    this.eventsYear = events_year;
+    this.bcfContribution = bcf_contribution;
+    this.achievements = achievements;
   }
   _verifyPayload({ id_users_hol, events_name, events_year, bcf_contribution, achievements }) {
     if (!id_users_hol || !events_name || !events_year || !bcf_contribution || !achievements) {

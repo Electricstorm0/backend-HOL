@@ -9,7 +9,7 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
 
   async readCountUsers() {
     const query = {
-      text: 'SELECT COUNT(*) AS Total_alumni FROM `tx_hol_users`',
+      text: 'SELECT COUNT(*) AS totalAlumni FROM `tx_hol_users`',
     };
     const [result] = await this._pool.query(query.text);
     return result;
@@ -17,12 +17,21 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
 
   async readCountUsersByProgram() {
     const query = {
-      text: `SELECT  msp.name,COUNT(*) as total_alumni 
-      FROM tx_hol_users as hu 
-      JOIN tx_offered_program as op on op.id_users = hu.id_users 
-      JOIN master_third_tier_program as mtp on mtp.id = op.id_third_tier_program 
-      JOIN master_second_tier_program as msp on msp.id = mtp.id_second_tier_program 
-      GROUP BY msp.name `,
+      text: `SELECT msp.name, COUNT(hu.id_users) AS totalAlumni
+      FROM 
+        master_second_tier_program AS msp
+      LEFT JOIN 
+        master_third_tier_program AS mtp 
+        ON mtp.id_second_tier_program = msp.id
+      LEFT JOIN 
+        tx_offered_program AS op 
+        ON op.id_third_tier_program = mtp.id
+      LEFT JOIN 
+        tx_hol_users AS hu 
+        ON hu.id_users = op.id_users
+      GROUP BY 
+        msp.name;
+      `,
     };
     const [result] = await this._pool.query(query.text);
     return result;
@@ -30,6 +39,7 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
 
   async create({
     usersId,
+    batchId,
     musicalInstrument,
     talent,
     taletDescriptionSelected,
@@ -47,13 +57,14 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
     joinedSocialCommunities,
   }) {
     const query = {
-      text: `INSERT INTO tx_hol_users (id_users, musical_instrument,talent,talent_description_selected,bcf_activites,
+      text: `INSERT INTO tx_hol_users (id_users,id_batch, musical_instrument,talent,talent_description_selected,bcf_activites,
       other_activites,five_year_award,five_year_plan,five_year_plan_description,ability,ability_description_selected,
       ability_award_selected,achievement_last_three_years,activities_outside_college_and_internship,have_a_business,
       joined_social_communities) 
-      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
       values: [
         usersId,
+        batchId,
         musicalInstrument,
         talent,
         taletDescriptionSelected,
@@ -76,6 +87,14 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
 
     return result;
   }
+  async checkRegisteredUsersHOL({ usersId, batchId }) {
+    const query = {
+      text: 'SELECT 1 FROM `tx_hol_users` WHERE id_users=? AND id_batch=? LIMIT 1',
+      values: [usersId, batchId],
+    };
+    const [result] = await this._pool.query(query.text, query.values);
+    return result.length > 0;
+  }
 
   async readJourneyUsers() {
     const query = {
@@ -91,8 +110,8 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
 
   async read({ skip, numPerPage }) {
     const query = {
-      text: `SELECT hu.id_users, concat(ud.first_name, " ",ud.last_name) as Alumni_Name, stp.name as program, b.batch as Batch,
-       mdp.name as domicile 
+      text: `SELECT hu.id, hu.id_users, concat(ud.first_name, " ",ud.last_name) as Alumni_Name, stp.name as program, b.batch ,
+       mdp.name as domisili 
        FROM tx_hol_users as hu 
        JOIN tx_users_detail as ud on ud.id = hu.id_users 
        JOIN tx_offered_program as op on op.id_users = hu.id_users 
@@ -108,7 +127,7 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
   }
   async readById({ id }) {
     const query = {
-      text: 'SELECT * FROM `tx_hol_users` WHERE id_users=?',
+      text: 'SELECT * FROM `tx_hol_users` WHERE id=?',
       values: [id],
     };
     const [result] = await this._pool.query(query.text, query.values);
@@ -117,7 +136,7 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
 
   async update({ id, payload }) {
     const query = {
-      text: 'UPDATE `tx_hol_users` SET ? WHERE id_users = ?',
+      text: 'UPDATE `tx_hol_users` SET ? WHERE id = ?',
       values: [payload, id],
     };
     const [result] = await this._pool.query(query.text, query.values);
@@ -125,7 +144,7 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
   }
   async delete({ id }) {
     const query = {
-      text: 'DELETE FROM `tx_hol_users` WHERE id_users = ?',
+      text: 'DELETE FROM `tx_hol_users` WHERE id = ?',
       values: [id],
     };
     const [result] = await this._pool.query(query.text, query.values);
