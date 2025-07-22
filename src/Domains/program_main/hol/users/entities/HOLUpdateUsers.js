@@ -3,6 +3,7 @@ class HolUpdateUsers {
   constructor(payload) {
     this._verifyPayload(payload);
     const {
+      usersHOLId,
       musicalInstrument,
       talent,
       taletDescriptionSelected,
@@ -19,6 +20,7 @@ class HolUpdateUsers {
       haveABussiness,
       joinedSocialCommunities,
     } = payload;
+    this.id = usersHOLId;
     this.musical_instrument = musicalInstrument;
     this.talent = talent;
     this.talent_description_selected = taletDescriptionSelected;

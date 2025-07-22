@@ -1,6 +1,5 @@
 const HOLCreateUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLCreateUsersWorkExpUseCase');
-const HOLGetUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLGetUsersWorkExpUseCase');
-const HOLGetUsersWorkExpByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLGetUsersWorkExpByIdUseCase');
+const HOLGetUsersWorkExpByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLGetUsersWorkExpByUsersIdUseCase');
 const HOLUpdateUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLUpdateUsersWorkExpUseCase');
 const HOLDeleteUsersWorkExpUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLDeleteUsersWorkExpUseCase');
 const autoBind = require('auto-bind');
@@ -24,9 +23,9 @@ class HolUsersWorkExpHandler {
     return response;
   }
 
-  async getHolUsersWorkExpHandler(request, h) {
-    const useCase = this._container.getInstance(HOLGetUsersWorkExpUseCase.name);
-    const data = await useCase.execute(request.query);
+  async getOwnHolWorkExpHandler(request, h) {
+    const useCase = this._container.getInstance(HOLGetUsersWorkExpByIdUseCase.name);
+    const data = await useCase.execute(request.auth.credentials);
     const response = h.response({
       status: 'success',
       data,
@@ -34,7 +33,7 @@ class HolUsersWorkExpHandler {
     return response;
   }
 
-  async getHolUsersWorkExpByIdHandler(request, h) {
+  async getHolWorkExpByUsersIdHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetUsersWorkExpByIdUseCase.name);
     const data = await useCase.execute(request.params);
     const response = h.response({

@@ -3,8 +3,7 @@ const HOLUsersAchievementsRepository = require('../../../../../../../Domains/pro
 
 // USE CASE
 const HOLCreateUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLCreateUsersAchievementsUseCase');
-const HOLGetUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLGetUsersAchievementsUseCase');
-const HOLGetUsersAchievementsByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLGetUsersAchievementsByIdUseCase');
+const HOLGetUsersAchievementsByUsersIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLGetUsersAchievementsByUsersIdUseCase');
 const HOLUpdateUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLUpdateUsersAchievementsUseCase');
 const HOLDeleteUsersAchievementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLDeleteUsersAchievementsUseCase');
 const achieve = [
@@ -22,22 +21,10 @@ const achieve = [
       ],
     },
   },
+
   {
-    key: HOLGetUsersAchievementsUseCase.name,
-    Class: HOLGetUsersAchievementsUseCase,
-    parameter: {
-      injectType: 'destructuring',
-      dependencies: [
-        {
-          name: 'holUsersAchievementsRepository',
-          internal: HOLUsersAchievementsRepository.name,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLGetUsersAchievementsByIdUseCase.name,
-    Class: HOLGetUsersAchievementsByIdUseCase,
+    key: HOLGetUsersAchievementsByUsersIdUseCase.name,
+    Class: HOLGetUsersAchievementsByUsersIdUseCase,
     parameter: {
       injectType: 'destructuring',
       dependencies: [

@@ -4,10 +4,10 @@ class HOLCreateUsersAchievementsUseCase {
   }
 
   async execute(payload) {
-    const { holUsersId, eventsName, eventsYear, bcfContribution, achievements } = payload;
+    const { usersId, eventsName, eventsYear, bcfContribution, achievements } = payload;
 
     await this._holUsersAchievementsRepository.create({
-      holUsersId,
+      usersId,
       eventsName,
       eventsYear,
       bcfContribution,

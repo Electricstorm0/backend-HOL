@@ -41,7 +41,8 @@ class MasterHOLArticlesRepositoryMySQL extends MasterHOLArticlesRepository {
       JOIN tx_offered_program as op on op.id_users = ud.id 
       JOIN master_third_tier_program as mtp on mtp.id = op.id_third_tier_program 
       JOIN master_second_tier_program as stp on stp.id = mtp.id_second_tier_program 
-      WHERE hua.status="Approved"`,
+      WHERE hua.status="Approved"
+      GROUP BY ud.id`,
       values: [skip, numPerPage],
     };
     const [result] = await this._pool.query(query.text);

@@ -6,15 +6,15 @@ class HOLCreateUsersInvolvementsUseCase {
   }
 
   async execute(payload) {
-    const { usersEventsHOLId, usersHOLId } = payload;
+    const { usersEventsHOLId, usersId } = payload;
     const checkExistingInvolve = await this._holUsersInvolvementsRepository.readByUsersEventsId({ usersEventsHOLId });
     if (checkExistingInvolve) {
-      throw new InvariantError('Involvements sudah terdaftar');
+      throw new InvariantError('Involvements has registered');
     }
 
     await this._holUsersInvolvementsRepository.create({
       usersEventsHOLId,
-      usersHOLId,
+      usersId,
     });
   }
 }

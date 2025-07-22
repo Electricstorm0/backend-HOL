@@ -12,11 +12,8 @@ class HOLUsersAchievementsRepository {
     throw new Error('HOL_USERS_ACHIEVEMENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
-  async read() {
-    throw new Error('HOL_USERS_ACHIEVEMENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
-  }
-
-  async readById({ id }) {
+  
+  async readByUsersId({ usersHOLId }) {
     throw new Error('HOL_USERS_ACHIEVEMENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 }

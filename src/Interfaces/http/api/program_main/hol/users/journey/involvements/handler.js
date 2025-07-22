@@ -1,10 +1,9 @@
 const HOLCreateUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLCreateUsersInvolvementsUseCase');
-const HOLGetUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLGetUsersInvolvementsUseCase');
-const HOLGetUsersInvolvementsByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLGetUsersInvolvementsByIdUseCase');
 const HOLUpdateUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLUpdateUsersInvolvementsUseCase');
 const HOLDeleteUsersInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLDeleteUsersInvolvementsUseCase');
 const HOLGetDetailInvolvementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLGetDetailInvolvementsUseCase');
 const autoBind = require('auto-bind');
+const HOLGetUsersInvolvementssByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLGetUsersInvolvementsByIdUseCase');
 
 class HolUsersInvolvementsHandler {
   constructor(container) {
@@ -25,18 +24,17 @@ class HolUsersInvolvementsHandler {
     return response;
   }
 
-  async getHolUsersInvolvementsHandler(request, h) {
-    const useCase = this._container.getInstance(HOLGetUsersInvolvementsUseCase.name);
-    const data = await useCase.execute(request.query);
+  async getOwnHolInvolvementsHandler(request, h) {
+    const useCase = this._container.getInstance(HOLGetUsersInvolvementssByIdUseCase.name);
+    const data = await useCase.execute(request.auth.credentials);
     const response = h.response({
       status: 'success',
       data,
     });
     return response;
   }
-
-  async getHolUsersInvolvementsByIdHandler(request, h) {
-    const useCase = this._container.getInstance(HOLGetUsersInvolvementsByIdUseCase.name);
+  async getHolInvolvementsByUsersIdHandler(request, h) {
+    const useCase = this._container.getInstance(HOLGetUsersInvolvementssByIdUseCase.name);
     const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
@@ -44,8 +42,7 @@ class HolUsersInvolvementsHandler {
     });
     return response;
   }
-
-  async getHolDetailInvolvementsHandler(request, h) {
+  async getDetailHolInvolvementsHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetDetailInvolvementsUseCase.name);
     const data = await useCase.execute(request.params);
     const response = h.response({

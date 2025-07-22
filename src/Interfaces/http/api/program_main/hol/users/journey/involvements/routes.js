@@ -14,35 +14,35 @@ const routes = (handler) => [
   {
     method: 'GET',
     path: '/users/involvements',
-    handler: handler.getHolUsersInvolvementsHandler,
+    handler: handler.getOwnHolInvolvementsHandler,
     options: {
       auth: {
         access: {
-          scope: ['3', '4'],
+          scope: ['4'],
         },
       },
     },
   },
   {
     method: 'GET',
-    path: '/users/involvements/{id}',
-    handler: handler.getHolUsersInvolvementsByIdHandler,
+    path: '/users/{id}/involvements',
+    handler: handler.getHolInvolvementsByUsersIdHandler,
     options: {
       auth: {
         access: {
-          scope: ['3', '4'],
+          scope: ['3'],
         },
       },
     },
   },
   {
     method: 'GET',
-    path: '/users/{usersHOLId}/involvements/detail',
-    handler: handler.getHolDetailInvolvementsHandler,
+    path: '/users/{id}/involvements/detail',
+    handler: handler.getDetailHolInvolvementsHandler,
     options: {
       auth: {
         access: {
-          scope: ['3', '4'],
+          scope: ['3'],
         },
       },
     },

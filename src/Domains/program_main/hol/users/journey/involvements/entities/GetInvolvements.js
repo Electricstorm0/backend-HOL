@@ -4,7 +4,7 @@ class GetInvolve {
     this._verifyPayload(payload);
     const { id, id_users_events, id_users_hol } = payload;
     this.involvementId = id;
-    this.usersHolId = id_users_hol;
+    this.usersId = id_users_hol;
     this.usersEventsId = id_users_events;
   }
   _verifyPayload({ id_users_hol, id_users_events }) {

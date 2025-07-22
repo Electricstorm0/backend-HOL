@@ -11,14 +11,15 @@ const routes = (handler) => [
       },
     },
   },
+
   {
     method: 'GET',
     path: '/users/work-experience',
-    handler: handler.getHolUsersWorkExpHandler,
+    handler: handler.getOwnHolWorkExpHandler,
     options: {
       auth: {
         access: {
-          scope: ['3', '4'],
+          scope: ['4'],
         },
       },
     },
@@ -26,11 +27,11 @@ const routes = (handler) => [
   {
     method: 'GET',
     path: '/users/work-experience/{id}',
-    handler: handler.getHolUsersWorkExpByIdHandler,
+    handler: handler.getHolWorkExpByUsersIdHandler,
     options: {
       auth: {
         access: {
-          scope: ['3', '4'],
+          scope: ['3'],
         },
       },
     },

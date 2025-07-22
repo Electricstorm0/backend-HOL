@@ -1,4 +1,3 @@
-const NotFoundError = require('../../../../../Commons/exceptions/NotFoundError');
 const GetUsers = require('../../../../../Domains/program_main/hol/users/entities/HolGetUsers');
 
 class HOLGetUsersByIdUseCase {

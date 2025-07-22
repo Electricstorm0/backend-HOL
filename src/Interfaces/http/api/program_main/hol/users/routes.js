@@ -26,7 +26,14 @@ const routes = (handler) => [
   {
     method: 'GET',
     path: '/users/{id}',
-    handler: handler.getHolUsersByIdHandler,
+    handler: handler.getUsersDetailByUsersIdHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['3'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
@@ -37,6 +44,13 @@ const routes = (handler) => [
     method: 'GET',
     path: '/users/me/detail',
     handler: handler.getOwnUsersDetailHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['4'],
+        },
+      },
+    },
   },
   {
     method: 'GET',
@@ -64,8 +78,15 @@ const routes = (handler) => [
   },
   {
     method: 'PUT',
-    path: '/users/{id}',
+    path: '/users',
     handler: handler.putHolUsersHandler,
+    options: {
+      auth: {
+        access: {
+          scope: ['4'],
+        },
+      },
+    },
   },
   {
     method: 'DELETE',

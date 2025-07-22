@@ -6,17 +6,12 @@ class UsersDetailRepositoryMySQL extends UsersDetailRepository {
     this._pool = pool;
   }
 
-  async create({
-    cardIdNumber, firstName, lastName, sex, phoneNumber, birthDate, emergencyPhoneNumber, relationshipEmergencyPhoneNumber, instagram, tiktok, linkedin, bankAccountNumber, bankAccountName, bankName,
-  }) {
+  async create({ usersId, cardIdNumber, firstName, lastName, sex, phoneNumber, birthDate, emergencyPhoneNumber, relationshipEmergencyPhoneNumber, instagram, tiktok, linkedin, bankAccountNumber, bankAccountName, bankName }) {
     const query = {
-      text: 'INSERT INTO `tx_users_detail`  (id_card_number,first_name,last_name,sex,phone_number,birth_date,emergency_phone_number,relationship_emergency_phone_number,socmed_instagram,socmed_tiktok,socmed_linkedin,bank_account_number,bank_account_name,bank_name) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?) ',
-      values: [cardIdNumber, firstName, lastName, sex, phoneNumber, birthDate, emergencyPhoneNumber, relationshipEmergencyPhoneNumber, instagram, tiktok, linkedin, bankAccountNumber, bankAccountName, bankName],
+      text: 'INSERT INTO `tx_users_detail`  (id,id_card_number,first_name,last_name,sex,phone_number,birth_date,emergency_phone_number,relationship_emergency_phone_number,socmed_instagram,socmed_tiktok,socmed_linkedin,bank_account_number,bank_account_name,bank_name) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ',
+      values: [usersId, cardIdNumber, firstName, lastName, sex, phoneNumber, birthDate, emergencyPhoneNumber, relationshipEmergencyPhoneNumber, instagram, tiktok, linkedin, bankAccountNumber, bankAccountName, bankName],
     };
-    const [result] = await this._pool.query(
-      query.text,
-      query.values,
-    );
+    const [result] = await this._pool.query(query.text, query.values);
     return {
       id: result.insertId,
     };
@@ -27,9 +22,7 @@ class UsersDetailRepositoryMySQL extends UsersDetailRepository {
       text: 'SELECT * FROM `tx_users_detail` ',
     };
 
-    const [result] = await this._pool.query(
-      query.text,
-    );
+    const [result] = await this._pool.query(query.text);
 
     return result;
   }
@@ -40,10 +33,7 @@ class UsersDetailRepositoryMySQL extends UsersDetailRepository {
       values: [payload, id],
     };
 
-    await this._pool.query(
-      query.text,
-      query.values,
-    );
+    await this._pool.query(query.text, query.values);
   }
 
   async readById({ id }) {
@@ -52,10 +42,7 @@ class UsersDetailRepositoryMySQL extends UsersDetailRepository {
       values: [id],
     };
 
-    const [result] = await this._pool.query(
-      query.text,
-      query.values,
-    );
+    const [result] = await this._pool.query(query.text, query.values);
 
     return result[0];
   }
@@ -65,10 +52,7 @@ class UsersDetailRepositoryMySQL extends UsersDetailRepository {
       text: 'DELETE FROM `tx_users_detail` WHERE id=?',
       values: [id],
     };
-    const [result] = await this._pool.query(
-      query.text,
-      query.values,
-    );
+    const [result] = await this._pool.query(query.text, query.values);
     return result;
   }
 }

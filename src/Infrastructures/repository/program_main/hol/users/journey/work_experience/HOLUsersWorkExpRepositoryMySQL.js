@@ -6,30 +6,23 @@ class HOLUsersWorkExpRepositoryMySQL extends HOLUsersWorkExpRepository {
     this._pool = pool;
   }
 
-  async create({ holUsersId, companyName, startDate, endDate, position }) {
+  async create({ usersId, companyName, startDate, endDate, position }) {
     const query = {
       text: 'INSERT INTO `tx_hol_user_work_experiences` (id_users_hol,company_name,start_date,end_date,position) VALUES (?,?,?,?,?)',
-      values: [holUsersId, companyName, startDate, endDate, position],
+      values: [usersId, companyName, startDate, endDate, position],
     };
 
     const [result] = await this._pool.query(query.text, query.values);
 
     return result;
   }
-  async read() {
+  async readByUsersId({ usersHOLId }) {
     const query = {
-      text: 'SELECT * FROM `tx_hol_user_work_experiences`',
-    };
-    const [result] = await this._pool.query(query.text);
-    return result;
-  }
-  async readById({ id }) {
-    const query = {
-      text: 'SELECT * FROM `tx_hol_user_work_experiences` WHERE id=?',
-      values: [id],
+      text: 'SELECT * FROM `tx_hol_user_work_experiences` WHERE id_users_hol =?',
+      values: [usersHOLId],
     };
     const [result] = await this._pool.query(query.text, query.values);
-    return result[0];
+    return result;
   }
   async update({ id, payload }) {
     const query = {

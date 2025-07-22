@@ -28,17 +28,13 @@ class HolUsersHandler {
   }
 
   async getHolUsersHandler(request, h) {
-    try {
-      const useCase = this._container.getInstance(HOLGetUsersUseCase.name);
-      const data = await useCase.execute(request.query);
-      const response = h.response({
-        status: 'success',
-        data,
-      });
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
+    const useCase = this._container.getInstance(HOLGetUsersUseCase.name);
+    const data = await useCase.execute(request.query);
+    const response = h.response({
+      status: 'success',
+      data,
+    });
+    return response;
   }
 
   async getHolUsersByIdHandler(request, h) {
@@ -73,6 +69,17 @@ class HolUsersHandler {
     });
     return response;
   }
+  async getUsersDetailByUsersIdHandler(request, h) {
+    const { id: usersId, batchId } = request.params;
+    const useCase = this._container.getInstance(HOLGetUsersMeDetailUseCase.name);
+    const data = await useCase.execute({ id: usersId }, { batchId });
+
+    const response = h.response({
+      status: 'success',
+      data,
+    });
+    return response;
+  }
 
   async getTotalUsersHolHandler(request, h) {
     const useCase = this._container.getInstance(HOLGetTotalUsersUseCase.name);
@@ -96,7 +103,7 @@ class HolUsersHandler {
 
   async putHolUsersHandler(request, h) {
     const useCase = this._container.getInstance(HOLUpdateUsersUseCase.name);
-    await useCase.execute(request.params, request.payload);
+    await useCase.execute(request.auth.credentials, request.payload);
     const response = h.response({
       status: 'success',
       message: 'updated users successfully',

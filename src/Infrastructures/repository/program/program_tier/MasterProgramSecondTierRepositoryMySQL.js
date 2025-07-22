@@ -1,24 +1,18 @@
 const MasterProgramSecondTierRepository = require('../../../../Domains/program/program_tier/MasterProgramSecondTierRepository');
 
-class MasterProgramSecondTierRepositoryMySQL
-  extends MasterProgramSecondTierRepository {
+class MasterProgramSecondTierRepositoryMySQL extends MasterProgramSecondTierRepository {
   constructor(pool) {
     super();
     this._pool = pool;
   }
 
-  async create({
-    firstTierProgramId, programName,
-  }) {
+  async create({ firstTierProgramId, programName }) {
     const query = {
       text: 'INSERT INTO `master_second_tier_program` (id_first_tier_program, name) VALUES (?, ?)',
       values: [firstTierProgramId, programName],
     };
 
-    const [result] = await this._pool.query(
-      query.text,
-      query.values,
-    );
+    const [result] = await this._pool.query(query.text, query.values);
 
     return {
       id: result.insertId,
@@ -30,9 +24,7 @@ class MasterProgramSecondTierRepositoryMySQL
       text: 'SELECT * FROM `master_second_tier_program`',
     };
 
-    const [result] = await this._pool.query(
-      query.text,
-    );
+    const [result] = await this._pool.query(query.text);
 
     return result;
   }
@@ -43,10 +35,7 @@ class MasterProgramSecondTierRepositoryMySQL
       values: [id],
     };
 
-    const [result] = await this._pool.query(
-      query.text,
-      query.values,
-    );
+    const [result] = await this._pool.query(query.text, query.values);
 
     return result[0];
   }
@@ -57,10 +46,7 @@ class MasterProgramSecondTierRepositoryMySQL
       values: [id],
     };
 
-    const [result] = await this._pool.query(
-      query.text,
-      query.values,
-    );
+    const [result] = await this._pool.query(query.text, query.values);
 
     return result;
   }
@@ -71,10 +57,7 @@ class MasterProgramSecondTierRepositoryMySQL
       values: [payload, id],
     };
 
-    const [result] = await this._pool.query(
-      query.text,
-      query.values,
-    );
+    const [result] = await this._pool.query(query.text, query.values);
     return result;
   }
 
@@ -84,10 +67,7 @@ class MasterProgramSecondTierRepositoryMySQL
       values: [id],
     };
 
-    const [result] = await this._pool.query(
-      query.text,
-      query.values,
-    );
+    const [result] = await this._pool.query(query.text, query.values);
     return result;
   }
 }

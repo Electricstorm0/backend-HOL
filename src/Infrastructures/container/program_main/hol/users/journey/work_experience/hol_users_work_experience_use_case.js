@@ -3,8 +3,7 @@ const HOLUsersWorkExpRepository = require('../../../../../../../Domains/program_
 
 // USE CASE
 const HOLCreateUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLCreateUsersWorkExpUseCase');
-const HOLGetUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLGetUsersWorkExpUseCase');
-const HOLGetUsersWorkExpByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLGetUsersWorkExpByIdUseCase');
+const HOLGetUsersWorkExpByUsersIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLGetUsersWorkExpByUsersIdUseCase');
 const HOLUpdateUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLUpdateUsersWorkExpUseCase');
 const HOLDeleteUsersWorkExpUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/WorkExperience/HOLDeleteUsersWorkExpUseCase');
 const experience = [
@@ -22,22 +21,10 @@ const experience = [
       ],
     },
   },
+  
   {
-    key: HOLGetUsersWorkExpUseCase.name,
-    Class: HOLGetUsersWorkExpUseCase,
-    parameter: {
-      injectType: 'destructuring',
-      dependencies: [
-        {
-          name: 'holUsersWorkExpRepository',
-          internal: HOLUsersWorkExpRepository.name,
-        },
-      ],
-    },
-  },
-  {
-    key: HOLGetUsersWorkExpByIdUseCase.name,
-    Class: HOLGetUsersWorkExpByIdUseCase,
+    key: HOLGetUsersWorkExpByUsersIdUseCase.name,
+    Class: HOLGetUsersWorkExpByUsersIdUseCase,
     parameter: {
       injectType: 'destructuring',
       dependencies: [

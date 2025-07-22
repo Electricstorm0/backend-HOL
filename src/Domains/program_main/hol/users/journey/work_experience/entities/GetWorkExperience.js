@@ -4,7 +4,7 @@ class GetExp {
     this._verifyPayload(payload);
     const { id, id_users_hol, company_name, start_date, end_date, position } = payload;
     this.workExperienceId = id;
-    this.holUsersId = id_users_hol;
+    this.usersId = id_users_hol;
     this.companyName = company_name;
     this.startDate = start_date;
     this.endDate = end_date;

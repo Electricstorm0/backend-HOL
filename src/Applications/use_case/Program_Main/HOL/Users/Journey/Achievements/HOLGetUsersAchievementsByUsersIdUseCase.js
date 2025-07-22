@@ -1,12 +1,12 @@
 const GetUsersAchieve = require('../../../../../../../Domains/program_main/hol/users/journey/achievements/entities/GetAchievements');
 
-class HOLGetUsersAchievementsUseCase {
+class HOLGetUsersAchievementsByUsersIdUseCase {
   constructor({ holUsersAchievementsRepository }) {
     this._holUsersAchievementsRepository = holUsersAchievementsRepository;
   }
 
-  async execute() {
-    const achieve = (await this._holUsersAchievementsRepository.read()) || [];
+  async execute({ id: usersHOLId }) {
+    const achieve = (await this._holUsersAchievementsRepository.readByUsersId({ usersHOLId })) || {};
     const result = await Promise.all(
       achieve.map(async (value) => ({
         ...new GetUsersAchieve({
@@ -18,4 +18,4 @@ class HOLGetUsersAchievementsUseCase {
   }
 }
 
-module.exports = HOLGetUsersAchievementsUseCase;
+module.exports = HOLGetUsersAchievementsByUsersIdUseCase;

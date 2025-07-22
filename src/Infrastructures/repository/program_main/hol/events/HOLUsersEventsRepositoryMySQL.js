@@ -101,7 +101,7 @@ class HOLUsersEventsRepositoryMySQL extends HOLUsersEventsRepository {
 
   async readByUsersIdAndAttendance({ usersHOLId }) {
     const query = {
-      text: `SELECT ue.id, e.name as Event, ha.name AS HOL_Area , COALESCE(YEAR(ed.event_date),YEAR(edb.event_date)) AS Year,
+      text: `SELECT ue.id as usersEventsId, e.name as Event, ha.name AS HOLsArea , COALESCE(YEAR(ed.event_date),YEAR(edb.event_date)) AS Year,
       COALESCE( ed.position, edb.position_category) AS Involvements
        FROM tx_hol_users_events AS ue 
        LEFT JOIN tx_hol_events AS e ON e.id = ue.id_events_hol 

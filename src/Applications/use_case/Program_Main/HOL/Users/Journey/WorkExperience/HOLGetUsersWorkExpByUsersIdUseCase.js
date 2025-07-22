@@ -1,14 +1,14 @@
 const GetExp = require('../../../../../../../Domains/program_main/hol/users/journey/work_experience/entities/GetWorkExperience');
 
-class HOLGetUsersWorkExpUseCase {
+class HOLGetUsersWorkExpByUsersIdUseCase {
   constructor({ holUsersWorkExpRepository }) {
     this._holUsersWorkExpRepository = holUsersWorkExpRepository;
   }
 
-  async execute() {
-    const Exp = (await this._holUsersWorkExpRepository.read()) || [];
+  async execute({ id: usersHOLId }) {
+    const exp = (await this._holUsersWorkExpRepository.readByUsersId({ usersHOLId })) || {};
     const result = await Promise.all(
-      Exp.map(async (value) => ({
+      exp.map(async (value) => ({
         ...new GetExp({
           ...value,
         }),
@@ -18,4 +18,4 @@ class HOLGetUsersWorkExpUseCase {
   }
 }
 
-module.exports = HOLGetUsersWorkExpUseCase;
+module.exports = HOLGetUsersWorkExpByUsersIdUseCase;

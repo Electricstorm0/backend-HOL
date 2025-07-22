@@ -2,9 +2,9 @@
 class UpdateInvolve {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { holUsersId, holUsersEventsId } = payload;
+    const { usersId, holUsersEventsId } = payload;
     this.id_users_events = holUsersEventsId;
-    this.id_users_hol = holUsersId;
+    this.id_users_hol = usersId;
   }
   _verifyPayload({ holUsersEventsId }) {
     if (!holUsersEventsId) {

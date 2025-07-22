@@ -31,6 +31,9 @@ class HOLUsersRepository {
   async readById({ id }) {
     throw new Error('HOL_USERS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
+  async readByUsersId({ usersId }) {
+    throw new Error('HOL_USERS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
 }
 
 module.exports = HOLUsersRepository;

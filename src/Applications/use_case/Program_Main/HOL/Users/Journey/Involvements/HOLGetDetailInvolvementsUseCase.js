@@ -3,7 +3,7 @@ class HOLGetDetailInvolvementsUseCase {
     this._holUsersEventsRepository = holUsersEventsRepository;
   }
 
-  async execute({ usersHOLId }) {
+  async execute({ id: usersHOLId }) {
     const useCase = (await this._holUsersEventsRepository.readByUsersIdAndAttendance({ usersHOLId })) || [];
     return useCase;
   }

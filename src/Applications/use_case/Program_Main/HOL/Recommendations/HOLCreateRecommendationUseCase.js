@@ -10,7 +10,7 @@ class HOLCreateRecommendationUseCase {
     const { institutions, purposes, deadline, details } = payload;
     const userScore = usersScore.find((u) => u.usersId === HOLUsersRecommendationId);
 
-    if (userScore.score <= 85) {
+    if (userScore.score < 85) {
       throw new Error('Mohon maaf nilai anda tidak memenuhi kriteria minimum 85');
     } else {
       const recommendationId = await this._holRecommendationsRepository.create({

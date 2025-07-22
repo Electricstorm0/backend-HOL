@@ -96,6 +96,24 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
     return result.length > 0;
   }
 
+  async readByUsersId({ usersId }) {
+    const query = {
+      text: `SELECT id , id_batch as batchId 
+            FROM tx_hol_users 
+            WHERE 
+            id_users = ? 
+            ORDER BY id_batch DESC LIMIT 1`,
+      values: [usersId],
+    };
+    const [result] = await this._pool.query(query.text, query.values);
+
+    if (!result.length > 0) {
+      throw new InvariantError('Users not found!');
+    }
+
+    return result[0];
+  }
+
   async readJourneyUsers() {
     const query = {
       text: `SELECT id_users_hol, created_at, "achievements" as recent_journey 
@@ -127,7 +145,18 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
   }
   async readById({ id }) {
     const query = {
-      text: 'SELECT * FROM `tx_hol_users` WHERE id=?',
+      text: `SELECT hu.*, b.batch, YEAR(b.date_start) AS batchYear,
+       mdr.id AS id_regencies,
+       ldi.id AS id_lead_division_institutions
+        FROM tx_hol_users hu
+        JOIN master_batch b ON b.id = hu.id_batch
+        JOIN tx_users_domicile udom ON udom.id_users = hu.id_users
+        left JOIN master_domicile_regencies mdr ON mdr.id = udom.id_regencies
+        left JOIN tx_clp_users cu ON cu.id_users = hu.id_users AND cu.id_batch = hu.id_batch
+        left JOIN tx_lead_division_institutions ldi ON ldi.id = cu.id_lead_division_institutions
+        WHERE hu.id_users = ?
+        ORDER BY hu.id_batch DESC
+        LIMIT 1`,
       values: [id],
     };
     const [result] = await this._pool.query(query.text, query.values);

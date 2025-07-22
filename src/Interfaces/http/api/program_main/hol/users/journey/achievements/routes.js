@@ -11,26 +11,27 @@ const routes = (handler) => [
       },
     },
   },
+ 
   {
     method: 'GET',
-    path: '/users/achievements',
-    handler: handler.getHolUsersAchievementsHandler,
+    path: '/users/achievements/{id}',
+    handler: handler.getHolUsersAchievementsByUsersIdHandler,
     options: {
       auth: {
         access: {
-          scope: ['3', '4'],
+          scope: ['3'],
         },
       },
     },
   },
   {
     method: 'GET',
-    path: '/users/achievements/{id}',
-    handler: handler.getHolUsersAchievementsByIdHandler,
+    path: '/users/achievements',
+    handler: handler.getOwnHolUsersAchievementsHandler,
     options: {
       auth: {
         access: {
-          scope: ['3', '4'],
+          scope: [ '4'],
         },
       },
     },

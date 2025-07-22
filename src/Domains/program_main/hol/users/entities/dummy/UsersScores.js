@@ -27,5 +27,9 @@ const usersScore = [
     usersId: 7,
     score: 70,
   },
+  {
+    usersId: 769,
+    score: 85,
+  },
 ];
 module.exports = usersScore;

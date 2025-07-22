@@ -4,24 +4,25 @@ class HOLGetUsersMeDetail {
     const {
       id_users,
       id_batch,
+      batch,
+      batchYear,
       photoProfile,
       id_card_number,
-      nim,
+      // nim,
       first_name,
       last_name,
-      sex,
+      // sex,
       email,
       phone_number,
-      grade_point_average,
-      birth_date,
+      // grade_point_average,
+      // birth_date,
       domicile,
-      emergency_phone_number,
-      relationship_emergency_phone_number,
+      // emergency_phone_number,
+      // relationship_emergency_phone_number,
       universities,
-      semester,
+      // semester,
       institutions,
-      thirdTierProgramName,
-      thirdTierProgramDescription,
+      secondTierProgramName,
       musical_instrument,
       ability,
       description_ability,
@@ -38,19 +39,21 @@ class HOLGetUsersMeDetail {
     this.batchId = id_batch;
     this.numberCardId = id_card_number;
     // MOVE TO UNIVERSITIES nim
-    this.nim = nim;
+    // this.nim = nim;
     this.firstName = first_name;
     this.lastName = last_name;
-    this.sex = sex;
+    this.batch = batch;
+    this.year = batchYear;
+    // this.sex = sex;
     this.email = email;
     this.photoProfile = photoProfile;
     this.numberPhone = phone_number;
     // MOVE TO UNIVERSITIES gradePointAverage
-    this.gradePointAverage = grade_point_average;
-    this.birthDate = birth_date;
+    // this.gradePointAverage = grade_point_average;
+    // this.birthDate = birth_date;
     this.domicile = domicile;
-    this.emergencyPhoneNumber = emergency_phone_number;
-    this.emergencyPhoneNumberRelationship = relationship_emergency_phone_number;
+    // this.emergencyPhoneNumber = emergency_phone_number;
+    // this.emergencyPhoneNumberRelationship = relationship_emergency_phone_number;
     this.universities = universities;
     // MOVE TO UNIVERSITIES
     // this.universitiesName = universitiesName;
@@ -61,14 +64,13 @@ class HOLGetUsersMeDetail {
     // this.educationLevel = educational_level;
     // this.collageYear = collage_year;
     // MOVE TO UNIVERSITIES
-    this.semester = semester;
+    // this.semester = semester;
     this.institutions = institutions;
     // this.institutionsName = institutionsName;
     // this.institutionsLocation = institutionsLocation;
     // this.institutionsDivision = institutionsDivision;
     // this.institutionsClusterFocus = institutionsClusterFocus;
-    this.thirdTierProgramName = thirdTierProgramName;
-    this.thirdTierProgramDescription = thirdTierProgramDescription;
+    this.secondTierProgramName = secondTierProgramName;
     this.musicalInstrument = musical_instrument;
     this.ability = ability;
     this.abilityDescription = description_ability;

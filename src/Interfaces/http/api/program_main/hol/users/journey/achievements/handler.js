@@ -1,8 +1,7 @@
 const autoBind = require('auto-bind');
 const HOLCreateUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLCreateUsersAchievementsUseCase');
 const HOLDeleteUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLDeleteUsersAchievementsUseCase');
-const HOLGetUsersAchievementsByIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLGetUsersAchievementsByIdUseCase');
-const HOLGetUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLGetUsersAchievementsUseCase');
+const HOLGetUsersAchievementsByUsersIdUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLGetUsersAchievementsByUsersIdUseCase');
 const HOLUpdateUsersAchievementsUseCase = require('../../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Achievements/HOLUpdateUsersAchievementsUseCase');
 
 class HolUsersAchievementsHandler {
@@ -24,9 +23,9 @@ class HolUsersAchievementsHandler {
     return response;
   }
 
-  async getHolUsersAchievementsHandler(request, h) {
-    const useCase = this._container.getInstance(HOLGetUsersAchievementsUseCase.name);
-    const data = await useCase.execute(request.query);
+  async getOwnHolUsersAchievementsHandler(request, h) {
+    const useCase = this._container.getInstance(HOLGetUsersAchievementsByUsersIdUseCase.name);
+    const data = await useCase.execute(request.auth.credentials);
     const response = h.response({
       status: 'success',
       data,
@@ -34,8 +33,8 @@ class HolUsersAchievementsHandler {
     return response;
   }
 
-  async getHolUsersAchievementsByIdHandler(request, h) {
-    const useCase = this._container.getInstance(HOLGetUsersAchievementsByIdUseCase.name);
+  async getHolUsersAchievementsByUsersIdHandler(request, h) {
+    const useCase = this._container.getInstance(HOLGetUsersAchievementsByUsersIdUseCase.name);
     const data = await useCase.execute(request.params);
     const response = h.response({
       status: 'success',
@@ -45,17 +44,13 @@ class HolUsersAchievementsHandler {
   }
 
   async putHolUsersAchievementsHandler(request, h) {
-    try {
-      const useCase = this._container.getInstance(HOLUpdateUsersAchievementsUseCase.name);
-      await useCase.execute(request.params, request.payload);
-      const response = h.response({
-        status: 'success',
-        message: 'updated achievements successfully',
-      });
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
+    const useCase = this._container.getInstance(HOLUpdateUsersAchievementsUseCase.name);
+    await useCase.execute(request.params, request.payload);
+    const response = h.response({
+      status: 'success',
+      message: 'updated achievements successfully',
+    });
+    return response;
   }
 
   async deleteHolUsersAchievementsHandler(request, h) {

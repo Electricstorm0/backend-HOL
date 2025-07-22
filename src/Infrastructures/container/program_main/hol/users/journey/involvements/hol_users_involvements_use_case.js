@@ -3,7 +3,6 @@ const HOLUsersEventsRepository = require('../../../../../../../Domains/program_m
 
 // USECASE
 const HOLCreateUsersInvolvementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLCreateUsersInvolvementsUseCase');
-const HOLGetUsersInvolvementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLGetUsersInvolvementsUseCase');
 const HOLGetUsersInvolvementsByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLGetUsersInvolvementsByIdUseCase');
 const HOLGetDetailInvolvementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLGetDetailInvolvementsUseCase');
 const HOLUpdateUsersInvolvementsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Users/Journey/Involvements/HOLUpdateUsersInvolvementsUseCase');
@@ -23,19 +22,19 @@ const involve = [
       ],
     },
   },
-  {
-    key: HOLGetUsersInvolvementsUseCase.name,
-    Class: HOLGetUsersInvolvementsUseCase,
-    parameter: {
-      injectType: 'destructuring',
-      dependencies: [
-        {
-          name: 'holUsersInvolvementsRepository',
-          internal: HOLUsersInvolvementsRepository.name,
-        },
-      ],
-    },
-  },
+  // {
+  //   key: HOLGetUsersInvolvementsUseCase.name,
+  //   Class: HOLGetUsersInvolvementsUseCase,
+  //   parameter: {
+  //     injectType: 'destructuring',
+  //     dependencies: [
+  //       {
+  //         name: 'holUsersInvolvementsRepository',
+  //         internal: HOLUsersInvolvementsRepository.name,
+  //       },
+  //     ],
+  //   },
+  // },
   {
     key: HOLGetUsersInvolvementsByIdUseCase.name,
     Class: HOLGetUsersInvolvementsByIdUseCase,

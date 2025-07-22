@@ -4,7 +4,7 @@ class GetAchieve {
     this._verifyPayload(payload);
     const { id, id_users_hol, events_name, events_year, bcf_contribution, achievements } = payload;
     this.achievementId = id;
-    this.holUsersId = id_users_hol;
+    this.usersId = id_users_hol;
     this.eventsName = events_name;
     this.eventsYear = events_year;
     this.bcfContribution = bcf_contribution;
