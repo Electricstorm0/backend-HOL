@@ -25,15 +25,16 @@ DomainErrorTranslator._directories = {
   // call for fellows
   'GET_EVENTS.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat mengambil data events karena tipe data tidak sesuai'),
   'GET_EVENTS.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat mengambil data events karena data yang dibutuhkan tidak ada'),
-  'UPDATE_DATA.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat memperbarui data karena data yang dibutuhkan tidak ada'),
   'GET_USERS_EVENTS.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat mengambil data users karena tipe data tidak sesuai'),
   'GET_USERS_EVENTS.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat mengambil data users karena data yang dibutuhkan tidak ada'),
   'VERIFY_DATA.NOT_CONTAIN_BATCH_DATA': new InvariantError('Data tidak ditemukan'),
 
   'GET_DATA.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat mengambil data karena tipe data tidak sesuai'),
   'GET_DATA.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat mengambil data karena data yang dibutuhkan tidak ada'),
-  'UPDATE_DATA.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat update data karena tipe data tidak sesuai'),
-  'UPDATE_DATA.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat update data karena data yang dibutuhkan tidak ada'),
+  'UPDATE_DATA.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat memperbarui data karena tipe data tidak sesuai'),
+  'UPDATE_DATA.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat memperbarui data karena data yang dibutuhkan tidak ada'),
+  'HOL_ADD_USERS.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('Tidak dapat menambah users baru karena data yang dibutuhkan tidak ada'),
+  'HOL_ADD_USERS.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('Tidak dapat menambah users baru karena tipe data tidak sesuai'),
 };
 
 module.exports = DomainErrorTranslator;

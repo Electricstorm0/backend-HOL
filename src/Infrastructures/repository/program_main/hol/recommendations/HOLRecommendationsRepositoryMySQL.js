@@ -29,7 +29,8 @@ class HOLRecommendationsRepositoryMyQL extends HOLRecommendationsRepository {
       JOIN master_second_tier_program as stp on stp.id = mtp.id_second_tier_program 
       LEFT JOIN tx_hol_users_recommendations_status as rs on rs.id_hol_recommendations = r.id 
       LEFT JOIN master_hol_recommendations_status as mrs on mrs.id = rs.id_recommendations_status 
-      ORDER BY rs.id ASC LIMIT ?,?`,
+      ORDER BY rs.id ASC LIMIT ?,?
+      `,
       values: [skip, numPerPage],
     };
     const [result] = await this._pool.query(query.text, query.values);
@@ -48,6 +49,7 @@ class HOLRecommendationsRepositoryMyQL extends HOLRecommendationsRepository {
       right JOIN tx_hol_users_recommendations_status as rs on rs.id_hol_recommendations = r.id 
       LEFT JOIN master_hol_recommendations_status as mrs on mrs.id = rs.id_recommendations_status 
       WHERE rs.id_recommendations_status=? 
+      group by ud.id
       ORDER BY rs.id ASC LIMIT ?,?`,
       values: [recommendationStatusId, skip, numPerPage],
     };

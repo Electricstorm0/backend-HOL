@@ -6,7 +6,7 @@ class HOLGetUsersWorkExpByUsersIdUseCase {
   }
 
   async execute({ id: usersHOLId }) {
-    const exp = (await this._holUsersWorkExpRepository.readByUsersId({ usersHOLId })) || {};
+    const exp = (await this._holUsersWorkExpRepository.readByUsersId({ usersHOLId })) || [];
     const result = await Promise.all(
       exp.map(async (value) => ({
         ...new GetExp({

@@ -8,10 +8,6 @@ class HOLRecommendationsRepository {
     throw new Error('HOL_RECOMMENDATION_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
-  async delete() {
-    throw new Error('HOL_RECOMMENDATION_REPOSITORY.METHOD_NOT_IMPLEMENTED');
-  }
-
   async readByStatusId() {
     throw new Error('HOL_RECOMMENDATION_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }

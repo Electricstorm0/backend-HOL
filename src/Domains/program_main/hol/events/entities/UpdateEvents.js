@@ -5,7 +5,7 @@ class updateEvents {
     const { name, deadline, duration, regenciesId, description, benefit, contact_person } = payload;
     this.name = name;
     this.id_regencies = regenciesId;
-    this.deadline = deadline;
+    this.deadline = new Date(deadline);
     this.duration = duration;
     this.description = description;
     this.benefit = benefit;
@@ -13,7 +13,10 @@ class updateEvents {
   }
   _verifyPayload({ name, deadline, duration, description, benefit, contact_person }) {
     if (!name || !deadline || !duration || !description || !benefit || !contact_person) {
-      throw new Error('UPDATE_EVENTS.NOT_CONTAIN_NEEDED_PROPERTY');
+      throw new Error('UPDATE_DATA.NOT_CONTAIN_NEEDED_PROPERTY');
+    }
+    if (typeof name !== 'string' || isNaN(Date.parse(deadline)) || typeof duration !== 'string' || typeof description !== 'string' || typeof benefit !== 'string' || typeof contact_person !== 'string') {
+      throw new Error('UPDATE_DATA.NOT_MEET_DATA_TYPE_SPECIFICATION');
     }
   }
 }

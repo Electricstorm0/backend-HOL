@@ -6,7 +6,7 @@ class HOLGetUsersAchievementsByUsersIdUseCase {
   }
 
   async execute({ id: usersHOLId }) {
-    const achieve = (await this._holUsersAchievementsRepository.readByUsersId({ usersHOLId })) || {};
+    const achieve = (await this._holUsersAchievementsRepository.readByUsersId({ usersHOLId })) || [];
     const result = await Promise.all(
       achieve.map(async (value) => ({
         ...new GetUsersAchieve({

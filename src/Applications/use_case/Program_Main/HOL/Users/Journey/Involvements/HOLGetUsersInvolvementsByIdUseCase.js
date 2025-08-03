@@ -6,7 +6,7 @@ class HOLGetUsersInvolvementssByIdUseCase {
   }
 
   async execute({ id: usersHOLId }) {
-    const involve = (await this._holUsersInvolvementsRepository.readById({ usersHOLId })) || {};
+    const involve = (await this._holUsersInvolvementsRepository.readById({ usersHOLId })) || [];
     return involve;
   }
 }
