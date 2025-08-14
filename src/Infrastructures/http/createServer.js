@@ -61,7 +61,7 @@ const createServer = async (container) => {
       handler: async (request, h) =>
         h.response({
           status: 'success',
-          message: 'Server ILS running!',
+          message: 'Server HOL running!',
         }),
       options: {
         auth: false,
