@@ -24,7 +24,7 @@ describe('Get CFF entities', () => {
       description: 'Program intensif fellowship',
       benefit: 'sertifikat dan pengalaman',
       contact_person: 'John Doe - 08123456789',
-      logo_url: 'http://example.com/logo.png',
+      picture_url: 'http://example.com/logo.png',
       position: 'Fellow',
       category: 'Fellowship',
       placements: 'DKI Jakarta',
@@ -48,7 +48,7 @@ describe('Get CFF entities', () => {
       description: 'Program intensif fellowship',
       benefit: 'sertifikat dan pengalaman',
       contact_person: 'John Doe - 08123456789',
-      logo_url: 'http://example.com/logo.png',
+      picture_url: 'http://example.com/logo.png',
       position: 'Fellow',
       category: 'Fellowship',
       placements: 'DKI Jakarta',
@@ -63,7 +63,7 @@ describe('Get CFF entities', () => {
     expect(cff).toBeInstanceOf(GetCFF);
     expect(cff.callForFellowsId).toEqual(payload.id_events_hol);
     expect(cff.HolEventTypeId).toEqual(payload.id_hol_events_type);
-    expect(cff.logo_url).toEqual(payload.logo_url);
+    expect(cff.pictureUrl).toEqual(payload.picture_url);
     expect(cff.name).toEqual(payload.name);
     expect(cff.position).toEqual(payload.position);
     expect(cff.category).toEqual(payload.category);

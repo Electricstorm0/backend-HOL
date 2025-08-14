@@ -2,10 +2,10 @@
 class GetCFF {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { id_events_hol, id_hol_events_type, name, deadline, duration, id_regencies, description, benefit, contact_person, logo_url, position, category, placements, register_url, requirements } = payload;
+    const { id_events_hol, id_hol_events_type, name, deadline, duration, id_regencies, description, benefit, contact_person, picture_url, position, category, placements, register_url, requirements } = payload;
     this.callForFellowsId = id_events_hol;
     this.HolEventTypeId = id_hol_events_type;
-    this.logo_url = logo_url;
+    this.pictureUrl = picture_url;
     this.name = name;
     this.position = position;
     this.category = category;
@@ -19,8 +19,8 @@ class GetCFF {
     this.register_url = register_url;
     this.contact_person = contact_person;
   }
-  _verifyPayload({ name, deadline, duration, description, benefit, contact_person, logo_url, position, category, placements, register_url, requirements }) {
-    if (!name || !deadline || !duration || !description || !benefit || !contact_person || !logo_url || !position || !category || !placements || !register_url || !requirements) {
+  _verifyPayload({ name, deadline, duration, description, benefit, contact_person, picture_url, position, category, placements, register_url, requirements }) {
+    if (!name || !deadline || !duration || !description || !benefit || !contact_person || !picture_url || !position || !category || !placements || !register_url || !requirements) {
       throw new Error('GET_EVENTS.NOT_CONTAIN_NEEDED_PROPERTY');
     }
     if (
@@ -30,7 +30,7 @@ class GetCFF {
       typeof description !== 'string' ||
       typeof benefit !== 'string' ||
       typeof contact_person !== 'string' ||
-      typeof logo_url !== 'string' ||
+      typeof picture_url !== 'string' ||
       typeof position !== 'string' ||
       typeof category !== 'string' ||
       typeof placements !== 'string' ||

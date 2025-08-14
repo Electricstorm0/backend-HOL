@@ -4,6 +4,7 @@ const CreateCFFUseCase = require('../HOLCreateCFFUseCase');
 describe('CreateCFFUseCase', () => {
   const payload = {
     holEventsTypeId: 1,
+    pictureUrl: 'https://image.url/logo.png',
     name: 'Call for Fellows',
     deadline: '2025-10-01',
     duration: '2 bulan',
@@ -11,7 +12,6 @@ describe('CreateCFFUseCase', () => {
     description: 'Deskripsi program',
     benefit: 'Pengalaman, jejaring',
     contact_person: '08123456789',
-    logoUrl: 'https://image.url/logo.png',
     position: 'Panitia',
     category: 'Pengabdian',
     placements: 'Jawa, Sumatera',
@@ -36,6 +36,7 @@ describe('CreateCFFUseCase', () => {
 
     expect(mockHolEventsRepository.create).toBeCalledWith({
       holEventsTypeId: 1,
+      pictureUrl: 'https://image.url/logo.png',
       name: 'Call for Fellows',
       deadline: '2025-10-01',
       duration: '2 bulan',
@@ -47,7 +48,6 @@ describe('CreateCFFUseCase', () => {
 
     expect(mockHolEventsCFFRepository.create).toBeCalledWith({
       holEventsId: 'event-123',
-      logoUrl: 'https://image.url/logo.png',
       position: 'Panitia',
       category: 'Pengabdian',
       placements: 'Jawa, Sumatera',

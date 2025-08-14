@@ -14,6 +14,7 @@ describe('Get Events entities', () => {
   it('should throw error when payload not meet data type specification', () => {
     // Arrange
     const payload = {
+      picture_url: 'http://example.com/logo.png',
       name: 1234,
       deadline: '2025-12-3',
       duration: '1 hari',
@@ -29,6 +30,7 @@ describe('Get Events entities', () => {
   it('should Get Events entities correctly', () => {
     // Arrange
     const payload = {
+      picture_url: 'http://example.com/logo.png',
       name: 'acara lari bersama',
       deadline: new Date('2025-12-2'),
       duration: '1 hari',
@@ -42,6 +44,7 @@ describe('Get Events entities', () => {
 
     // Assert
     expect(getEvents).toBeInstanceOf(GetEvents);
+    expect(getEvents.pictureUrl).toEqual(payload.picture_url);
     expect(getEvents.name).toEqual(payload.name);
     expect(getEvents.deadline).toEqual(payload.deadline);
     expect(getEvents.duration).toEqual(payload.duration);

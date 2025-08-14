@@ -152,8 +152,7 @@ class HOLUsersRepositoryMySQL extends HOLUsersRepository {
         JOIN master_batch b ON b.id = hu.id_batch
         JOIN tx_users_domicile udom ON udom.id_users = hu.id_users
         left JOIN master_domicile_regencies mdr ON mdr.id = udom.id_regencies
-        left JOIN tx_clp_users cu ON cu.id_users = hu.id_users AND cu.id_batch = hu.id_batch
-        left JOIN tx_lead_division_institutions ldi ON ldi.id = cu.id_lead_division_institutions
+        left JOIN tx_lead_division_institutions ldi ON ldi.id = hu.id_lead_institution
         WHERE hu.id_users = ?
         ORDER BY hu.id_batch DESC
         LIMIT 1`,

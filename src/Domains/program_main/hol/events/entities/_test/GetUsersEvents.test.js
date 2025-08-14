@@ -4,7 +4,7 @@ describe('Get Users Events entities', () => {
   it('should throw error when payload does not contain needed property', () => {
     // Arrange
     const payload = {
-      usersHolId: 2,
+      usersId: 2,
     };
 
     // Action & Assert
@@ -48,7 +48,7 @@ describe('Get Users Events entities', () => {
 
     // Assert
     expect(getUsersEvents).toBeInstanceOf(GetUsersEvents);
-    expect(getUsersEvents.usersHolId).toEqual(payload.id_users_hol);
+    expect(getUsersEvents.usersId).toEqual(payload.id_users_hol);
     expect(getUsersEvents.eventsHolId).toEqual(payload.id_events_hol);
     expect(getUsersEvents.alumniName).toEqual(payload.Alumni_Name);
     expect(getUsersEvents.program).toEqual(payload.Program);

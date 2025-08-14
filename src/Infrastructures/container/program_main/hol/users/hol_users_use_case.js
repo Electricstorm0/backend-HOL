@@ -28,7 +28,7 @@ const HOLGetTotalUsersUseCase = require('../../../../../Applications/use_case/Pr
 const HOLGetTotalUsersByProgramUseCase = require('../../../../../Applications/use_case/Program_Main/HOL/Users/HOLGetTotalUsersByProgramUseCase');
 const PasswordHash = require('../../../../../Applications/security/PasswordHash');
 const UsersDomicileRepository = require('../../../../../Domains/users/UsersDomicileRepository');
-const CLPUsersRepository = require('../../../../../Domains/program_main/clp/users/CLPUsersRepository');
+// const CLPUsersRepository = require('../../../../../Domains/program_main/clp/users/CLPUsersRepository');
 const usersHol = [
   {
     key: HOLCreateUsersUseCase.name,
@@ -63,10 +63,6 @@ const usersHol = [
         {
           name: 'usersUniversitiesRepository',
           internal: UsersUniversitiesRepository.name,
-        },
-        {
-          name: 'clpUsersRepository',
-          internal: CLPUsersRepository.name,
         },
       ],
     },

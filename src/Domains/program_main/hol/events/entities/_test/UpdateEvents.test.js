@@ -14,8 +14,9 @@ describe('Update Events entities', () => {
   it('should throw error when payload not meet data type specification', () => {
     // Arrange
     const payload = {
+      pictureUrl: 'http://example.com/logo.png',
       name: 1234,
-      id_regencies: 2,
+      regenciesId: 2,
       deadline: '2025-12-3',
       duration: '1 hari',
       description: 'ini adalah acara baru',
@@ -27,11 +28,12 @@ describe('Update Events entities', () => {
     expect(() => new UpdateEvents(payload)).toThrowError('UPDATE_DATA.NOT_MEET_DATA_TYPE_SPECIFICATION');
   });
 
-  it('should Update Eventsentities correctly', () => {
+  it('should Update Events entities correctly', () => {
     // Arrange
     const payload = {
+      pictureUrl: 'http://example.com/logo.png',
       name: 'Acara Lari Bersama',
-      id_regencies: 2,
+      regenciesId: 2,
       deadline: new Date('2025-12-3'),
       duration: '1 hari',
       description: 'ini adalah acara baru',
@@ -44,9 +46,10 @@ describe('Update Events entities', () => {
 
     // Assert
     expect(updateEvents).toBeInstanceOf(UpdateEvents);
+    expect(updateEvents.picture_url).toEqual(payload.pictureUrl);
     expect(updateEvents.name).toEqual(payload.name);
     expect(updateEvents.id_regencies).toEqual(payload.regenciesId);
-    expect(updateEvents.deadline).toEqual(payload.deadline);
+    expect(updateEvents.deadline).toEqual(new Date(payload.deadline));
     expect(updateEvents.duration).toEqual(payload.duration);
     expect(updateEvents.description).toEqual(payload.description);
     expect(updateEvents.benefit).toEqual(payload.benefit);

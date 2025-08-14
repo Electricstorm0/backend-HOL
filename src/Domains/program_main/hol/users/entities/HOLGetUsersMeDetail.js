@@ -24,14 +24,20 @@ class HOLGetUsersMeDetail {
       institutions,
       secondTierProgramName,
       musical_instrument,
-      ability,
-      description_ability,
-      bcf_activities,
-      other_activities,
+      talent,
+      talent_description_selected,
+      bcf_activites,
+      other_activites,
       five_year_award,
       five_year_plan,
       five_year_plan_description,
-      id_card_selfie,
+      ability,
+      ability_description_selected,
+      ability_award_selected,
+      achievement_last_three_years,
+      activities_outside_college_and_internship,
+      have_a_business,
+      joined_social_communities,
       regenciesUsersLocation,
     } = payload;
 
@@ -48,38 +54,31 @@ class HOLGetUsersMeDetail {
     this.email = email;
     this.photoProfile = photoProfile;
     this.numberPhone = phone_number;
-    // MOVE TO UNIVERSITIES gradePointAverage
-    // this.gradePointAverage = grade_point_average;
-    // this.birthDate = birth_date;
+
     this.domicile = domicile;
-    // this.emergencyPhoneNumber = emergency_phone_number;
-    // this.emergencyPhoneNumberRelationship = relationship_emergency_phone_number;
+
     this.universities = universities;
-    // MOVE TO UNIVERSITIES
-    // this.universitiesName = universitiesName;
-    // this.universitiesType = universitiesType;
-    // this.universitiesProvinces = universitiesProvinces;
-    // this.universitiesRegencies = universitiesRegencies;
-    // this.universitiesMajor = universitiesMajor;
-    // this.educationLevel = educational_level;
-    // this.collageYear = collage_year;
-    // MOVE TO UNIVERSITIES
-    // this.semester = semester;
+
     this.institutions = institutions;
-    // this.institutionsName = institutionsName;
-    // this.institutionsLocation = institutionsLocation;
-    // this.institutionsDivision = institutionsDivision;
-    // this.institutionsClusterFocus = institutionsClusterFocus;
+
     this.secondTierProgramName = secondTierProgramName;
     this.musicalInstrument = musical_instrument;
+    this.talent = talent;
+    this.talentDescription = talent_description_selected;
+    this.otherActivities = other_activites;
     this.ability = ability;
-    this.abilityDescription = description_ability;
-    this.activitiesBCF = bcf_activities;
-    this.activitiesOthers = other_activities;
+    this.abilityDescription = ability_description_selected;
+    this.abilityAward = ability_award_selected;
+    this.achievementsLastThreeYears = achievement_last_three_years;
+    this.outsideCollageAndInternActivity = activities_outside_college_and_internship;
+    this.haveBusiness = have_a_business;
+    this.joinSocialCommunity = joined_social_communities;
+    this.activitiesBCF = bcf_activites;
+    this.activitiesOthers = other_activites;
     this.fiveYearAward = five_year_award;
     this.fiveYearPlan = five_year_plan;
     this.fiveYearPlanDescription = five_year_plan_description;
-    this.cardSelfieId = id_card_selfie;
+    // this.cardSelfieId = id_card_selfie;
     this.regenciesUsersLocation = regenciesUsersLocation;
   }
 }

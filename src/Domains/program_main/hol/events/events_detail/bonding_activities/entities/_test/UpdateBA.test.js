@@ -15,7 +15,6 @@ describe('updateBA entities', () => {
   it('should create updateBA entity correctly', () => {
     // Arrange
     const payload = {
-      pictureUrl: 'http://example.com/image.jpg',
       category: 'bonding',
     };
 
@@ -24,7 +23,6 @@ describe('updateBA entities', () => {
 
     // Assert
     expect(updatedBA).toBeInstanceOf(updateBA);
-    expect(updatedBA.picture_url).toEqual(payload.pictureUrl);
     expect(updatedBA.category).toEqual(payload.category);
   });
 });

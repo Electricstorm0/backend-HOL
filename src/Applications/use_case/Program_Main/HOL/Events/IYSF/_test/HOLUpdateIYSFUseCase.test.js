@@ -8,6 +8,7 @@ jest.mock('../../../../../../../Domains/program_main/hol/events/events_detail/iy
 
 describe('UpdateIYSFUseCase', () => {
   const payload = {
+    pictureUrl: 'https://img.url/logo.png',
     name: 'Updated Event',
     deadline: '2025-12-01',
     duration: '3 bulan',
@@ -15,7 +16,6 @@ describe('UpdateIYSFUseCase', () => {
     description: 'Updated description',
     benefit: 'Updated benefit',
     contact_person: '08123456789',
-    logoUrl: 'https://img.url/logo.png',
     position: 'Panitia',
     positionCategory: 'Inovasi',
     eventDate: '2025-12-31',

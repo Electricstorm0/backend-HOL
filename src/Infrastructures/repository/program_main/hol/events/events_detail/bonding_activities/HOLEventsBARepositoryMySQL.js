@@ -8,7 +8,7 @@ class HOLEventsBARepositoryMySQL extends HOLEventsBARepository {
 
   async create({ holEventsId, pictureUrl, category }) {
     const query = {
-      text: 'INSERT INTO `tx_hol_events_ba` ( id_events_hol ,picture_url ,category ) VALUES (?, ?, ?)',
+      text: 'INSERT INTO `tx_hol_events_ba` ( id_events_hol ,category ) VALUES (?, ?)',
       values: [holEventsId, pictureUrl, category],
     };
 
@@ -20,7 +20,7 @@ class HOLEventsBARepositoryMySQL extends HOLEventsBARepository {
   async read({ skip, numPerPage, holEventsTypeId }) {
     const query = {
       text: `SELECT eb.id_events_hol, e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
-      eb.picture_url, eb.category 
+      e.picture_url, eb.category 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_ba AS eb ON eb.id_events_hol = e.id 
       WHERE e.id_hol_events_type=? 
@@ -33,7 +33,7 @@ class HOLEventsBARepositoryMySQL extends HOLEventsBARepository {
   async readById({ id }) {
     const query = {
       text: `SELECT  eb.id_events_hol,e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
-      eb.picture_url, eb.category 
+      e.picture_url, eb.category 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_ba AS eb ON eb.id_events_hol = e.id 
       where e.id=?`,

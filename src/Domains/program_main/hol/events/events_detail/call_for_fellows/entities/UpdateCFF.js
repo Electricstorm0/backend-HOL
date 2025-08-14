@@ -2,8 +2,7 @@
 class updateCFF {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { logo_url, position, category, placements, register_url, requirements } = payload;
-    this.logo_url = logo_url;
+    const { position, category, placements, register_url, requirements } = payload;
     this.position = position;
     this.category = category;
     this.placements = placements;

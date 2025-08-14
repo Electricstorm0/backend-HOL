@@ -5,10 +5,11 @@ class CreateIYSFUseCase {
   }
 
   async execute(payload) {
-    const { holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person, logoUrl, position, positionCategory, eventDate, requirements } = payload;
+    const { holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person, pictureUrl, position, positionCategory, eventDate, requirements } = payload;
 
     const eventId = await this._holEventsRepository.create({
       holEventsTypeId,
+      pictureUrl,
       name,
       deadline,
       duration,
@@ -19,7 +20,6 @@ class CreateIYSFUseCase {
     });
     await this._holEventsIYSFRepository.create({
       holEventsId: eventId,
-      logoUrl,
       position,
       positionCategory,
       eventDate,

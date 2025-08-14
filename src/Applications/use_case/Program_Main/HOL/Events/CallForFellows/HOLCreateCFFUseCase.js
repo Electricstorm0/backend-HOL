@@ -5,10 +5,11 @@ class CreateCFFUseCase {
   }
 
   async execute(payload) {
-    const { holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person, logoUrl, position, category, placements, registerUrl, requirements } = payload;
+    const { holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person, pictureUrl, position, category, placements, registerUrl, requirements } = payload;
 
     const eventId = await this._holEventsRepository.create({
       holEventsTypeId,
+      pictureUrl,
       name,
       deadline,
       duration,
@@ -19,7 +20,6 @@ class CreateCFFUseCase {
     });
     await this._holEventsCFFRepository.create({
       holEventsId: eventId,
-      logoUrl,
       position,
       category,
       placements,

@@ -1,7 +1,6 @@
 const HOLCreateUsersEventsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLCreateUsersEventsUseCase');
 const HOLDeleteUsersEventsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLDeleteUsersEventsUseCase');
-const HOLGetUsersEventsByIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByIdUseCase');
-const HOLGetUsersEventsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsUseCase');
+const HOLGetUsersEventByUsersIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByUsersIdUseCase');
 const HOLGetUsersEventsByEventsIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByEventsIdUseCase');
 const HOLUpdateAttendeUsersEventsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLUpdateAttendeUsersEventsUseCase');
 const HOLUpdateStatusUsersEventsUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLUpdateStatusUsersEventsUseCase');
@@ -9,6 +8,7 @@ const HOLGetTotalUsersEventsByEventsTypeUseCase = require('../../../../../../../
 const HOLGetTotalUsersEventsGroupByProgramUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetTotalUsersEventsGroupByProgramUseCase');
 const HOLGetTotalUsersEventsByEventsIdAndStatusUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetTotalUsersEventsByEventsIdAndStatusUseCase');
 const autoBind = require('auto-bind');
+const HOLGetUsersEventsStatusByUsersIdUseCase = require('../../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsStatusByUsersIdUseCase');
 
 class HolUsersEventsHandler {
   constructor(container) {
@@ -17,7 +17,7 @@ class HolUsersEventsHandler {
   }
   async postHolUsersEventsHandler(request, h) {
     const useCase = this._container.getInstance(HOLCreateUsersEventsUseCase.name);
-    const data = await useCase.execute(request.auth.credentials,request.params);
+    const data = await useCase.execute(request.auth.credentials, request.params);
 
     const response = h.response({
       status: 'success',
@@ -28,24 +28,27 @@ class HolUsersEventsHandler {
     return response;
   }
 
-  async getHolUsersEventsHandler(request, h) {
-    const useCase = this._container.getInstance(HOLGetUsersEventsUseCase.name);
-    const data = await useCase.execute(request.query);
+  async getHolUsersEventsByUsersIdHandler(request, h) {
+    const useCase = this._container.getInstance(HOLGetUsersEventByUsersIdUseCase.name);
+    const data = await useCase.execute(request.auth.credentials);
     const response = h.response({
       status: 'success',
       data,
     });
     return response;
   }
-
-  async getHolUsersEventsByIdHandler(request, h) {
-    const useCase = this._container.getInstance(HOLGetUsersEventsByIdUseCase.name);
-    const data = await useCase.execute(request.params);
-    const response = h.response({
-      status: 'success',
-      data,
-    });
-    return response;
+  async getHolUsersEventsStatusByUsersIdHandler(request, h) {
+    try {
+      const useCase = this._container.getInstance(HOLGetUsersEventsStatusByUsersIdUseCase.name);
+      const data = await useCase.execute(request.auth.credentials);
+      const response = h.response({
+        status: 'success',
+        data,
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async getHolUsersEventsByEventsIdHandler(request, h) {
@@ -97,7 +100,7 @@ class HolUsersEventsHandler {
 
   async putHolAttendeUsersEventsHandler(request, h) {
     const useCase = this._container.getInstance(HOLUpdateAttendeUsersEventsUseCase.name);
-    await useCase.execute(request.auth.credentials, request.params );
+    await useCase.execute(request.auth.credentials, request.params);
 
     const response = h.response({
       status: 'success',

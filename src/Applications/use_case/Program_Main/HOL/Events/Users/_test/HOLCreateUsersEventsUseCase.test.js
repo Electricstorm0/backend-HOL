@@ -34,7 +34,7 @@ describe('HOLCreateUsersEventsUseCase', () => {
     expect(mockHolUsersEventsRepository.create).toBeCalledWith({
       usersHOLId,
       eventsHOLId,
-      status: 1,
+      status: 'approve',
     });
   });
   it('should register user with status = 0 if event type is 3 and position is panitia', async () => {
@@ -63,7 +63,7 @@ describe('HOLCreateUsersEventsUseCase', () => {
     expect(mockHolUsersEventsRepository.create).toBeCalledWith({
       usersHOLId,
       eventsHOLId,
-      status: 0,
+      status: 'checking',
     });
   });
   it('should throw InvariantError if user has already registered', async () => {

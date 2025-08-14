@@ -49,26 +49,27 @@ const routes = (handler) => [
     },
   },
   // ------------------------------------------------
+
   {
     method: 'GET',
-    path: '/events/users',
-    handler: handler.getHolUsersEventsHandler,
+    path: '/events/users/me/activity',
+    handler: handler.getHolUsersEventsByUsersIdHandler,
     options: {
       auth: {
         access: {
-          scope: ['3'],
+          scope: ['4'],
         },
       },
     },
   },
   {
     method: 'GET',
-    path: '/events/users/{id}',
-    handler: handler.getHolUsersEventsByIdHandler,
+    path: '/events/users/me/activity/status',
+    handler: handler.getHolUsersEventsStatusByUsersIdHandler,
     options: {
       auth: {
         access: {
-          scope: ['3', '4'],
+          scope: ['4'],
         },
       },
     },

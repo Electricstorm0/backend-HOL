@@ -2,8 +2,9 @@
 class GetEvents {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { id_hol_events_type, name, deadline, duration, description, benefit, contact_person } = payload;
+    const { id_hol_events_type, picture_url, name, deadline, duration, description, benefit, contact_person } = payload;
     this.holEventsTypeId = id_hol_events_type;
+    this.pictureUrl = picture_url;
     this.deadline = deadline;
     this.name = name;
     this.duration = duration;

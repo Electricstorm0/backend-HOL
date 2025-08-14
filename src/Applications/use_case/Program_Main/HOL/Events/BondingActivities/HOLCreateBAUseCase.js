@@ -5,10 +5,11 @@ class CreateBAUseCase {
   }
 
   async execute(payload) {
-    const { holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person, pictureUrl, category } = payload;
+    const { holEventsTypeId, pictureUrl, name, deadline, duration, regenciesId, description, benefit, contact_person, category } = payload;
 
     const eventId = await this._holEventsRepository.create({
       holEventsTypeId,
+      pictureUrl,
       name,
       deadline,
       duration,
@@ -19,7 +20,6 @@ class CreateBAUseCase {
     });
     await this._holEventsBARepository.create({
       holEventsId: eventId,
-      pictureUrl,
       category,
     });
   }

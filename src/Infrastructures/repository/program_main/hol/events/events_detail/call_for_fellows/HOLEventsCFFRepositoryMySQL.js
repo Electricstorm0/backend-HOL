@@ -6,11 +6,11 @@ class HOLEventsCFFRepositoryMySQL extends HOLEventsCFFRepository {
     this._pool = pool;
   }
 
-  async create({ holEventsId, logoUrl, position, category, placements, registerUrl, requirements }) {
+  async create({ holEventsId, position, category, placements, registerUrl, requirements }) {
     const query = {
-      text: `INSERT INTO tx_hol_events_cff ( id_events_hol ,logo_url ,position , category ,placements , register_url ,requirements )
-       VALUES ( ?, ?, ?, ?, ?, ?, ?)`,
-      values: [holEventsId, logoUrl, position, category, placements, registerUrl, requirements],
+      text: `INSERT INTO tx_hol_events_cff ( id_events_hol ,position , category ,placements , register_url ,requirements )
+       VALUES ( ?, ?, ?, ?, ?, ?)`,
+      values: [holEventsId, position, category, placements, registerUrl, requirements],
     };
 
     const [result] = await this._pool.query(query.text, query.values);
@@ -20,8 +20,8 @@ class HOLEventsCFFRepositoryMySQL extends HOLEventsCFFRepository {
 
   async read({ skip, numPerPage, holEventsTypeId }) {
     const query = {
-      text: `SELECT ec.id_events_hol,e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
-      ec.logo_url, ec.position, ec.category, ec.register_url, ec.requirements, ec.placements 
+      text: `SELECT ec.id_events_hol,e.id_hol_events_type,e.picture_url, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
+       ec.position, ec.category, ec.register_url, ec.requirements, ec.placements 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_cff AS ec ON ec.id_events_hol = e.id 
       WHERE e.id_hol_events_type=? 
@@ -33,8 +33,8 @@ class HOLEventsCFFRepositoryMySQL extends HOLEventsCFFRepository {
   }
   async readById({ id }) {
     const query = {
-      text: `SELECT ec.id_events_hol,e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
-      ec.logo_url, ec.position, ec.category, ec.register_url, ec.requirements, ec.placements 
+      text: `SELECT ec.id_events_hol,e.id_hol_events_type,e.picture_url, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
+       ec.position, ec.category, ec.register_url, ec.requirements, ec.placements 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_cff AS ec ON ec.id_events_hol = e.id 
       Where e.id=?`,

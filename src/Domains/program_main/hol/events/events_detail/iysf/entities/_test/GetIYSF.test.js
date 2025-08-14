@@ -22,7 +22,7 @@ describe('Get IYSF entities', () => {
     const payload = {
       id_events_hol: 'iysf-123',
       id_hol_events_type: 'type-456',
-      logo_url: 'http://example.com/logo.png',
+      picture_url: 'http://example.com/logo.png',
       name: 'IYSF ',
       position: 'Peserta',
       position_category: 'Pelajar',
@@ -45,7 +45,7 @@ describe('Get IYSF entities', () => {
     const payload = {
       id_events_hol: 'iysf-123',
       id_hol_events_type: 'type-456',
-      logo_url: 'http://example.com/logo.png',
+      picture_url: 'http://example.com/logo.png',
       name: 'IYSF 2025',
       position: 'Peserta',
       position_category: 'Pelajar',
@@ -66,7 +66,7 @@ describe('Get IYSF entities', () => {
     expect(iysf).toBeInstanceOf(GetIYSF);
     expect(iysf.iysfId).toEqual(payload.id_events_hol);
     expect(iysf.HolEventTypeId).toEqual(payload.id_hol_events_type);
-    expect(iysf.logo_url).toEqual(payload.logo_url);
+    expect(iysf.pictureUrl).toEqual(payload.picture_url);
     expect(iysf.name).toEqual(payload.name);
     expect(iysf.position).toEqual(payload.position);
     expect(iysf.positionCategory).toEqual(payload.position_category);

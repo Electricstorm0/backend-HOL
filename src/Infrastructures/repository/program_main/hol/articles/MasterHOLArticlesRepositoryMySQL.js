@@ -34,15 +34,39 @@ class MasterHOLArticlesRepositoryMySQL extends MasterHOLArticlesRepository {
 
   async readAllByStatus({ skip, numPerPage }) {
     const query = {
-      text: `SELECT CONCAT(ud.first_name," ",ud.last_name) as penulis,stp.name as program, ma.* 
-      FROM master_articles as ma 
-      JOIN tx_hol_users_articles as hua ON hua.id_article = ma.id 
-      JOIN tx_users_detail as ud ON ud.id = hua.id_users_hol 
-      JOIN tx_offered_program as op on op.id_users = ud.id 
-      JOIN master_third_tier_program as mtp on mtp.id = op.id_third_tier_program 
-      JOIN master_second_tier_program as stp on stp.id = mtp.id_second_tier_program 
-      WHERE hua.status="Approved"
-      GROUP BY ud.id`,
+      text: `WITH latest_batch AS (
+    SELECT 
+        op.id_users,
+        MAX(b.batch) AS max_batch
+    FROM tx_offered_program op
+    JOIN master_batch b 
+        ON b.id = op.id_batch
+    GROUP BY op.id_users
+)
+SELECT 
+    CONCAT(ud.first_name, ' ', ud.last_name) AS penulis,
+    stp.name AS program,
+    ma.title,hua.*
+FROM master_articles ma
+JOIN tx_hol_users_articles hua 
+    ON hua.id_article = ma.id
+JOIN tx_users_detail ud 
+    ON ud.id = hua.id_users_hol
+JOIN tx_offered_program op 
+    ON op.id_users = ud.id
+JOIN master_batch b 
+    ON b.id = op.id_batch
+JOIN latest_batch lb 
+    ON lb.id_users = op.id_users 
+    AND lb.max_batch = b.batch
+JOIN master_third_tier_program mtp 
+    ON mtp.id = op.id_third_tier_program
+JOIN master_second_tier_program stp 
+    ON stp.id = mtp.id_second_tier_program
+WHERE hua.status = 'Approved'
+ORDER BY b.batch DESC
+
+      `,
       values: [skip, numPerPage],
     };
     const [result] = await this._pool.query(query.text);
@@ -51,7 +75,7 @@ class MasterHOLArticlesRepositoryMySQL extends MasterHOLArticlesRepository {
 
   async readById({ id }) {
     const query = {
-      text: `SELECT CONCAT(ud.first_name," ",ud.last_name) as penulis,stp.name as program, ma.*, hua.status 
+      text: `SELECT CONCAT(ud.first_name," ",ud.last_name) as penulis,stp.name as program, ma.*, hua.status,hua.updated_at
       FROM master_articles as ma 
       JOIN tx_hol_users_articles as hua ON hua.id_article = ma.id 
       JOIN tx_users_detail as ud ON ud.id = hua.id_users_hol 

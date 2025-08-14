@@ -12,26 +12,22 @@ class LoginAdminUseCase {
   }
 
   async execute(payload) {
-    try {
-      const { email, password } = new UserLogin(payload);
+    const { email, password } = new UserLogin(payload);
 
-      const { id, password: hashedPassword } = await this._usersBCFRepository.verifyUserCredential({ email });
-      await this._passwordHash.comparePassword(password, hashedPassword);
+    const { id, password: hashedPassword } = await this._usersBCFRepository.verifyUserCredential({ email });
+    await this._passwordHash.comparePassword(password, hashedPassword);
 
-      const accessToken = await this._authenticationTokenManager.createAccessToken({ id, role: 'ADMIN', scope: ['3'] });
-      const refreshToken = await this._authenticationTokenManager.createRefreshToken({ id, role: 'ADMIN', scope: ['3'] });
+    const accessToken = await this._authenticationTokenManager.createAccessToken({ id, role: 'ADMIN', scope: ['3'] });
+    const refreshToken = await this._authenticationTokenManager.createRefreshToken({ id, role: 'ADMIN', scope: ['3'] });
 
-      const newAuthentication = new NewAuthentication({
-        accessToken,
-        refreshToken,
-      });
+    const newAuthentication = new NewAuthentication({
+      accessToken,
+      refreshToken,
+    });
 
-      await this._authenticationRepository.addToken(newAuthentication.refreshToken);
+    await this._authenticationRepository.addToken(newAuthentication.refreshToken);
 
-      return newAuthentication;
-    } catch (error) {
-      console.log(error);
-    }
+    return newAuthentication;
   }
 }
 

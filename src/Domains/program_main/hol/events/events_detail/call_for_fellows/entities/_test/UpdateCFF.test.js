@@ -16,7 +16,6 @@ describe('Update CFF entities', () => {
   it('should create UpdateCFF entity correctly', () => {
     // Arrange
     const payload = {
-      logo_url: 'http://example.com/logo.png',
       position: 'Mentor',
       category: 'Fellowship',
       placements: 'Surabaya',
@@ -29,7 +28,6 @@ describe('Update CFF entities', () => {
 
     // Assert
     expect(cff).toBeInstanceOf(UpdateCFF);
-    expect(cff.logo_url).toEqual(payload.logo_url);
     expect(cff.position).toEqual(payload.position);
     expect(cff.category).toEqual(payload.category);
     expect(cff.placements).toEqual(payload.placements);

@@ -2,12 +2,11 @@
 class updateBA {
   constructor(payload) {
     this._verifyPayload(payload);
-    const { pictureUrl, category } = payload;
-    this.picture_url = pictureUrl;
+    const { category } = payload;
     this.category = category;
   }
-  _verifyPayload({ pictureUrl, category }) {
-    if (!pictureUrl || !category) {
+  _verifyPayload({ category }) {
+    if (!category) {
       throw new Error('UPDATE_EVENTS.NOT_CONTAIN_NEEDED_PROPERTY');
     }
   }

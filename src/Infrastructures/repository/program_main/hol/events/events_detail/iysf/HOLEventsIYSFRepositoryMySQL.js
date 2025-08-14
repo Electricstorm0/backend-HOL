@@ -6,11 +6,11 @@ class HOLEventsIYSFRepositoryMySQL extends HOLEventsIYSFRepository {
     this._pool = pool;
   }
 
-  async create({ holEventsId, logoUrl, position, positionCategory, eventDate, requirements }) {
+  async create({ holEventsId, position, positionCategory, eventDate, requirements }) {
     const query = {
-      text: `INSERT INTO tx_hol_events_iysf ( id_events_hol ,logo_url,position, position_category ,event_date,requirements ) 
-      VALUES (?, ?, ?, ?, ?, ?)`,
-      values: [holEventsId, logoUrl, position, positionCategory, eventDate, requirements],
+      text: `INSERT INTO tx_hol_events_iysf ( id_events_hol ,position, position_category ,event_date,requirements ) 
+      VALUES (?, ?, ?, ?, ?)`,
+      values: [holEventsId, position, positionCategory, eventDate, requirements],
     };
 
     const [result] = await this._pool.query(query.text, query.values);
@@ -20,8 +20,8 @@ class HOLEventsIYSFRepositoryMySQL extends HOLEventsIYSFRepository {
 
   async read({ skip, numPerPage, holEventsTypeId }) {
     const query = {
-      text: `SELECT ei.id_events_hol,e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
-      ei.logo_url, ei.position, ei.position_category, ei.event_date, ei.requirements 
+      text: `SELECT ei.id_events_hol,e.id_hol_events_type, e.picture_url, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
+      ei.position, ei.position_category, ei.event_date, ei.requirements 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_iysf AS ei ON ei.id_events_hol = e.id 
       WHERE e.id_hol_events_type=? 
@@ -33,8 +33,8 @@ class HOLEventsIYSFRepositoryMySQL extends HOLEventsIYSFRepository {
   }
   async readById({ id }) {
     const query = {
-      text: `SELECT ei.id_events_hol, e.id_hol_events_type, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
-      ei.logo_url, ei.position, ei.position_category, ei.event_date, ei.requirements 
+      text: `SELECT ei.id_events_hol, e.id_hol_events_type,e.picture_url, e.name, e.deadline, e.duration, e.description, e.benefit, e.contact_person,e.id_regencies, 
+      ei.position, ei.position_category, ei.event_date, ei.requirements 
       FROM tx_hol_events AS e 
       JOIN tx_hol_events_iysf AS ei ON ei.id_events_hol = e.id 
       WHERE e.id=?`,

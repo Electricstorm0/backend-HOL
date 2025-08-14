@@ -6,12 +6,21 @@ class HOLGetUsersEventsByEventsIdUseCase {
   }
 
   async execute({ pageSize, page, eventsHOLId }) {
-    const numPerPage = parseInt(pageSize, 10) || 1;
-    const offset = parseInt(page - 1, 10) || 0;
-    const skip = offset * numPerPage;
-    const numRows = await this._holUsersEventsRepository.readCountUsersEventsByEventsId({ eventsHOLId });
+    const numPerPage = parseInt(pageSize, 10) || 10;
+    const currentPage = parseInt(page, 10) || 1;
+    const skip = (currentPage - 1) * numPerPage;
+
+    const countResult = await this._holUsersEventsRepository.readCountUsersEventsByEventsId({ eventsHOLId });
+    const numRows = countResult.total_users_registrations;
     const numPages = Math.ceil(numRows / numPerPage);
-    const users = (await this._holUsersEventsRepository.readUsersEventsByEventsId({ skip, numPerPage, eventsHOLId })) || [];
+
+    const users =
+      (await this._holUsersEventsRepository.readUsersEventsByEventsId({
+        skip,
+        numPerPage,
+        eventsHOLId,
+      })) || [];
+
     const result = await Promise.all(
       users.map(async (value) => ({
         ...new GetUsersEvents({
@@ -19,12 +28,14 @@ class HOLGetUsersEventsByEventsIdUseCase {
         }),
       }))
     );
+
     return {
       result,
-      current: offset,
+      current: currentPage,
       perPage: numPerPage,
-      previous: offset > 0 ? page - 1 : undefined,
-      next: offset < numPages - 1 ? offset + 1 : undefined,
+      total: numRows,
+      previous: currentPage > 1 ? currentPage - 1 : undefined,
+      next: currentPage < numPages ? currentPage + 1 : undefined,
     };
   }
 }

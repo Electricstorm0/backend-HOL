@@ -27,11 +27,10 @@ class HOLUsersEventsRepository {
     throw new Error('HOL_USERS_EVENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
-  async read() {
+  async readByUsersId({ usersId }) {
     throw new Error('HOL_USERS_EVENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
-
-  async readById({ id }) {
+  async readByUsersIdAndStatus({ usersId, status }) {
     throw new Error('HOL_USERS_EVENTS_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 

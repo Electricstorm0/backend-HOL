@@ -57,23 +57,18 @@ const employeeBCF = require('./container/bcf/employee/container_employee_reposit
 const userBCF = require('./container/bcf/users/container_users_repository');
 
 // USE CASE program container
-// CLP
-const CLPUsers = require('./container/program_main/clp/clp_users');
-const CLPEvaluations = require('./container/program_main/clp/clp_evaluations');
-const CLPClassifications = require('./container/program_main/clp/clp_classifications');
-const CLPMentors = require('./container/program_main/clp/clp_mentors');
-const CLPInstitutions = require('./container/program_main/clp/clp_institutions');
+
 // LEAD
 const LEADUsers = require('./container/program_main/lead/lead_users');
 const LEADInstitutions = require('./container/program_main/lead/lead_institutions');
 // HOL
 // events
-const HOLCFFRepository = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_call_for_fellows_repository')
-const HOLCFFUseCase = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_call_for_fellows_use_case.js')
-const HOLBARepository = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_bonding_activities_repository')
-const HOLBAUseCase = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_bonding_activities_use_case')
-const HOLIYSFRepository = require('./container/program_main/hol/events/events_detail/iysf/hol_iysf_repository')
-const HOLIYSFUseCase = require('./container/program_main/hol/events/events_detail/iysf/hol_iysf_use_case')
+const HOLCFFRepository = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_call_for_fellows_repository');
+const HOLCFFUseCase = require('./container/program_main/hol/events/events_detail/call_for_fellows/hol_call_for_fellows_use_case.js');
+const HOLBARepository = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_bonding_activities_repository');
+const HOLBAUseCase = require('./container/program_main/hol/events/events_detail/bonding_activities/hol_bonding_activities_use_case');
+const HOLIYSFRepository = require('./container/program_main/hol/events/events_detail/iysf/hol_iysf_repository');
+const HOLIYSFUseCase = require('./container/program_main/hol/events/events_detail/iysf/hol_iysf_use_case');
 const HOLUsersEventsRepository = require('./container/program_main/hol/events/users/hol_events_users_repository');
 const HOLUsersEventsUseCase = require('./container/program_main/hol/events/users/hol_events_users_use_case');
 // users
@@ -94,8 +89,8 @@ const HOLArticleUseCase = require('./container/program_main/hol/articles/hol_art
 const HOLArticleRepository = require('./container/program_main/hol/articles/hol_articles_repository');
 
 // DOMAIN REPOSITORY CLP
-const CLPUsersRepository = require('../Domains/program_main/clp/users/CLPUsersRepository');
-const CLPUsersRepositoryMySQL = require('./repository/program_main/clp/users/CLPUsersRepositoryMySQL');
+// const CLPUsersRepository = require('../Domains/program_main/clp/users/CLPUsersRepository');
+// const CLPUsersRepositoryMySQL = require('./repository/program_main/clp/users/CLPUsersRepositoryMySQL');
 
 // DOMAIN & REPOSITORY LEAD
 const LEADInstitutionsRepository = require('../Domains/program_main/lead/institutions/LEADInstitutionsRepository');
@@ -289,19 +284,19 @@ container.register([
 ]);
 
 // CLP REPOSITORY
-container.register([
-  {
-    key: CLPUsersRepository.name,
-    Class: CLPUsersRepositoryMySQL,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool,
-        },
-      ],
-    },
-  },
-]);
+// container.register([
+//   {
+//     key: CLPUsersRepository.name,
+//     Class: CLPUsersRepositoryMySQL,
+//     parameter: {
+//       dependencies: [
+//         {
+//           concrete: pool,
+//         },
+//       ],
+//     },
+//   },
+// ]);
 
 // LEAD REPOSITORY
 container.register([
@@ -400,11 +395,6 @@ container.register(employeeBCF);
 container.register(userBCF);
 // MAIN PROGRAM
 // CLP
-container.register(CLPUsers);
-container.register(CLPMentors);
-container.register(CLPEvaluations);
-container.register(CLPClassifications);
-container.register(CLPInstitutions);
 
 // LEAD
 container.register(LEADUsers);

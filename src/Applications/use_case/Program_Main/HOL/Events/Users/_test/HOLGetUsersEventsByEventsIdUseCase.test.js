@@ -32,7 +32,7 @@ describe('HOLGetUsersEventsByEventsIdUseCase', () => {
 
   it('should return users with pagination correctly', async () => {
     const mockHolUsersEventsRepository = {
-      readCountUsersEventsByEventsId: jest.fn().mockResolvedValue(6), // total 6 users
+      readCountUsersEventsByEventsId: jest.fn().mockResolvedValue({ total_users_registrations: 6 }), // sesuai usecase
       readUsersEventsByEventsId: jest.fn().mockResolvedValue(dummyUsers),
     };
 
@@ -40,31 +40,30 @@ describe('HOLGetUsersEventsByEventsIdUseCase', () => {
       holUsersEventsRepository: mockHolUsersEventsRepository,
     });
 
-    // Mock entity
     GetUsersEvents.mockImplementation((value) => value);
 
     const result = await useCase.execute(payload);
 
     expect(mockHolUsersEventsRepository.readCountUsersEventsByEventsId).toBeCalledWith({ eventsHOLId });
     expect(mockHolUsersEventsRepository.readUsersEventsByEventsId).toBeCalledWith({
-      skip: 3, // (2 - 1) * 3
+      skip: 3,
       numPerPage: 3,
       eventsHOLId,
     });
 
     expect(result).toEqual({
       result: dummyUsers,
-      current: 1,
+      current: 2, // sesuai page
       perPage: 3,
+      total: 6,
       previous: 1,
-      next: undefined,
+      next: undefined, // karena 2 page total
     });
-    // total = 6, per page = 3 → 2 pages, so next page exists
   });
 
   it('should handle empty result gracefully', async () => {
     const mockHolUsersEventsRepository = {
-      readCountUsersEventsByEventsId: jest.fn().mockResolvedValue(0),
+      readCountUsersEventsByEventsId: jest.fn().mockResolvedValue({ total_users_registrations: 0 }),
       readUsersEventsByEventsId: jest.fn().mockResolvedValue([]),
     };
 
@@ -78,8 +77,9 @@ describe('HOLGetUsersEventsByEventsIdUseCase', () => {
 
     expect(result).toEqual({
       result: [],
-      current: 1,
+      current: 2,
       perPage: 3,
+      total: 0,
       previous: 1,
       next: undefined,
     });
@@ -87,7 +87,7 @@ describe('HOLGetUsersEventsByEventsIdUseCase', () => {
 
   it('should fallback to default pagination values on invalid input', async () => {
     const mockHolUsersEventsRepository = {
-      readCountUsersEventsByEventsId: jest.fn().mockResolvedValue(2),
+      readCountUsersEventsByEventsId: jest.fn().mockResolvedValue({ total_users_registrations: 2 }),
       readUsersEventsByEventsId: jest.fn().mockResolvedValue(dummyUsers),
     };
 
@@ -103,13 +103,13 @@ describe('HOLGetUsersEventsByEventsIdUseCase', () => {
       eventsHOLId,
     });
 
-    expect(result.perPage).toBe(1);
-    expect(result.current).toBe(0);
+    expect(result.perPage).toBe(10); // default di usecase
+    expect(result.current).toBe(1); // default di usecase
   });
 
   it('should throw error when entity validation fails', async () => {
     const mockHolUsersEventsRepository = {
-      readCountUsersEventsByEventsId: jest.fn().mockResolvedValue(1),
+      readCountUsersEventsByEventsId: jest.fn().mockResolvedValue({ total_users_registrations: 1 }),
       readUsersEventsByEventsId: jest.fn().mockResolvedValue([{ id_users_hol: null }]),
     };
 

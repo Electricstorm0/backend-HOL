@@ -3,7 +3,8 @@ const CreateIYSFUseCase = require('../HOLCreateIYSFUseCase');
 
 describe('CreateIYSFUseCase', () => {
   const payload = {
-    holEventsTypeId: 2,
+    holEventsTypeId: 3,
+    pictureUrl: 'https://image.url/iysf-logo.png',
     name: 'IYSF Program',
     deadline: '2025-11-01',
     duration: '1 bulan',
@@ -11,7 +12,6 @@ describe('CreateIYSFUseCase', () => {
     description: 'Deskripsi IYSF',
     benefit: 'Pengalaman, relasi',
     contact_person: '08987654321',
-    logoUrl: 'https://image.url/iysf-logo.png',
     position: 'Delegasi',
     positionCategory: 'Sains',
     eventDate: '2025-12-15',
@@ -34,7 +34,8 @@ describe('CreateIYSFUseCase', () => {
     await useCase.execute(payload);
 
     expect(mockHolEventsRepository.create).toBeCalledWith({
-      holEventsTypeId: 2,
+      holEventsTypeId: 3,
+      pictureUrl: 'https://image.url/iysf-logo.png',
       name: 'IYSF Program',
       deadline: '2025-11-01',
       duration: '1 bulan',
@@ -46,7 +47,6 @@ describe('CreateIYSFUseCase', () => {
 
     expect(mockHolEventsIYSFRepository.create).toBeCalledWith({
       holEventsId: 'event-iysf-123',
-      logoUrl: 'https://image.url/iysf-logo.png',
       position: 'Delegasi',
       positionCategory: 'Sains',
       eventDate: '2025-12-15',

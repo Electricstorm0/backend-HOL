@@ -2,8 +2,7 @@
 const HOLEventsRepository = require('../../../../../../Domains/program_main/hol/events/HOLEventsRepository');
 const HOLUsersEventsRepository = require('../../../../../../Domains/program_main/hol/events/HOLUsersEventsRepository');
 const HOLCreateUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLCreateUsersEventsUseCase');
-const HOLGetUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsUseCase');
-const HOLGetUsersEventByIdsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByIdUseCase');
+const HOLGetUsersEventByUsersIdUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByUsersIdUseCase');
 const HOLGetUsersEventsByEventsIdUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsByEventsIdUseCase');
 // get total users events
 const HOLGetTotalUsersEventsByEventsTypeUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetTotalUsersEventsByEventsTypeUseCase');
@@ -13,6 +12,7 @@ const HOLGetTotalUsersEventsByEventsIdAndStatusUseCase = require('../../../../..
 const HOLUpdateAttendeUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLUpdateAttendeUsersEventsUseCase');
 const HOLUpdateStatusUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLUpdateStatusUsersEventsUseCase');
 const HOLDeleteUsersEventsUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLDeleteUsersEventsUseCase');
+const HOLGetUsersEventsStatusByUsersIdUseCase = require('../../../../../../Applications/use_case/Program_Main/HOL/Events/Users/HOLGetUsersEventsStatusByUsersIdUseCase');
 const users_events = [
   {
     key: HOLCreateUsersEventsUseCase.name,
@@ -72,9 +72,10 @@ const users_events = [
     },
   },
   //
+
   {
-    key: HOLGetUsersEventsUseCase.name,
-    Class: HOLGetUsersEventsUseCase,
+    key: HOLGetUsersEventByUsersIdUseCase.name,
+    Class: HOLGetUsersEventByUsersIdUseCase,
     parameter: {
       injectType: 'destructuring',
       dependencies: [
@@ -86,8 +87,8 @@ const users_events = [
     },
   },
   {
-    key: HOLGetUsersEventByIdsUseCase.name,
-    Class: HOLGetUsersEventByIdsUseCase,
+    key: HOLGetUsersEventsStatusByUsersIdUseCase.name,
+    Class: HOLGetUsersEventsStatusByUsersIdUseCase,
     parameter: {
       injectType: 'destructuring',
       dependencies: [

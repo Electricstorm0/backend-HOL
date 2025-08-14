@@ -19,17 +19,43 @@ class HOLRecommendationsRepositoryMyQL extends HOLRecommendationsRepository {
   }
   async read({ skip, numPerPage }) {
     const query = {
-      text: `SELECT concat(ud.first_name," ", ud.last_name) as Alumni_Name,stp.name as Program, b.batch as Batch, 
-      YEAR(b.date_start) as Year,   r.deadline, mrs.name as status 
-      FROM tx_hol_recommendations as r 
-      JOIN tx_users_detail as ud on ud.id = r.id_hol_users_recommendations 
-      JOIN tx_offered_program as op on op.id_users = r.id_hol_users_recommendations 
-      JOIN master_batch as b on b.id = op.id_batch 
-      JOIN master_third_tier_program as mtp on mtp.id = op.id_third_tier_program 
-      JOIN master_second_tier_program as stp on stp.id = mtp.id_second_tier_program 
-      LEFT JOIN tx_hol_users_recommendations_status as rs on rs.id_hol_recommendations = r.id 
-      LEFT JOIN master_hol_recommendations_status as mrs on mrs.id = rs.id_recommendations_status 
-      ORDER BY rs.id ASC LIMIT ?,?
+      text: `WITH latest_batch AS (
+    SELECT 
+        op.id_users,
+        MAX(b.batch) AS max_batch
+    FROM tx_offered_program op
+    JOIN master_batch b ON b.id = op.id_batch
+    GROUP BY op.id_users
+)
+    SELECT 
+        CONCAT(ud.first_name, ' ', ud.last_name) AS Alumni_Name,
+        stp.name AS Program,
+        b.batch AS Batch,
+        YEAR(b.date_start) AS Year,
+        r.deadline,
+        mrs.name AS status
+    FROM tx_hol_recommendations r
+    JOIN tx_users_detail ud 
+        ON ud.id = r.id_hol_users_recommendations
+    JOIN tx_offered_program op 
+        ON op.id_users = r.id_hol_users_recommendations
+    JOIN master_batch b 
+        ON b.id = op.id_batch
+    JOIN latest_batch lb 
+        ON lb.id_users = op.id_users 
+        AND lb.max_batch = b.batch
+    JOIN master_third_tier_program mtp 
+        ON mtp.id = op.id_third_tier_program
+    JOIN master_second_tier_program stp 
+        ON stp.id = mtp.id_second_tier_program
+    LEFT JOIN tx_hol_users_recommendations_status rs 
+        ON rs.id_hol_recommendations = r.id
+    LEFT JOIN master_hol_recommendations_status mrs 
+        ON mrs.id = rs.id_recommendations_status
+    ORDER BY b.batch DESC
+    LIMIT ?, ?;
+
+
       `,
       values: [skip, numPerPage],
     };
@@ -38,19 +64,42 @@ class HOLRecommendationsRepositoryMyQL extends HOLRecommendationsRepository {
   }
   async readByStatusId({ skip, numPerPage, recommendationStatusId }) {
     const query = {
-      text: `SELECT concat(ud.first_name," ", ud.last_name) as Alumni_Name,stp.name as Program, b.batch as Batch, 
-      YEAR(b.date_start) as Year,   r.deadline, mrs.name as status 
-      FROM tx_hol_recommendations as r 
-      JOIN tx_users_detail as ud on ud.id = r.id_hol_users_recommendations 
-      JOIN tx_offered_program as op on op.id_users = r.id_hol_users_recommendations 
-      JOIN master_batch as b on b.id = op.id_batch 
-      JOIN master_third_tier_program as mtp on mtp.id = op.id_third_tier_program 
-      JOIN master_second_tier_program as stp on stp.id = mtp.id_second_tier_program 
-      right JOIN tx_hol_users_recommendations_status as rs on rs.id_hol_recommendations = r.id 
-      LEFT JOIN master_hol_recommendations_status as mrs on mrs.id = rs.id_recommendations_status 
-      WHERE rs.id_recommendations_status=? 
-      group by ud.id
-      ORDER BY rs.id ASC LIMIT ?,?`,
+      text: `WITH latest_batch AS (
+    SELECT 
+        op.id_users,
+        MAX(b.batch) AS max_batch
+    FROM tx_offered_program op
+    JOIN master_batch b ON b.id = op.id_batch
+    GROUP BY op.id_users
+)
+    SELECT 
+        CONCAT(ud.first_name, ' ', ud.last_name) AS Alumni_Name,
+        stp.name AS Program,
+        b.batch AS Batch,
+        YEAR(b.date_start) AS Year,
+        r.deadline,
+        mrs.name AS status
+    FROM tx_hol_recommendations r
+    JOIN tx_users_detail ud 
+        ON ud.id = r.id_hol_users_recommendations
+    JOIN tx_offered_program op 
+        ON op.id_users = r.id_hol_users_recommendations
+    JOIN master_batch b 
+        ON b.id = op.id_batch
+    JOIN latest_batch lb 
+        ON lb.id_users = op.id_users 
+        AND lb.max_batch = b.batch
+    JOIN master_third_tier_program mtp 
+        ON mtp.id = op.id_third_tier_program
+    JOIN master_second_tier_program stp 
+        ON stp.id = mtp.id_second_tier_program
+    LEFT JOIN tx_hol_users_recommendations_status rs 
+        ON rs.id_hol_recommendations = r.id
+    LEFT JOIN master_hol_recommendations_status mrs 
+        ON mrs.id = rs.id_recommendations_status
+    WHERE rs.id_recommendations_status=? 
+    ORDER BY b.batch DESC
+    LIMIT ?, ?;`,
       values: [recommendationStatusId, skip, numPerPage],
     };
     const [result] = await this._pool.query(query.text, query.values);

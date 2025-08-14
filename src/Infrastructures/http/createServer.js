@@ -12,7 +12,7 @@ const program = require('../../Interfaces/http/api/program/index');
 
 // Interface (LEAD, HOL, CLP)
 const lead = require('../../Interfaces/http/api/program_main/lead');
-const clp = require('../../Interfaces/http/api/program_main/clp');
+// const clp = require('../../Interfaces/http/api/program_main/clp');
 const hol = require('../../Interfaces/http/api/program_main/hol');
 
 const createServer = async (container) => {
@@ -113,13 +113,13 @@ const createServer = async (container) => {
         prefix: '/program',
       },
     },
-    {
-      plugin: clp,
-      options: { container },
-      routes: {
-        prefix: '/clp',
-      },
-    },
+    // {
+    //   plugin: clp,
+    //   options: { container },
+    //   routes: {
+    //     prefix: '/clp',
+    //   },
+    // },
     {
       plugin: lead,
       options: { container },
