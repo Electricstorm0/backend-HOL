@@ -19,7 +19,7 @@ describe('Get Detail Article entities', () => {
       url_file: 'http://article.com/file.pdf',
       citation: 'sujono2023',
       link_citation: 'http://googlebooks.com',
-      created_at: '2025-2-12',
+      updated_at: '2025-2-12',
     };
 
     // Action & Assert
@@ -34,7 +34,7 @@ describe('Get Detail Article entities', () => {
       url_file: 'http://article.com/file.pdf',
       citation: 'sujono2023',
       link_citation: 'http://googlebooks.com',
-      created_at: '2025-2-12',
+      updated_at: '2025-2-12',
     };
 
     // Action
@@ -47,6 +47,6 @@ describe('Get Detail Article entities', () => {
     expect(getDetailArticle.fileUrl).toEqual(payload.url_file);
     expect(getDetailArticle.citation).toEqual(payload.citation);
     expect(getDetailArticle.linkCitation).toEqual(payload.link_citation);
-    expect(getDetailArticle.tanggal_publish).toEqual(payload.created_at);
+    expect(getDetailArticle.tanggal_publish).toEqual(payload.updated_at);
   });
 });

@@ -17,7 +17,7 @@ describe('Get Publications entities', () => {
       penulis: 'malik',
       title: 123,
       program: 'clp',
-      created_at: '2025-2-12',
+      updated_at: '2025-2-12',
       status: 'approved',
     };
 
@@ -31,7 +31,7 @@ describe('Get Publications entities', () => {
       penulis: 'malik',
       title: 'rancang bangun website',
       program: 'clp',
-      created_at: '2025-2-12',
+      updated_at: '2025-2-12',
       status: 'approved',
     };
 
@@ -43,7 +43,7 @@ describe('Get Publications entities', () => {
     expect(getDetailArticle.penulis).toEqual(payload.penulis);
     expect(getDetailArticle.title).toEqual(payload.title);
     expect(getDetailArticle.program).toEqual(payload.program);
-    expect(getDetailArticle.tanggal_publish).toEqual(payload.created_at);
+    expect(getDetailArticle.tanggal_publish).toEqual(payload.updated_at);
     expect(getDetailArticle.status).toEqual(payload.status);
   });
 });

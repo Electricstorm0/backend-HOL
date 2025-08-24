@@ -13,7 +13,7 @@ describe('HOLGetDetailArticleUseCase', () => {
         url_file: 'https://file.com.pdf',
         citation: 'cite',
         link_citation: 'https://cite.link',
-        created_at: new Date('2024-01-01'),
+        updated_at: new Date('2024-01-01'),
         status: 'Approved',
       }),
     };
@@ -22,7 +22,7 @@ describe('HOLGetDetailArticleUseCase', () => {
       ...payload,
       fileUrl: payload.url_file,
       linkCitation: payload.link_citation,
-      tanggal_publish: payload.created_at,
+      tanggal_publish: payload.updated_at,
     }));
 
     const useCase = new HOLGetDetailArticleUseCase({ masterHOLArticlesRepository: mockMasterHOLArticlesRepository });
