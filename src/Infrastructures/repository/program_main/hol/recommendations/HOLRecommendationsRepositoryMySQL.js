@@ -27,7 +27,7 @@ class HOLRecommendationsRepositoryMyQL extends HOLRecommendationsRepository {
     JOIN master_batch b ON b.id = op.id_batch
     GROUP BY op.id_users
 )
-    SELECT r.id
+    SELECT r.id,
         CONCAT(ud.first_name, ' ', ud.last_name) AS Alumni_Name,
         stp.name AS Program,
         b.batch AS Batch,
