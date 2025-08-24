@@ -15,11 +15,11 @@ class HOLEventsRepositoryMySQL extends HOLEventsRepository {
     return result[0];
   }
 
-  async create({ holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person }) {
+  async create({ holEventsTypeId, pictureUrl, name, deadline, duration, regenciesId, description, benefit, contact_person }) {
     const query = {
-      text: `INSERT INTO tx_hol_events (id_hol_events_type  ,name, deadline ,duration ,id_regencies ,description ,benefit 
-      ,contact_person) VALUES (?, ?, ?, ?, ?,?,?,?)`,
-      values: [holEventsTypeId, name, deadline, duration, regenciesId, description, benefit, contact_person],
+      text: `INSERT INTO tx_hol_events (id_hol_events_type,picture_url  ,name, deadline ,duration ,id_regencies ,description ,benefit 
+      ,contact_person) VALUES (?, ?, ?, ?,?, ?,?,?,?)`,
+      values: [holEventsTypeId, pictureUrl, name, deadline, duration, regenciesId, description, benefit, contact_person],
     };
 
     const [result] = await this._pool.query(query.text, query.values);
